@@ -224,6 +224,37 @@
   @media (max-width:1080px){ .tool-groups{ grid-template-columns:repeat(3,1fr); } }
   @media (max-width:640px){ .tool-groups{ grid-template-columns:repeat(2,1fr); } }
 
+  /* ---------- MARQUEE TEASER ---------- */
+  .marquee-wrap{
+    position:relative; z-index:1; padding:22px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--bg-soft); overflow:hidden;
+  }
+  .marquee-wrap::before, .marquee-wrap::after{
+    content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none;
+  }
+  .marquee-wrap::before{ left:0; background:linear-gradient(90deg, var(--bg-soft), transparent); }
+  .marquee-wrap::after{ right:0; background:linear-gradient(-90deg, var(--bg-soft), transparent); }
+  .marquee-track{ display:flex; width:max-content; animation: marquee 32s linear infinite; }
+  .marquee-wrap:hover .marquee-track{ animation-play-state:paused; }
+  @keyframes marquee{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
+  .marquee-item{
+    display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:.8rem;
+    color:var(--text-dim); padding:0 28px; white-space:nowrap; border-right:1px solid var(--line);
+  }
+  .marquee-item b{ color:var(--text); font-weight:600; }
+  .marquee-item .dot-sep{ width:5px; height:5px; border-radius:50%; background:var(--cyan); flex-shrink:0; }
+
+  /* ---------- STAT COUNTERS ---------- */
+  .stat-row{ display:flex; justify-content:center; gap:0; flex-wrap:wrap; margin:36px 0 8px; }
+  .stat-item{ text-align:center; padding:0 40px; border-right:1px solid var(--line); }
+  .stat-item:last-child{ border-right:none; }
+  .stat-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(2rem,4vw,2.8rem);
+    background:linear-gradient(100deg, var(--cyan), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .stat-label{ font-family:'JetBrains Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint); margin-top:6px; }
+  @media (max-width:640px){ .stat-item{ padding:0 18px 18px; border-right:none; border-bottom:1px solid var(--line); } }
+
   /* ---------- PROJECTS ---------- */
   .platform-tabs{ display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap; }
   .ptab{
@@ -245,6 +276,20 @@
     display:flex; flex-direction:column; gap:18px; transition: transform .3s, border-color .3s;
   }
   .project-card:hover{ transform:translateY(-4px); border-color: var(--cyan); }
+  .project-shot{
+    position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg, rgba(150,170,220,0.06) 0px, rgba(150,170,220,0.06) 2px, transparent 2px, transparent 14px),
+      linear-gradient(135deg, var(--surface-2), var(--bg-soft));
+    border:1px dashed var(--line);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  }
+  .project-shot svg{ width:26px; height:26px; stroke:var(--text-faint); }
+  .project-shot span{
+    font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+
   .status-pill{
     font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase;
     padding:5px 11px; border-radius:999px; border:1px solid var(--violet); color:var(--violet); background:rgba(164,139,255,.1);
@@ -304,6 +349,37 @@
   }
   .contact-card:hover{ border-color:var(--cyan); transform:translateY(-3px); }
   .contact-card svg{ width:18px; height:18px; stroke:var(--cyan); }
+
+  .contact-form{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:36px clamp(20px,4vw,44px); max-width:640px; margin:0 auto; text-align:left;
+  }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  @media (max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+  .form-field{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+  .form-field label{
+    font-family:'JetBrains Mono', monospace; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .form-field input, .form-field textarea{
+    background:var(--bg-soft); border:1px solid var(--line); border-radius:10px; padding:13px 14px;
+    color:var(--text); font-family:'Manrope', sans-serif; font-size:.92rem; resize:vertical; transition:border-color .25s;
+  }
+  .form-field input:focus, .form-field textarea:focus{ outline:none; border-color:var(--cyan); }
+  .form-field textarea{ min-height:120px; }
+  .form-submit{
+    font-family:'JetBrains Mono', monospace; font-size:.85rem; font-weight:500; width:100%;
+    background: linear-gradient(100deg, var(--cyan), #22c9b3); color:#04141c; padding:15px 26px;
+    border:none; border-radius:10px; cursor:pointer; transition: box-shadow .3s, transform .2s;
+  }
+  .form-submit:hover{ box-shadow:0 8px 30px rgba(47,232,207,.35); transform:translateY(-2px); }
+  .form-note{ font-size:.76rem; color:var(--text-faint); margin-top:14px; text-align:center; }
+  .form-divider{
+    display:flex; align-items:center; gap:14px; max-width:640px; margin:36px auto; color:var(--text-faint);
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  }
+  .form-divider::before, .form-divider::after{ content:''; flex:1; height:1px; background:var(--line); }
+
   footer{
     border-top:1px solid var(--line); padding:24px clamp(20px,5vw,64px); display:flex; justify-content:space-between;
     font-size:.78rem; color:var(--text-faint); flex-wrap:wrap; gap:10px; position:relative; z-index:1;
@@ -360,15 +436,15 @@
     <div class="hero-copy">
       <div class="eyebrow">AUTOMATION &amp; DEVELOPMENT</div>
       <h1>Systems that work <span class="grad">while you don't.</span></h1>
-      <p class="lead">I build the AI automations and websites <strong style="color:var(--text)">real estate agents</strong>, <strong style="color:var(--text)">med spas</strong>, and <strong style="color:var(--text)">home service contractors</strong> use to stop losing leads to slow replies.</p>
+      <p class="lead">I build the AI automations and websites <strong style="color:var(--text)">small businesses</strong> use to stop losing leads to slow replies, manual busywork, and follow-ups that never happen.</p>
       <div class="role-tags" style="margin-bottom:14px;">
         <span class="role-tag"><b>01</b> &nbsp;AI Automation Specialist</span>
         <span class="role-tag"><b>02</b> &nbsp;Web Developer</span>
       </div>
       <div class="role-tags">
-        <span class="role-tag">🏠 Real Estate</span>
-        <span class="role-tag">💆 Med Spas</span>
-        <span class="role-tag">🔧 Home Services</span>
+        <span class="role-tag">⚡ Lead Response</span>
+        <span class="role-tag">🤖 AI Workflows</span>
+        <span class="role-tag">🔗 Tool Integrations</span>
       </div>
       <div class="hero-ctas">
         <a href="#work" class="btn-primary">See the builds ↓</a>
@@ -388,11 +464,36 @@
         <div class="corner br"></div>
         <div class="scan-line"></div>
       </div>
-      <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · Occidental Mindoro, San Jose City, PH</div>
+      <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · San Jose, Occidental Mindoro, PH</div>
     </div>
   </div>
-  <div class="scroll-cue"><span>SCROLL</span><div class="mouse"></div></div>
+  <a href="#work" class="scroll-cue"><span>9 BUILDS BELOW ↓</span><div class="mouse"></div></a>
 </section>
+
+<!-- ================= MARQUEE TEASER ================= -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot-sep"></span><b>Missed-Call Text-Back</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Lead Qualification</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Review Request Automation</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Contract-to-Invoice</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Cart Recovery</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Content Repurposing</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>New Client Welcome Sequence</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>No-Show Prevention</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Support Triage</b>&nbsp;— Make.com</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="dot-sep"></span><b>Missed-Call Text-Back</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Lead Qualification</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Review Request Automation</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Contract-to-Invoice</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Cart Recovery</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Content Repurposing</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>New Client Welcome Sequence</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>No-Show Prevention</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Support Triage</b>&nbsp;— Make.com</span>
+  </div>
+</div>
 
 <!-- ================= TOOLS ================= -->
 <section id="tools">
@@ -410,6 +511,7 @@
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 15 16M15.5 7.5 9 16"/></svg>Make.com</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg>GoHighLevel</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 12a8 8 0 1 1 3 6.2"/><path d="M4 12v6h6"/></svg>HubSpot</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="5" cy="12" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M7.2 11 17 6.9M7.2 13l9.8 4.1"/></svg>n8n</span>
         </div>
       </div>
       <div class="tool-group c-ai">
@@ -435,6 +537,10 @@
         <div class="chip-col">
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5"/></svg>Google Workspace</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Microsoft 365</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Notion</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Airtable</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M9 4a2.5 2.5 0 0 1 0 5H6.5A2.5 2.5 0 0 1 9 4zM9 15a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1-2.5-2.5V15zM4 9a2.5 2.5 0 0 1 5 0v2.5A2.5 2.5 0 0 1 4 9zM15 9a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1-2.5 2.5H15z"/></svg>Slack</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 15 2 2 4-4"/></svg>Calendly</span>
         </div>
       </div>
       <div class="tool-group c-creative">
@@ -453,21 +559,28 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow">SAMPLE BUILDS</div>
-      <h2>Two builds per platform, mapped to real estate, med spas &amp; home services</h2>
+      <h2>Three sample builds per platform, mapped to common business bottlenecks</h2>
       <p>Pick a platform to see how I use it in practice.</p>
     </div>
 
+    <div class="stat-row reveal">
+      <div class="stat-item"><div class="stat-num" data-count="9">0</div><div class="stat-label">Sample Builds</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="3">0</div><div class="stat-label">Platforms</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="21">0</div><div class="stat-label">Tools In The Stack</div></div>
+    </div>
+
     <div class="platform-tabs reveal">
-      <button class="ptab active" data-tab="zapier">Zapier <span class="n">01/02</span></button>
-      <button class="ptab" data-tab="ghl">GoHighLevel <span class="n">01/02</span></button>
-      <button class="ptab" data-tab="make">Make.com <span class="n">01/02</span></button>
+      <button class="ptab active" data-tab="zapier">Zapier <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="ghl">GoHighLevel <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="make">Make.com <span class="n">01/03</span></button>
     </div>
 
     <!-- ZAPIER -->
     <div class="platform-panel active" id="panel-zapier">
       <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
         <span class="status-pill">Sample build</span>
-        <div class="niche-tag">For Real Estate Agents</div>
+        <div class="niche-tag">For Service-Based Businesses</div>
         <h3>Missed-Call Text-Back Engine</h3>
         <p class="pain">You're mid-showing and can't pick up — the buyer gets an instant text instead of hitting up the next agent on Zillow.</p>
         <div class="icon-chain">
@@ -482,10 +595,11 @@
         <div class="stack-tags"><span>Zapier</span><span>Twilio</span><span>Google Sheets</span><span>Slack</span></div>
       </div>
       <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
         <span class="status-pill">Sample build</span>
-        <div class="niche-tag">For Med Spas</div>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
         <h3>Review Request Automation</h3>
-        <p class="pain">A client glows after her facial — she gets the 5-star review ask right then, before the feeling fades. A rough visit gets routed to you privately instead of Google.</p>
+        <p class="pain">A client leaves happy right after their appointment — they get the 5-star review ask right then, before the feeling fades. A rough experience gets routed to you privately instead of Google.</p>
         <div class="icon-chain">
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Job marked done</span></div>
           <div class="ic-arrow"></div>
@@ -497,13 +611,31 @@
         </div>
         <div class="stack-tags"><span>Zapier</span><span>Google Reviews</span><span>Email/SMS</span><span>Typeform</span></div>
       </div>
+      <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Coaches &amp; Consultants</div>
+        <h3>New Client Intake &amp; Welcome Sequence</h3>
+        <p class="pain">A new client fills out your intake form — AI drafts a personalized welcome email, adds them to your CRM, and schedules the kickoff reminder, all before you've seen the notification.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 7h6M9 11h6M9 15h3"/><rect x="5" y="3" width="14" height="18" rx="2"/></svg></div><span>Form submitted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts welcome</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Added to CRM</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Kickoff reminder set</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Typeform</span><span>Google Sheets</span><span>Gmail</span></div>
+      </div>
     </div>
 
     <!-- GHL -->
     <div class="platform-panel" id="panel-ghl">
       <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
         <span class="status-pill">Sample build</span>
-        <div class="niche-tag">For Real Estate Agents</div>
+        <div class="niche-tag">For Service-Based Businesses</div>
         <h3>AI Lead Qualification &amp; Auto-Booking</h3>
         <p class="pain">A buyer inquires about a listing at 11pm — AI qualifies their budget and timeline, then books a showing on your calendar before you wake up.</p>
         <div class="icon-chain">
@@ -518,8 +650,9 @@
         <div class="stack-tags"><span>GoHighLevel</span><span>ChatGPT</span><span>Google Calendar</span></div>
       </div>
       <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
         <span class="status-pill">Sample build</span>
-        <div class="niche-tag">For Home Service Contractors</div>
+        <div class="niche-tag">For Local Businesses</div>
         <h3>Client Onboarding → Contract-to-Invoice</h3>
         <p class="pain">Homeowner signs the quote for a re-roof — the job folder, kickoff email, and invoice all generate themselves, no office manager required.</p>
         <div class="icon-chain">
@@ -533,15 +666,33 @@
         </div>
         <div class="stack-tags"><span>GoHighLevel</span><span>Google Workspace</span><span>Make.com</span></div>
       </div>
+      <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
+        <h3>No-Show Prevention &amp; Reschedule Flow</h3>
+        <p class="pain">A client books, then goes quiet — automated reminders go out on a schedule, and a no-show triggers an instant reschedule link instead of an empty slot on your calendar.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Appointment booked</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reminders sent</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span>No-show detected</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/></svg></div><span>Reschedule link sent</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>SMS</span><span>Calendar</span></div>
+      </div>
     </div>
 
     <!-- MAKE -->
     <div class="platform-panel" id="panel-make">
       <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
         <span class="status-pill">Sample build</span>
-        <div class="niche-tag">For Med Spas</div>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
         <h3>AI Package &amp; Membership Cart Recovery</h3>
-        <p class="pain">Someone almost books your injectables package online, then closes the tab — AI follows up referencing that exact treatment, not a generic "come back" email.</p>
+        <p class="pain">Someone almost books a package or membership online, then closes the tab — AI follows up referencing that exact offer, not a generic "come back" email.</p>
         <div class="icon-chain">
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 7H6"/></svg></div><span>Cart abandoned</span></div>
           <div class="ic-arrow"></div>
@@ -554,8 +705,9 @@
         <div class="stack-tags"><span>Make.com</span><span>Booking Widget</span><span>ChatGPT</span><span>Klaviyo</span></div>
       </div>
       <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
         <span class="status-pill">Sample build</span>
-        <div class="niche-tag">For Home Service Contractors</div>
+        <div class="niche-tag">For Local Businesses</div>
         <h3>Job-Site Content Repurposing Pipeline</h3>
         <p class="pain">You film one before-and-after clip on-site — it becomes a full week of captions and posts, drafted by AI and queued for your approval.</p>
         <div class="icon-chain">
@@ -568,6 +720,23 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Scheduled</span></div>
         </div>
         <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Notion</span><span>CapCut</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Build screenshot — coming soon</span></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For E-Commerce Brands</div>
+        <h3>AI Customer Support Ticket Triage</h3>
+        <p class="pain">A support email lands at midnight — AI reads it, drafts a reply, tags it by urgency, and routes anything time-sensitive straight to you instead of sitting in a queue.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Ticket received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts reply</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Tagged by urgency</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Routed to inbox</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Gmail</span><span>Helpdesk</span></div>
       </div>
     </div>
   </div>
@@ -595,6 +764,30 @@
     <div class="eyebrow" style="justify-content:center;">GET IN TOUCH</div>
     <h2>Got a workflow that's<br>still held together by hand?</h2>
     <p class="lead">Tell me what's slow, manual, or falling through the cracks — I'll map how it gets automated.</p>
+    <form class="contact-form reveal" action="https://formsubmit.co/barredofranzen@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New portfolio inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="Name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="Email" placeholder="you@company.com" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="f-project">What are you trying to automate?</label>
+        <textarea id="f-project" name="Message" placeholder="Tell me what's slow, manual, or falling through the cracks..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message →</button>
+      <p class="form-note">Goes straight to my inbox — I reply within 24 hours.</p>
+    </form>
+
+    <div class="form-divider">or reach me directly</div>
+
     <div class="contact-row">
       <a class="contact-card" href="mailto:barredofranzen@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg>barredofranzen@gmail.com</a>
       <a class="contact-card" href="https://wa.me/639665972498" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/></svg>+63 966 597 2498</a>
@@ -603,7 +796,7 @@
 </section>
 
 <footer>
-  <span>© 2026 Franzen Barredo — Occidental Mindoro, San Jose City, Philippines</span>
+  <span>© 2026 Franzen Barredo — San Jose, Occidental Mindoro, Philippines</span>
   <span>Built &amp; automated by hand.</span>
 </footer>
 
@@ -622,6 +815,28 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
+  }
+
+  // Animated stat counters
+  const statNums = document.querySelectorAll('.stat-num');
+  function animateCount(el){
+    const target = parseInt(el.dataset.count, 10);
+    if (reduceMotion) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (statNums.length) {
+    const statIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); statIo.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    statNums.forEach(el => statIo.observe(el));
   }
 
   // Platform tabs
