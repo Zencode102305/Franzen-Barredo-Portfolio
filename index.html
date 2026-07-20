@@ -224,6 +224,38 @@
   @media (max-width:1080px){ .tool-groups{ grid-template-columns:repeat(3,1fr); } }
   @media (max-width:640px){ .tool-groups{ grid-template-columns:repeat(2,1fr); } }
 
+  /* ---------- DENSE TOOL GRID ---------- */
+  .tools-dense-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  @media (max-width:1080px){ .tools-dense-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:760px){ .tools-dense-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:480px){ .tools-dense-grid{ grid-template-columns:1fr; } }
+
+  .tool-card-dense{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 18px 14px;
+    transition: transform .3s, border-color .3s;
+  }
+  .tool-card-dense:hover{ transform:translateY(-4px); }
+  .tool-card-dense h4{
+    font-family:'JetBrains Mono', monospace; font-size:.66rem; letter-spacing:.09em; text-transform:uppercase;
+    display:flex; align-items:center; gap:7px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .tool-card-dense h4 .sw{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .tool-rows{ display:flex; flex-direction:column; gap:8px; }
+  .tool-row-dense{ display:flex; align-items:center; gap:9px; font-size:.82rem; color:var(--text-dim); transition:color .2s, transform .2s; }
+  .tool-row-dense:hover{ color:var(--text); transform:translateX(2px); }
+  .tool-mono{
+    width:19px; height:19px; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:.62rem; color:#04141c;
+  }
+  .set-cyan h4{ color:var(--cyan); } .set-cyan h4 .sw{ background:var(--cyan); }
+  .set-violet h4{ color:var(--violet); } .set-violet h4 .sw{ background:var(--violet); }
+  .set-amber h4{ color:var(--amber); } .set-amber h4 .sw{ background:var(--amber); }
+  .set-coral h4{ color:var(--coral); } .set-coral h4 .sw{ background:var(--coral); }
+  .set-cyan:hover{ border-color:var(--cyan); } .set-violet:hover{ border-color:var(--violet); }
+  .set-amber:hover{ border-color:var(--amber); } .set-coral:hover{ border-color:var(--coral); }
+  .set-cyan .tool-mono{ background:var(--cyan); } .set-violet .tool-mono{ background:var(--violet); }
+  .set-amber .tool-mono{ background:var(--amber); } .set-coral .tool-mono{ background:var(--coral); }
+
   /* ---------- MARQUEE TEASER ---------- */
   .marquee-wrap{
     position:relative; z-index:1; padding:22px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
@@ -464,7 +496,7 @@
         <div class="corner br"></div>
         <div class="scan-line"></div>
       </div>
-      <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · San Jose, Occidental Mindoro, PH</div>
+      <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · LIPA CITY, PH</div>
     </div>
   </div>
   <a href="#work" class="scroll-cue"><span>9 BUILDS BELOW ↓</span><div class="mouse"></div></a>
@@ -501,53 +533,77 @@
     <div class="section-head reveal">
       <div class="eyebrow">STACK</div>
       <h2>Inside the toolbox</h2>
+      <p>The AI tools, automation platforms, and dev stack I actually build with.</p>
     </div>
 
-    <div class="tool-groups reveal">
-      <div class="tool-group c-auto">
-        <h4><span class="sw"></span>Automation &amp; CRM</h4>
-        <div class="chip-col">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>Zapier</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 15 16M15.5 7.5 9 16"/></svg>Make.com</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg>GoHighLevel</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 12a8 8 0 1 1 3 6.2"/><path d="M4 12v6h6"/></svg>HubSpot</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="5" cy="12" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="19" cy="18" r="2.4"/><path d="M7.2 11 17 6.9M7.2 13l9.8 4.1"/></svg>n8n</span>
+    <div class="tools-dense-grid reveal">
+      <div class="tool-card-dense set-cyan">
+        <h4><span class="sw"></span>AI Assistants</h4>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">C</span>ChatGPT</span>
+          <span class="tool-row-dense"><span class="tool-mono">C</span>Claude</span>
+          <span class="tool-row-dense"><span class="tool-mono">P</span>Perplexity</span>
+          <span class="tool-row-dense"><span class="tool-mono">G</span>Gemini</span>
         </div>
       </div>
-      <div class="tool-group c-ai">
-        <h4><span class="sw"></span>AI Tools</h4>
-        <div class="chip-col">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg>ChatGPT</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 12a8 8 0 0 1 8-8M20 12a8 8 0 0 1-8 8"/><circle cx="12" cy="12" r="2.5"/></svg>Claude</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.6-3.6"/></svg>Perplexity</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 20 12 4l8 16z"/></svg>Midjourney</span>
+
+      <div class="tool-card-dense set-violet">
+        <h4><span class="sw"></span>AI Image, Design &amp; Video</h4>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">M</span>Midjourney</span>
+          <span class="tool-row-dense"><span class="tool-mono">C</span>Canva AI</span>
+          <span class="tool-row-dense"><span class="tool-mono">A</span>Adobe Firefly</span>
+          <span class="tool-row-dense"><span class="tool-mono">C</span>CapCut</span>
         </div>
       </div>
-      <div class="tool-group c-dev">
+
+      <div class="tool-card-dense set-amber">
+        <h4><span class="sw"></span>Automation &amp; Workflows</h4>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">Z</span>Zapier</span>
+          <span class="tool-row-dense"><span class="tool-mono">M</span>Make.com</span>
+          <span class="tool-row-dense"><span class="tool-mono">N</span>n8n</span>
+          <span class="tool-row-dense"><span class="tool-mono">G</span>GoHighLevel</span>
+        </div>
+      </div>
+
+      <div class="tool-card-dense set-coral">
+        <h4><span class="sw"></span>CRM &amp; Sales</h4>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">H</span>HubSpot</span>
+          <span class="tool-row-dense"><span class="tool-mono">G</span>GoHighLevel CRM</span>
+          <span class="tool-row-dense"><span class="tool-mono">C</span>Calendly</span>
+        </div>
+      </div>
+
+      <div class="tool-card-dense set-cyan">
+        <h4><span class="sw"></span>Project &amp; Task Management</h4>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">N</span>Notion</span>
+          <span class="tool-row-dense"><span class="tool-mono">A</span>Airtable</span>
+          <span class="tool-row-dense"><span class="tool-mono">C</span>ClickUp</span>
+          <span class="tool-row-dense"><span class="tool-mono">T</span>Trello</span>
+        </div>
+      </div>
+
+      <div class="tool-card-dense set-violet">
         <h4><span class="sw"></span>Development</h4>
-        <div class="chip-col">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M8 4 3 12l5 8M16 4l5 8-5 8"/></svg>HTML / CSS / JS</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></svg>React</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 2v6M12 22c-4-3-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-3 8-7 11z"/></svg>Node.js</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="m4 8 8-6 8 6v8l-8 6-8-6z"/></svg>Flutter</span>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">H</span>HTML / CSS / JS</span>
+          <span class="tool-row-dense"><span class="tool-mono">R</span>React</span>
+          <span class="tool-row-dense"><span class="tool-mono">N</span>Node.js</span>
+          <span class="tool-row-dense"><span class="tool-mono">P</span>PHP</span>
+          <span class="tool-row-dense"><span class="tool-mono">M</span>MySQL</span>
+          <span class="tool-row-dense"><span class="tool-mono">R</span>REST APIs</span>
         </div>
       </div>
-      <div class="tool-group c-work">
-        <h4><span class="sw"></span>Workspace</h4>
-        <div class="chip-col">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5"/></svg>Google Workspace</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Microsoft 365</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Notion</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Airtable</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M9 4a2.5 2.5 0 0 1 0 5H6.5A2.5 2.5 0 0 1 9 4zM9 15a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1-2.5-2.5V15zM4 9a2.5 2.5 0 0 1 5 0v2.5A2.5 2.5 0 0 1 4 9zM15 9a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1-2.5 2.5H15z"/></svg>Slack</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 15 2 2 4-4"/></svg>Calendly</span>
-        </div>
-      </div>
-      <div class="tool-group c-creative">
-        <h4><span class="sw"></span>Creative</h4>
-        <div class="chip-col">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>CapCut</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/></svg>Canva</span>
+
+      <div class="tool-card-dense set-amber">
+        <h4><span class="sw"></span>Workspace &amp; Collaboration</h4>
+        <div class="tool-rows">
+          <span class="tool-row-dense"><span class="tool-mono">G</span>Google Workspace</span>
+          <span class="tool-row-dense"><span class="tool-mono">M</span>Microsoft 365</span>
+          <span class="tool-row-dense"><span class="tool-mono">S</span>Slack</span>
         </div>
       </div>
     </div>
@@ -566,7 +622,7 @@
     <div class="stat-row reveal">
       <div class="stat-item"><div class="stat-num" data-count="9">0</div><div class="stat-label">Sample Builds</div></div>
       <div class="stat-item"><div class="stat-num" data-count="3">0</div><div class="stat-label">Platforms</div></div>
-      <div class="stat-item"><div class="stat-num" data-count="21">0</div><div class="stat-label">Tools In The Stack</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="28">0</div><div class="stat-label">Tools In The Stack</div></div>
     </div>
 
     <div class="platform-tabs reveal">
@@ -796,7 +852,7 @@
 </section>
 
 <footer>
-  <span>© 2026 Franzen Barredo — San Jose, Occidental Mindoro, Philippines</span>
+  <span>© 2026 Franzen Barredo — Lipa City, Philippines</span>
   <span>Built &amp; automated by hand.</span>
 </footer>
 
