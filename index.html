@@ -3,8 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Franzen Barredo — AI Automation & Web Developer</title>
+<title>Franzen Barredo — AI Automation Specialist | Zapier, Make.com, n8n & GoHighLevel</title>
+<meta name="description" content="I help small businesses stop losing leads and hours to manual work. AI automation specialist building lead response, booking, and follow-up systems with Zapier, Make.com, n8n, and GoHighLevel.">
+<meta name="keywords" content="AI automation specialist, Zapier expert, Make.com automation, n8n workflows, GoHighLevel automation, business process automation, AI agents, workflow automation Philippines">
+<meta name="author" content="Franzen Barredo">
+<link rel="canonical" href="https://zencode102305.github.io/Franzen-Barredo-Portfolio/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Franzen Barredo — AI Automation Specialist">
+<meta property="og:description" content="I help small businesses stop losing leads and hours to manual work — AI automation systems built with Zapier, Make.com, n8n, and GoHighLevel.">
+<meta property="og:image" content="https://zencode102305.github.io/Franzen-Barredo-Portfolio/assets/img/profile.jpg">
+<meta property="og:url" content="https://zencode102305.github.io/Franzen-Barredo-Portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Franzen Barredo — AI Automation Specialist">
+<meta name="twitter:description" content="AI automation systems built with Zapier, Make.com, n8n, and GoHighLevel — for businesses losing time to manual work.">
+<meta name="twitter:image" content="https://zencode102305.github.io/Franzen-Barredo-Portfolio/assets/img/profile.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Franzen Barredo",
+  "jobTitle": "AI Automation Specialist",
+  "url": "https://zencode102305.github.io/Franzen-Barredo-Portfolio/",
+  "email": "mailto:barredofranzen.va@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "San Jose", "addressRegion": "Occidental Mindoro", "addressCountry": "PH"},
+  "knowsAbout": ["Zapier", "Make.com", "n8n", "GoHighLevel", "AI Agents", "Business Process Automation", "Web Development"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -34,6 +64,12 @@
   ::selection{ background: var(--cyan); color:#04141c; }
   a{ color:inherit; text-decoration:none; }
   img{ max-width:100%; display:block; }
+  .skip-link{
+    position:absolute; top:-60px; left:12px; z-index:999; background:var(--cyan); color:#04141c;
+    padding:10px 18px; border-radius:8px; font-weight:700; font-size:.85rem; transition:top .2s;
+  }
+  .skip-link:focus{ top:12px; }
+  :focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
 
   .glow{ position:fixed; border-radius:50%; filter:blur(90px); z-index:0; pointer-events:none; }
   .glow.g1{ width:520px; height:520px; background:radial-gradient(circle, rgba(47,232,207,.22), transparent 70%); top:-120px; left:-140px; }
@@ -185,7 +221,32 @@
   .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
-  /* ---------- BACKGROUND ---------- */
+  /* ---------- SERVICES ---------- */
+  .section-sub{ color:var(--text-dim); font-size:1rem; margin-top:10px; max-width:560px; }
+  .services-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:44px; }
+  .service-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:32px 28px;
+    transition:border-color .3s, transform .3s;
+  }
+  .service-card:hover{ border-color:var(--cyan); transform:translateY(-4px); }
+  .service-icon{
+    width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .service-icon svg{ width:26px; height:26px; stroke:#04141c; }
+  .service-icon.svc-cyan{ background:linear-gradient(100deg, var(--cyan), #4fd8c4); }
+  .service-icon.svc-violet{ background:linear-gradient(100deg, var(--violet), #7c5cff); }
+  .service-icon.svc-amber{ background:linear-gradient(100deg, var(--amber), #ff8a3d); }
+  .service-card h3{ font-size:1.2rem; margin-bottom:10px; }
+  .service-card p{ color:var(--text-dim); font-size:.88rem; line-height:1.6; margin-bottom:18px; }
+  .service-list{ list-style:none; display:flex; flex-direction:column; gap:9px; }
+  .service-list li{
+    font-size:.82rem; color:var(--text-dim); padding-left:18px; position:relative;
+  }
+  .service-list li::before{
+    content:''; position:absolute; left:0; top:7px; width:6px; height:6px; border-radius:50%; background:var(--cyan);
+  }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr; } }
+
   .about-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:60px; align-items:start; }
   .about-copy h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); margin:14px 0 20px; }
   .about-copy p{ color:var(--text-dim); font-size:1rem; margin-bottom:16px; max-width:620px; }
@@ -331,7 +392,7 @@
       repeating-linear-gradient(135deg, rgba(150,170,220,0.06) 0px, rgba(150,170,220,0.06) 2px, transparent 2px, transparent 14px),
       linear-gradient(135deg, var(--surface-2), var(--bg-soft));
     border:1px dashed var(--line);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer;
   }
   .project-shot svg{ width:26px; height:26px; stroke:var(--text-faint); }
   .project-shot span{
@@ -358,7 +419,7 @@
 
   /* ---------- LIGHTBOX ---------- */
   .lightbox-overlay{
-    position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
+    position:fixed; inset:0; z-index:220; display:none; align-items:center; justify-content:center;
     background:rgba(4,6,12,.92); backdrop-filter:blur(6px); padding:5vh 4vw; cursor:zoom-out;
   }
   .lightbox-overlay.open{ display:flex; }
@@ -377,6 +438,66 @@
   }
   .lightbox-close:hover{ border-color:var(--cyan); transform:rotate(90deg); }
   .lightbox-close svg{ width:18px; height:18px; stroke:var(--text); }
+
+  /* ---------- CASE STUDY BUTTON ---------- */
+  .case-open-btn{
+    margin-top:16px; align-self:flex-start; background:none; border:1px solid var(--line); color:var(--text);
+    font-family:'JetBrains Mono', monospace; font-size:.74rem; letter-spacing:.03em; padding:9px 16px; border-radius:8px;
+    cursor:pointer; transition:border-color .2s, background .2s, transform .2s; display:inline-flex; align-items:center; gap:6px;
+  }
+  .case-open-btn:hover{ border-color:var(--cyan); background:rgba(47,232,207,.08); transform:translateX(2px); }
+
+  /* ---------- CASE STUDY MODAL ---------- */
+  .case-overlay{
+    position:fixed; inset:0; z-index:210; display:none; align-items:flex-start; justify-content:center;
+    background:rgba(4,6,12,.92); backdrop-filter:blur(6px); padding:6vh 20px; overflow-y:auto;
+  }
+  .case-overlay.open{ display:flex; }
+  .case-modal{
+    background:var(--surface); border:1px solid var(--line); border-radius:20px; max-width:760px; width:100%;
+    padding:40px 40px 36px; position:relative; box-shadow:0 40px 100px rgba(0,0,0,.55);
+  }
+  .case-modal-close{
+    position:absolute; top:20px; right:20px; width:38px; height:38px; border-radius:50%;
+    background:var(--surface-2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:border-color .2s, transform .2s;
+  }
+  .case-modal-close:hover{ border-color:var(--cyan); transform:rotate(90deg); }
+  .case-modal-close svg{ width:16px; height:16px; stroke:var(--text); }
+  .case-platform-tag{
+    font-family:'JetBrains Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan);
+    margin-bottom:10px; display:block;
+  }
+  .case-modal h3{ font-size:1.6rem; margin-bottom:6px; padding-right:40px; }
+  .case-modal .niche-tag{ margin-bottom:20px; }
+  .case-modal-shot{ width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--line); margin-bottom:26px; cursor:zoom-in; position:relative; }
+  .case-modal-shot img{ width:100%; display:block; }
+  .case-modal-shot .zoom-hint{ opacity:0; }
+  .case-modal-shot:hover .zoom-hint{ opacity:1; }
+  .case-modal-arch{
+    width:100%; aspect-ratio:16/9; border-radius:12px; margin-bottom:26px; display:flex; flex-direction:column; gap:12px;
+    align-items:center; justify-content:center; background:linear-gradient(150deg, var(--surface-2), var(--bg-soft)); border:1px solid var(--line);
+  }
+  .case-section{ margin-bottom:22px; }
+  .case-section-label{
+    font-family:'JetBrains Mono', monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint);
+    margin-bottom:8px; display:flex; align-items:center; gap:8px;
+  }
+  .case-section-label .dot{ width:6px; height:6px; border-radius:50%; }
+  .case-section-label.problem .dot{ background:var(--coral); }
+  .case-section-label.solution .dot{ background:var(--cyan); }
+  .case-section-label.diagram .dot{ background:var(--violet); }
+  .case-section-label.tools .dot{ background:var(--amber); }
+  .case-section p{ color:var(--text-dim); font-size:.94rem; line-height:1.6; }
+  .case-modal .icon-chain{ margin:0; padding:18px; background:var(--bg-soft); border-radius:12px; border:1px solid var(--line); }
+  .case-cta{
+    margin-top:30px; padding-top:24px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .case-cta p{ font-size:.9rem; color:var(--text-dim); margin:0; }
+  @media (max-width:640px){
+    .case-modal{ padding:60px 22px 28px; }
+    .case-cta{ flex-direction:column; align-items:flex-start; }
+  }
 
   .project-shot.arch{ border-style:solid; flex-direction:column; gap:12px; background: linear-gradient(150deg, var(--surface-2), var(--bg-soft)); }
   .project-shot.arch .arch-icon{ width:48px; height:48px; border-radius:13px; display:flex; align-items:center; justify-content:center; }
@@ -423,7 +544,7 @@
   .stack-tags span{ font-size:.68rem; font-family:'JetBrains Mono', monospace; color:var(--text-dim); border:1px solid var(--line); padding:5px 9px; border-radius:6px; }
 
   /* ---------- PROCESS ---------- */
-  .process-line{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .process-line{ position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:20px; }
   .process-line::before{
     content:''; position:absolute; top:24px; left:6%; right:6%; height:1px;
     background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px); z-index:0;
@@ -437,6 +558,34 @@
   .process-step h4{ font-size:1.05rem; margin-bottom:7px; font-family:'Space Grotesk',sans-serif; }
   .process-step p{ font-size:.85rem; color:var(--text-dim); }
   @media (max-width:860px){ .process-line{ grid-template-columns:1fr 1fr; row-gap:36px; } .process-line::before{ display:none; } }
+
+  /* ---------- WHY WORK WITH ME ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:44px; }
+  .why-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px 24px;
+    transition:border-color .3s, transform .3s;
+  }
+  .why-card:hover{ border-color:var(--violet); transform:translateY(-3px); }
+  .why-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.5rem; margin-bottom:14px;
+    background:linear-gradient(100deg, var(--violet), var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .why-card h4{ font-size:1.05rem; margin-bottom:8px; }
+  .why-card p{ font-size:.85rem; color:var(--text-dim); line-height:1.6; }
+  @media (max-width:900px){ .why-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .why-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- CURRENTLY LEARNING ---------- */
+  .learning-grid{ display:flex; flex-wrap:wrap; gap:14px; margin-top:40px; }
+  .learning-chip{
+    display:inline-flex; align-items:center; gap:10px; background:var(--surface); border:1px solid var(--line);
+    border-radius:999px; padding:12px 20px; font-size:.86rem; color:var(--text-dim);
+    transition:border-color .3s, color .3s;
+  }
+  .learning-chip:hover{ border-color:var(--amber); color:var(--text); }
+  .lc-dot{ width:7px; height:7px; border-radius:50%; background:var(--amber); flex-shrink:0; animation:pulse-dot 2s infinite; }
+  @keyframes pulse-dot{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+
 
   /* ---------- CONTACT ---------- */
   #contact{ text-align:center; }
@@ -510,6 +659,7 @@
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
 <div class="grid-bg"></div>
@@ -520,9 +670,11 @@
     <ul>
       <li><a href="#hero" class="nav-link">Home</a></li>
       <li><a href="#about" class="nav-link">Background</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
       <li><a href="#tools" class="nav-link">Stack</a></li>
       <li><a href="#work" class="nav-link">Work</a></li>
       <li><a href="#process" class="nav-link">Process</a></li>
+      <li><a href="#why" class="nav-link">Why Me</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
   </nav>
@@ -531,13 +683,14 @@
 </header>
 
 <!-- ================= HERO ================= -->
+<main id="main">
 <section id="hero">
-  <canvas id="hero-canvas"></canvas>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">AUTOMATION &amp; DEVELOPMENT</div>
-      <h1>Systems that work <span class="grad">while you don't.</span></h1>
-      <p class="lead">I build the AI automations and websites <strong style="color:var(--text)">small businesses</strong> use to stop losing leads to slow replies, manual busywork, and follow-ups that never happen.</p>
+      <div class="eyebrow">AI AUTOMATION SPECIALIST</div>
+      <h1>Every manual task is a <span class="grad">system waiting to be built.</span></h1>
+      <p class="lead">I connect your CRM, inbox, and calendar so leads get answered, qualified, and booked automatically — no more slow replies, missed follow-ups, or hours lost to copy-paste work. Built with Zapier, Make.com, n8n, and GoHighLevel.</p>
       <div class="role-tags" style="margin-bottom:14px;">
         <span class="role-tag"><b>01</b> &nbsp;AI Automation Specialist</span>
         <span class="role-tag"><b>02</b> &nbsp;Web Developer</span>
@@ -548,8 +701,8 @@
         <span class="role-tag">🔗 Tool Integrations</span>
       </div>
       <div class="hero-ctas">
-        <a href="#work" class="btn-primary">See the builds ↓</a>
-        <a href="#contact" class="btn-ghost">Let's talk</a>
+        <a href="#contact" class="btn-primary">Get a free automation audit →</a>
+        <a href="#work" class="btn-ghost">See the case studies</a>
       </div>
     </div>
     <div class="hero-portrait" id="tiltWrap">
@@ -560,7 +713,7 @@
         <div class="typing"><span></span><span></span><span></span></div>
       </div>
       <div class="portrait-frame" id="tiltCard">
-        <img src="assets/img/profile.jpg" alt="Portrait of Franzen Barredo" loading="eager">
+        <img src="assets/img/profile.jpg" alt="Portrait of Franzen Barredo" loading="eager" width="720" height="900">
         <div class="corner tl"></div>
         <div class="corner br"></div>
         <div class="scan-line"></div>
@@ -568,7 +721,7 @@
       <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · San Jose, Occidental Mindoro, PH</div>
     </div>
   </div>
-  <a href="#work" class="scroll-cue"><span>12 BUILDS BELOW ↓</span><div class="mouse"></div></a>
+  <a href="#work" class="scroll-cue"><span>12 CASE STUDIES BELOW ↓</span><div class="mouse"></div></a>
 </section>
 
 <!-- ================= MARQUEE TEASER ================= -->
@@ -599,6 +752,52 @@
     <span class="marquee-item"><span class="dot-sep"></span><b>Win-Back &amp; Reactivation Engine</b>&nbsp;— GoHighLevel</span>
   </div>
 </div>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">SERVICES</div>
+      <h2>What I can build for your business</h2>
+      <p class="section-sub">Three ways I help businesses stop losing time and leads to manual work.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon svc-cyan"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div>
+        <h3>AI Automation</h3>
+        <p>Lead qualification, follow-ups, ticket triage, and booking systems that run without anyone touching them — built in Zapier, Make.com, n8n, or GoHighLevel depending on what fits your stack and budget.</p>
+        <ul class="service-list">
+          <li>Lead response &amp; auto-booking</li>
+          <li>AI-powered support triage</li>
+          <li>Follow-up &amp; win-back sequences</li>
+          <li>Multi-step AI agents with tools</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon svc-violet"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 17.5V21"/></svg></div>
+        <h3>Web Development</h3>
+        <p>Fast, clean websites and internal tools built to connect directly into your automation stack — not a static site sitting disconnected from the systems that actually run your business.</p>
+        <ul class="service-list">
+          <li>Business &amp; landing pages</li>
+          <li>Internal tools &amp; dashboards</li>
+          <li>Booking &amp; intake forms</li>
+          <li>PHP / MySQL back-end systems</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon svc-amber"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 11 15.5M15.5 7.5 13 15.5"/></svg></div>
+        <h3>Systems Integration</h3>
+        <p>Your CRM, calendar, inbox, and spreadsheets stop being separate tools and start acting like one system — connected by API, webhook, or whatever the tools actually support.</p>
+        <ul class="service-list">
+          <li>CRM &amp; calendar syncing</li>
+          <li>API &amp; webhook integrations</li>
+          <li>Multi-platform data routing</li>
+          <li>Legacy tool &mdash; modern AI bridging</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= BACKGROUND ================= -->
 <section id="about">
@@ -759,7 +958,8 @@
     <!-- ZAPIER -->
     <div class="platform-panel active" id="panel-zapier">
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-ai-email-triage-full.png" data-caption="AI Email Triage & Auto-Responder — Zapier scenario screenshot"><img src="assets/builds/zapier-ai-email-triage.png" alt="AI Email Triage & Auto-Responder — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="Support inboxes get flooded with a mix of billing questions, technical issues, and spam. Someone has to manually read every email, judge urgency, and decide who should handle it &mdash; and that triage work alone can eat an hour a day while urgent issues sit unread." data-solution="A Gmail trigger watches a support label for new messages. AI by Zapier classifies each one by category (Billing, Technical, General, Spam) and urgency, then Zapier Paths route priority issues to an alert, log everything to Google Sheets, and send an acknowledgment reply automatically."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-ai-email-triage-full.png" data-caption="AI Email Triage & Auto-Responder — Zapier scenario screenshot"><img src="assets/builds/zapier-ai-email-triage.png" alt="AI Email Triage & Auto-Responder — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Service-Based Businesses</div>
         <h3>AI Email Triage &amp; Auto-Responder</h3>
@@ -774,9 +974,11 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reply sent &amp; logged</span></div>
         </div>
         <div class="stack-tags"><span>Zapier</span><span>Gmail</span><span>AI by Zapier</span><span>Google Sheets</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-review-request-full.png" data-caption="Review Request Automation — Zapier scenario screenshot"><img src="assets/builds/zapier-review-request.png" alt="Review Request Automation — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="Happy customers rarely leave reviews unless asked at the right moment &mdash; and manually remembering to follow up with every client days after a job finishes is the kind of task that quietly falls off the to-do list." data-solution="A new row in the job tracker triggers a delayed sequence: a review request goes out 24 hours after job completion, a status filter checks whether the client already reviewed, and if not, a friendly follow-up nudge sends automatically a few days later."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-review-request-full.png" data-caption="Review Request Automation — Zapier scenario screenshot"><img src="assets/builds/zapier-review-request.png" alt="Review Request Automation — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Appointment-Based Businesses</div>
         <h3>Review Request Automation</h3>
@@ -791,9 +993,11 @@
           <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Branches by rating</span></div>
         </div>
         <div class="stack-tags"><span>Zapier</span><span>Google Reviews</span><span>Email/SMS</span><span>Typeform</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-new-client-intake-full.png" data-caption="New Client Intake & Welcome Sequence — Zapier scenario screenshot"><img src="assets/builds/zapier-new-client-intake.png" alt="New Client Intake & Welcome Sequence — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="A new client fills out an intake form, and then nothing happens automatically. Someone has to manually create a CRM record, write a personalized welcome email, and remember to check in a few days later." data-solution="A Typeform submission triggers AI by Zapier to draft a warm, personalized welcome email based on the client's actual answers. The client record is created in Google Sheets, the welcome email sends immediately, and a check-in email is scheduled days later."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-new-client-intake-full.png" data-caption="New Client Intake & Welcome Sequence — Zapier scenario screenshot"><img src="assets/builds/zapier-new-client-intake.png" alt="New Client Intake & Welcome Sequence — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Coaches &amp; Consultants</div>
         <h3>New Client Intake &amp; Welcome Sequence</h3>
@@ -808,12 +1012,14 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Kickoff reminder set</span></div>
         </div>
         <div class="stack-tags"><span>Zapier</span><span>Typeform</span><span>Google Sheets</span><span>Gmail</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
 
     <!-- GHL -->
     <div class="platform-panel" id="panel-ghl">
       <div class="project-card">
+        <div class="case-data" hidden data-problem="Missed calls are missed revenue &mdash; every call that goes to voicemail is a lead who's probably calling the next business on the list, but staffing a phone line around the clock isn't realistic for most small teams." data-solution="An AI voice agent answers every inbound call, holds a natural conversation to understand what the caller needs, checks calendar availability in real time, and either books the appointment directly or hands off to a human &mdash; with the call logged straight into the CRM."></div>
         <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/><path d="M9 10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1Z"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Voice AI Build</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For High-Call-Volume Businesses</div>
@@ -829,8 +1035,10 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Booked or handed off</span></div>
         </div>
         <div class="stack-tags"><span>GoHighLevel</span><span>Vapi</span><span>Twilio Voice</span><span>OpenAI</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
+        <div class="case-data" hidden data-problem="A franchise with multiple locations often ends up with leads landing in the wrong branch's pipeline, no clean way to see performance across all locations at once, and each manager working from a different, disconnected process." data-solution="Incoming leads are automatically matched to the correct location using sub-account routing, dropped into that branch's own pipeline and assigned to its staff, while a rollup layer pulls key numbers from every location into one owner-level view."></div>
         <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6.5 7 10 11M17.5 7 14 11M6.5 17 10 13M17.5 17 14 13"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Multi-Location CRM</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Multi-Location Franchises</div>
@@ -846,8 +1054,10 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><span>Rolled into one dashboard</span></div>
         </div>
         <div class="stack-tags"><span>GoHighLevel</span><span>Sub-Accounts API</span><span>Webhooks</span><span>Google Sheets</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
+        <div class="case-data" hidden data-problem="Every business has a list of past customers who've gone quiet &mdash; but manually figuring out who's worth re-engaging, and what to say to them, isn't something most teams have time to do consistently." data-solution="Contacts that cross a 90-day inactivity threshold are automatically scored on how likely they are to return, and AI drafts a personalized win-back offer referencing what they bought before. Messages go out by SMS and email, and the workflow stops the moment the contact replies."></div>
         <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Reactivation Engine</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Businesses Sitting on a Dead List</div>
@@ -863,13 +1073,15 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Auto-stops on reply</span></div>
         </div>
         <div class="stack-tags"><span>GoHighLevel</span><span>OpenAI</span><span>SMS</span><span>Workflow Triggers</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
 
     <!-- MAKE -->
     <div class="platform-panel" id="panel-make">
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/make-cart-recovery-full.png" data-caption="AI Package & Membership Cart Recovery — Make.com scenario screenshot"><img src="assets/builds/make-cart-recovery.png" alt="AI Package & Membership Cart Recovery — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="Someone starts booking a package or membership online, gets to the last step, and closes the tab. Without follow-up, that near-sale is gone for good &mdash; and generic cart-abandonment emails rarely bring people back." data-solution="Make.com watches a Google Sheets log of abandoned carts, and an AI Toolkit step drafts a personalized recovery message referencing the exact package. High-value carts automatically get a limited-time discount code; lower-value carts get a straightforward nudge, with every attempt logged."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-cart-recovery-full.png" data-caption="AI Package & Membership Cart Recovery — Make.com scenario screenshot"><img src="assets/builds/make-cart-recovery.png" alt="AI Package & Membership Cart Recovery — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Appointment-Based Businesses</div>
         <h3>AI Package &amp; Membership Cart Recovery</h3>
@@ -884,9 +1096,11 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Discount escalation</span></div>
         </div>
         <div class="stack-tags"><span>Make.com</span><span>Booking Widget</span><span>ChatGPT</span><span>Klaviyo</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/make-content-repurposing-full.png" data-caption="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot"><img src="assets/builds/make-content-repurposing.png" alt="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="Local business owners film great before-and-after content on-site, but turning one video into a week of captions and posts takes time most of them don't have &mdash; so the content just sits on a phone and never gets posted." data-solution="One long-form piece of content goes into a Google Sheet, and Make.com's AI Toolkit generates a social caption, a short-form thread, and an email blurb from it in a single pass &mdash; parsed apart and logged back into the sheet, ready to approve for posting."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-content-repurposing-full.png" data-caption="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot"><img src="assets/builds/make-content-repurposing.png" alt="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Local Businesses</div>
         <h3>Job-Site Content Repurposing Pipeline</h3>
@@ -901,9 +1115,11 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Scheduled</span></div>
         </div>
         <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Notion</span><span>CapCut</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/make-ai-support-triage-full.png" data-caption="AI Customer Support Ticket Triage — Make.com scenario screenshot"><img src="assets/builds/make-ai-support-triage.png" alt="AI Customer Support Ticket Triage — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="Support tickets come in with no consistent structure &mdash; some urgent, some spam, some just needing a quick FAQ answer &mdash; and sorting through them manually means urgent issues can wait behind low-priority ones." data-solution="Make.com's AI Toolkit reads each incoming ticket and classifies it by category and urgency, drafts a suggested reply, and routes it down one of three paths (priority alert, standard reply, or spam log) using a Router, with every step logged for a full audit trail."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-ai-support-triage-full.png" data-caption="AI Customer Support Ticket Triage — Make.com scenario screenshot"><img src="assets/builds/make-ai-support-triage.png" alt="AI Customer Support Ticket Triage — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For E-Commerce Brands</div>
         <h3>AI Customer Support Ticket Triage</h3>
@@ -918,13 +1134,15 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Routed to inbox</span></div>
         </div>
         <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Gmail</span><span>Helpdesk</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
 
     <!-- N8N -->
     <div class="platform-panel" id="panel-n8n">
       <div class="project-card">
-        <div class="project-shot has-shot" data-lightbox="assets/builds/n8n-ai-lead-qualification-full.png" data-caption="AI Lead Qualification & Auto-Booking — n8n workflow screenshot"><img src="assets/builds/n8n-ai-lead-qualification.png" alt="AI Lead Qualification & Auto-Booking — n8n workflow screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <div class="case-data" hidden data-problem="Not every lead is ready to buy, but treating them all the same wastes time &mdash; hot leads that should be booked immediately can sit in the same queue as tire-kickers who need nurturing, and by the time someone gets to them, the moment's passed." data-solution="An AI Agent scores each incoming lead Hot, Warm, or Cold based on their message and budget. Hot leads get auto-booked straight onto Google Calendar; Warm leads receive a tailored follow-up email; Cold leads are logged for later &mdash; all three paths tested live end-to-end."></div>
+        <div class="project-shot has-shot" data-lightbox="assets/builds/n8n-ai-lead-qualification-full.png" data-caption="AI Lead Qualification & Auto-Booking — n8n workflow screenshot"><img src="assets/builds/n8n-ai-lead-qualification.png" alt="AI Lead Qualification & Auto-Booking — n8n workflow screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View case study</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Service-Based Businesses</div>
         <h3>AI Lead Qualification &amp; Auto-Booking</h3>
@@ -939,8 +1157,10 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Logged &amp; tracked</span></div>
         </div>
         <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Google Calendar</span><span>Gmail</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
+        <div class="case-data" hidden data-problem="A basic FAQ chatbot can answer simple questions, but the moment someone asks something that needs a calculation, a live lookup, or real-time data, it breaks &mdash; and building a separate script for every possible question doesn't scale." data-solution="An AI Agent deployed on Telegram reasons about what's actually being asked, then decides on its own which tool to call &mdash; a Google Sheets price lookup, a calculator, or a live currency exchange API &mdash; before responding. No fixed script, no hardcoded paths."></div>
         <div class="project-shot arch c-n8n"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 11 15.5M15.5 7.5 13 15.5"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">n8n · AI Agent Build</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Sales-Led Businesses</div>
@@ -956,8 +1176,10 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reply, reasoned</span></div>
         </div>
         <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Telegram API</span><span>Google Sheets</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
       <div class="project-card">
+        <div class="case-data" hidden data-problem="AI-written content is fast but risky to publish unreviewed &mdash; facts can be wrong, tone can be off, and a single AI pass has no built-in check on its own output." data-solution="A topic submitted via Telegram passes through three specialized agents in sequence: a Research Agent gathers grounded facts using the Wikipedia API, a Writer Agent drafts the piece, and an Editor Agent reviews the draft against the research before it's saved to Google Docs."></div>
         <div class="project-shot arch c-n8n"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="15" width="7" height="7" rx="1.5"/><path d="M6.5 11v2.5a2 2 0 0 0 2 2H10M17.5 11v2.5a2 2 0 0 1-2 2H14"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">n8n · Multi-Agent Build</div></div>
         <span class="status-pill">Sample build</span>
         <div class="niche-tag">For Content-Led Businesses</div>
@@ -973,6 +1195,7 @@
           <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Editor agent approves</span></div>
         </div>
         <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Wikipedia API</span><span>Google Docs</span></div>
+        <button type="button" class="case-open-btn" aria-haspopup="dialog">View case study <span aria-hidden="true">&rarr;</span></button>
       </div>
     </div>
   </div>
@@ -983,13 +1206,71 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow">HOW I WORK</div>
-      <h2>The Automate &amp; Elevate Method</h2>
+      <h2>From first call to live system</h2>
+      <p class="section-sub">A straightforward process, whether the build takes a week or a month.</p>
     </div>
     <div class="process-line reveal">
-      <div class="process-step"><div class="process-num">01</div><h4>Map</h4><p>Trace the exact manual steps and where they break down.</p></div>
-      <div class="process-step"><div class="process-num">02</div><h4>Build</h4><p>Build against the real workflow, not a generic template.</p></div>
-      <div class="process-step"><div class="process-num">03</div><h4>Automate</h4><p>Connect every tool end-to-end so nothing needs a human touch.</p></div>
-      <div class="process-step"><div class="process-num">04</div><h4>Elevate</h4><p>Monitor and refine the build after launch as you grow.</p></div>
+      <div class="process-step"><div class="process-num">01</div><h4>Consultation</h4><p>We talk through what's actually eating your time — not the tool, the bottleneck.</p></div>
+      <div class="process-step"><div class="process-num">02</div><h4>Map</h4><p>I trace the exact manual steps end-to-end and flag where they break down.</p></div>
+      <div class="process-step"><div class="process-num">03</div><h4>Build</h4><p>Built against your real workflow and tools, not a generic template.</p></div>
+      <div class="process-step"><div class="process-num">04</div><h4>Test</h4><p>Every path gets run live before it touches a real customer or lead.</p></div>
+      <div class="process-step"><div class="process-num">05</div><h4>Deploy &amp; Support</h4><p>Live, monitored, and refined as your business changes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY WORK WITH ME ================= -->
+<section id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">WHY WORK WITH ME</div>
+      <h2>What you actually get</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <h4>Hands-On Learning</h4>
+        <p>Every build on this site was built, broken, and rebuilt by me — not copied from a template library. I learn a platform by shipping something real on it.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">02</div>
+        <h4>Problem-Solving First</h4>
+        <p>I start from the actual bottleneck, not the tool. If the right answer is a simpler workflow instead of a fancier one, I'll say so.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">03</div>
+        <h4>Attention to Detail</h4>
+        <p>Field mappings, edge cases, error handling — the unglamorous parts that decide whether an automation actually holds up in production.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">04</div>
+        <h4>Clear Communication</h4>
+        <p>You'll know what's being built, why, and what to expect at each stage — no jargon dumped on you to sound impressive.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">05</div>
+        <h4>Reliability Over Flash</h4>
+        <p>A workflow that quietly works every time beats a flashy demo that breaks on the second edge case. I test for the former.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CURRENTLY LEARNING ================= -->
+<section id="learning">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">ALWAYS BUILDING</div>
+      <h2>Currently learning</h2>
+      <p class="section-sub">No certifications here — just what I'm actively deep in right now.</p>
+    </div>
+    <div class="learning-grid reveal">
+      <div class="learning-chip"><span class="lc-dot"></span>Voice AI agents (Vapi, Retell AI)</div>
+      <div class="learning-chip"><span class="lc-dot"></span>RAG &amp; vector databases</div>
+      <div class="learning-chip"><span class="lc-dot"></span>GoHighLevel advanced workflows</div>
+      <div class="learning-chip"><span class="lc-dot"></span>Multi-agent orchestration</div>
+      <div class="learning-chip"><span class="lc-dot"></span>LangChain</div>
+      <div class="learning-chip"><span class="lc-dot"></span>Error handling &amp; self-healing workflows</div>
     </div>
   </div>
 </section>
@@ -998,8 +1279,8 @@
 <section id="contact">
   <div class="container">
     <div class="eyebrow" style="justify-content:center;">GET IN TOUCH</div>
-    <h2>Got a workflow that's<br>still held together by hand?</h2>
-    <p class="lead">Tell me what's slow, manual, or falling through the cracks — I'll map how it gets automated.</p>
+    <h2>Let's fix the workflow<br>that's costing you hours.</h2>
+    <p class="lead">Tell me what's slow, manual, or falling through the cracks. I'll map out exactly how it gets automated — free, no obligation, usually back to you within a day.</p>
     <form class="contact-form reveal" action="https://formsubmit.co/barredofranzen.va@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New portfolio inquiry">
       <input type="hidden" name="_template" value="table">
@@ -1018,7 +1299,7 @@
         <label for="f-project">What are you trying to automate?</label>
         <textarea id="f-project" name="Message" placeholder="Tell me what's slow, manual, or falling through the cracks..." required></textarea>
       </div>
-      <button type="submit" class="form-submit">Send message →</button>
+      <button type="submit" class="form-submit">Get my free automation audit →</button>
       <p class="form-note">Goes straight to my inbox — I reply within 24 hours.</p>
     </form>
 
@@ -1031,15 +1312,47 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <span>© 2026 Franzen Barredo — San Jose, Occidental Mindoro, Philippines</span>
   <span>Built &amp; automated by hand.</span>
 </footer>
 
 <div class="lightbox-overlay" id="lightbox">
-  <div class="lightbox-close" id="lightboxClose"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="lightbox-close" id="lightboxClose" tabindex="0" role="button" aria-label="Close screenshot viewer"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
   <img id="lightboxImg" src="" alt="">
   <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<div class="case-overlay" id="caseOverlay">
+  <div class="case-modal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+    <div class="case-modal-close" id="caseModalClose" tabindex="0" role="button" aria-label="Close case study"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+    <span class="case-platform-tag" id="caseModalPlatform"></span>
+    <h3 id="caseModalTitle"></h3>
+    <div class="niche-tag" id="caseModalNiche"></div>
+    <div id="caseModalShotWrap"></div>
+    <div class="case-section">
+      <div class="case-section-label problem"><span class="dot"></span>The Problem</div>
+      <p id="caseModalProblem"></p>
+    </div>
+    <div class="case-section">
+      <div class="case-section-label solution"><span class="dot"></span>The Solution</div>
+      <p id="caseModalSolution"></p>
+    </div>
+    <div class="case-section">
+      <div class="case-section-label diagram"><span class="dot"></span>Workflow Diagram</div>
+      <div id="caseModalDiagram"></div>
+    </div>
+    <div class="case-section">
+      <div class="case-section-label tools"><span class="dot"></span>Tools Used</div>
+      <div class="stack-tags" id="caseModalTools"></div>
+    </div>
+    <div class="case-cta">
+      <p>Want a system like this built for your business?</p>
+      <a href="#contact" class="btn-primary" id="caseModalCta">Get a free automation audit →</a>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -1166,14 +1479,72 @@
     lightboxImg.src = '';
   }
 
-  document.querySelectorAll('.project-shot.has-shot[data-lightbox]').forEach(el => {
-    el.addEventListener('click', () => {
-      openLightbox(el.getAttribute('data-lightbox'), el.getAttribute('data-caption'));
-    });
-  });
   lightboxClose.addEventListener('click', closeLightbox);
+  lightboxClose.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); closeLightbox(); } });
   lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if(e.key !== 'Escape') return;
+    if(lightbox.classList.contains('open')){ closeLightbox(); }
+    else if(caseOverlay.classList.contains('open')){ closeCaseModal(); }
+  });
+
+  // ---------- CASE STUDY MODAL ----------
+  const caseOverlay = document.getElementById('caseOverlay');
+  const caseModalClose = document.getElementById('caseModalClose');
+  const PLATFORM_NAMES = { 'panel-zapier':'Zapier', 'panel-make':'Make.com', 'panel-n8n':'n8n', 'panel-ghl':'GoHighLevel' };
+
+  function openCaseModal(card){
+    const platformPanel = card.closest('.platform-panel');
+    const platformName = platformPanel ? (PLATFORM_NAMES[platformPanel.id] || '') : '';
+    const title = card.querySelector('h3')?.innerHTML || '';
+    const niche = card.querySelector('.niche-tag')?.innerHTML || '';
+    const dataEl = card.querySelector('.case-data');
+    const problem = dataEl?.getAttribute('data-problem') || card.querySelector('.pain')?.textContent || '';
+    const solution = dataEl?.getAttribute('data-solution') || '';
+    const diagram = card.querySelector('.icon-chain')?.outerHTML || '';
+    const tools = card.querySelector('.stack-tags')?.innerHTML || '';
+    const shotEl = card.querySelector('.project-shot');
+
+    document.getElementById('caseModalPlatform').textContent = platformName;
+    document.getElementById('caseModalTitle').innerHTML = title;
+    document.getElementById('caseModalNiche').innerHTML = niche;
+    document.getElementById('caseModalProblem').innerHTML = problem;
+    document.getElementById('caseModalSolution').innerHTML = solution;
+    document.getElementById('caseModalDiagram').innerHTML = diagram;
+    document.getElementById('caseModalTools').innerHTML = tools;
+
+    const shotWrap = document.getElementById('caseModalShotWrap');
+    if(shotEl && shotEl.classList.contains('has-shot')){
+      const fullSrc = shotEl.getAttribute('data-lightbox');
+      const thumbSrc = shotEl.querySelector('img')?.getAttribute('src');
+      const caption = shotEl.getAttribute('data-caption') || '';
+      shotWrap.innerHTML = `<div class="case-modal-shot" id="caseModalShotClick"><img src="${thumbSrc}" alt="${caption}"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>`;
+      document.getElementById('caseModalShotClick').addEventListener('click', () => openLightbox(fullSrc, caption));
+    } else if(shotEl){
+      shotWrap.innerHTML = `<div class="case-modal-arch">${shotEl.querySelector('.arch-icon')?.outerHTML || ''}<div class="arch-label">Conceptual Build &mdash; Architecture Preview</div></div>`;
+    } else {
+      shotWrap.innerHTML = '';
+    }
+
+    caseOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    caseModalClose.focus();
+  }
+  function closeCaseModal(){
+    caseOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.case-open-btn').forEach(btn => {
+    btn.addEventListener('click', () => openCaseModal(btn.closest('.project-card')));
+  });
+  document.querySelectorAll('.project-shot').forEach(shot => {
+    shot.addEventListener('click', () => openCaseModal(shot.closest('.project-card')));
+  });
+  caseModalClose.addEventListener('click', closeCaseModal);
+  caseModalClose.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); closeCaseModal(); } });
+  caseOverlay.addEventListener('click', (e) => { if(e.target === caseOverlay) closeCaseModal(); });
+  document.getElementById('caseModalCta').addEventListener('click', closeCaseModal);
 </script>
 
 </body>
