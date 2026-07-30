@@ -1900,108 +1900,395 @@
 </section>
 
 <!-- ================= TOOLS ================= -->
-<section id="tools">
+<!--
+  ============================================================
+  PATCH: Replace letter-icon tool items with real logos
+  ============================================================
+  HOW TO APPLY:
+  1. Open your index.html in VS Code (or any editor)
+  2. Find the <section id="tools"> ... </section> block
+  3. Replace the ENTIRE section with the HTML below
+  4. Also paste the <style> block into your existing <style> tag
+     (or into the <head> — just before </head> is fine)
+  ============================================================
+-->
+
+<!-- ── ADD THIS TO YOUR <style> TAG (or drop before </head>) ── -->
+<style>
+/* ── Tool Logo Icons ── */
+.tool-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  /* filter makes white SVGs visible on dark bg */
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+/* Coloured logos — override the white filter for these */
+.tool-logo.colored {
+  filter: none;
+  opacity: 0.9;
+}
+.tool-item:hover .tool-logo {
+  opacity: 1;
+  transform: scale(1.1);
+}
+/* Keep existing .tool-item layout intact — just swap the icon child */
+</style>
+
+<!-- ── REPLACE YOUR ENTIRE <section id="tools"> WITH THIS ── -->
+<section id="tools" class="section tools-section">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">STACK</div>
-      <h2>Inside the toolbox</h2>
-      <p>The AI tools, automation platforms, and dev stack I actually build with.</p>
-    </div>
+    <div class="section-label">STACK</div>
+    <h2 class="section-title">Inside the toolbox</h2>
+    <p class="section-subtitle">The AI tools, automation platforms, and dev stack I actually build with.</p>
 
-    <div class="tools-dense-grid reveal">
-      <div class="tool-card-dense set-cyan">
-        <h4><span class="sw"></span>AI Assistants</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">C</span>ChatGPT</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>Claude</span>
-          <span class="tool-row-dense"><span class="tool-mono">P</span>Perplexity</span>
-          <span class="tool-row-dense"><span class="tool-mono">G</span>Gemini</span>
+    <div class="tools-grid">
+
+      <!-- AI Assistants -->
+      <div class="tool-category">
+        <h4 class="category-title">AI Assistants</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/openai/10a37f"
+                 alt="ChatGPT logo">
+            ChatGPT
+          </div>
+
+          <div class="tool-item">
+            <!-- Claude — no Simple Icons entry; use Anthropic's own brand colour -->
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/anthropic/d97757"
+                 alt="Claude logo">
+            Claude
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/perplexity/1fb8cd"
+                 alt="Perplexity logo">
+            Perplexity
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/googlegemini/8e75b2"
+                 alt="Gemini logo">
+            Gemini
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-violet">
-        <h4><span class="sw"></span>AI Image, Design &amp; Video</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">M</span>Midjourney</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>Canva AI</span>
-          <span class="tool-row-dense"><span class="tool-mono">A</span>Adobe Firefly</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>CapCut</span>
+      <!-- AI Image, Design & Video -->
+      <div class="tool-category">
+        <h4 class="category-title">AI Image, Design &amp; Video</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/midjourney/000000"
+                 alt="Midjourney logo">
+            Midjourney
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/canva/00c4cc"
+                 alt="Canva logo">
+            Canva AI
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/adobefirefly/f05025"
+                 alt="Adobe Firefly logo">
+            Adobe Firefly
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/capcut/000000"
+                 alt="CapCut logo">
+            CapCut
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-amber">
-        <h4><span class="sw"></span>Automation &amp; Workflows</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">Z</span>Zapier</span>
-          <span class="tool-row-dense"><span class="tool-mono">M</span>Make.com</span>
-          <span class="tool-row-dense"><span class="tool-mono">N</span>n8n</span>
-          <span class="tool-row-dense"><span class="tool-mono">G</span>GoHighLevel</span>
+      <!-- Automation & Workflows -->
+      <div class="tool-category">
+        <h4 class="category-title">Automation &amp; Workflows</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/zapier/ff4a00"
+                 alt="Zapier logo">
+            Zapier
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/make/6d00cc"
+                 alt="Make.com logo">
+            Make.com
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/n8n/ea4b71"
+                 alt="n8n logo">
+            n8n
+          </div>
+
+          <div class="tool-item">
+            <!-- GoHighLevel has no Simple Icons entry — use a GHL-orange monogram SVG fallback -->
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/gohighlevel/f97316"
+                 alt="GoHighLevel logo"
+                 onerror="this.style.display='none'; this.nextSibling.style.display='inline-flex'">
+            <!-- Inline SVG fallback (shown only if CDN icon missing) -->
+            <svg style="display:none;width:22px;height:22px;flex-shrink:0;" viewBox="0 0 24 24" fill="#f97316" xmlns="http://www.w3.org/2000/svg">
+              <text x="2" y="18" font-family="monospace" font-size="14" font-weight="bold">GHL</text>
+            </svg>
+            GoHighLevel
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-coral">
-        <h4><span class="sw"></span>Voice &amp; Conversational AI</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">V</span>Vapi</span>
-          <span class="tool-row-dense"><span class="tool-mono">R</span>Retell AI</span>
-          <span class="tool-row-dense"><span class="tool-mono">T</span>Twilio Voice</span>
-          <span class="tool-row-dense"><span class="tool-mono">E</span>ElevenLabs</span>
+      <!-- Voice & Conversational AI -->
+      <div class="tool-category">
+        <h4 class="category-title">Voice &amp; Conversational AI</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <!-- Vapi — no Simple Icons; use a microphone SVG in brand cyan -->
+            <svg class="tool-logo" style="width:22px;height:22px;fill:#00d4ff;filter:none;opacity:0.9;flex-shrink:0;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm6 10a1 1 0 0 1 2 0 8 8 0 0 1-7 7.94V21h2a1 1 0 0 1 0 2H9a1 1 0 0 1 0-2h2v-2.06A8 8 0 0 1 4 11a1 1 0 0 1 2 0 6 6 0 0 0 12 0z"/>
+            </svg>
+            Vapi
+          </div>
+
+          <div class="tool-item">
+            <!-- Retell AI — no Simple Icons; use headset SVG -->
+            <svg class="tool-logo" style="width:22px;height:22px;fill:#7c3aed;filter:none;opacity:0.9;flex-shrink:0;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1C6.477 1 2 5.477 2 11v3c0 1.657 1.343 3 3 3h1a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H4.05A8.001 8.001 0 0 1 20 11h-2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1c1.657 0 3-1.343 3-3v-3c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            Retell AI
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/twilio/f22f46"
+                 alt="Twilio logo">
+            Twilio Voice
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/elevenlabs/f5a623"
+                 alt="ElevenLabs logo">
+            ElevenLabs
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-cyan">
-        <h4><span class="sw"></span>AI Agents, APIs &amp; Webhooks</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">O</span>OpenAI API</span>
-          <span class="tool-row-dense"><span class="tool-mono">L</span>LangChain</span>
-          <span class="tool-row-dense"><span class="tool-mono">W</span>Webhooks</span>
-          <span class="tool-row-dense"><span class="tool-mono">T</span>Telegram Bot API</span>
+      <!-- AI Agents, APIs & Webhooks -->
+      <div class="tool-category">
+        <h4 class="category-title">AI Agents, APIs &amp; Webhooks</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/openai/10a37f"
+                 alt="OpenAI logo">
+            OpenAI API
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/langchain/1c3c3c"
+                 alt="LangChain logo">
+            LangChain
+          </div>
+
+          <div class="tool-item">
+            <!-- Webhooks — generic link icon -->
+            <svg class="tool-logo" style="width:22px;height:22px;fill:#06b6d4;filter:none;opacity:0.9;flex-shrink:0;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L11.75 5.75" stroke="#06b6d4" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#06b6d4" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            Webhooks
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/telegram/2ca5e0"
+                 alt="Telegram logo">
+            Telegram Bot API
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-coral">
-        <h4><span class="sw"></span>CRM &amp; Sales</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">H</span>HubSpot</span>
-          <span class="tool-row-dense"><span class="tool-mono">G</span>GoHighLevel CRM</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>Calendly</span>
+      <!-- CRM & Sales -->
+      <div class="tool-category">
+        <h4 class="category-title">CRM &amp; Sales</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/hubspot/ff7a59"
+                 alt="HubSpot logo">
+            HubSpot
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/gohighlevel/f97316"
+                 alt="GoHighLevel CRM logo"
+                 onerror="this.style.display='none'">
+            GoHighLevel CRM
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/calendly/006bff"
+                 alt="Calendly logo">
+            Calendly
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-cyan">
-        <h4><span class="sw"></span>Project &amp; Task Management</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">N</span>Notion</span>
-          <span class="tool-row-dense"><span class="tool-mono">A</span>Airtable</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>ClickUp</span>
-          <span class="tool-row-dense"><span class="tool-mono">T</span>Trello</span>
+      <!-- Project & Task Management -->
+      <div class="tool-category">
+        <h4 class="category-title">Project &amp; Task Management</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/notion/000000"
+                 alt="Notion logo">
+            Notion
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/airtable/18bfff"
+                 alt="Airtable logo">
+            Airtable
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/clickup/7b68ee"
+                 alt="ClickUp logo">
+            ClickUp
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/trello/0052cc"
+                 alt="Trello logo">
+            Trello
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-violet">
-        <h4><span class="sw"></span>Development</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">H</span>HTML / CSS / JS</span>
-          <span class="tool-row-dense"><span class="tool-mono">R</span>React</span>
-          <span class="tool-row-dense"><span class="tool-mono">N</span>Node.js</span>
-          <span class="tool-row-dense"><span class="tool-mono">P</span>PHP</span>
-          <span class="tool-row-dense"><span class="tool-mono">M</span>MySQL</span>
-          <span class="tool-row-dense"><span class="tool-mono">R</span>REST APIs</span>
+      <!-- Development -->
+      <div class="tool-category">
+        <h4 class="category-title">Development</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/html5/e34f26"
+                 alt="HTML5 logo">
+            HTML / CSS / JS
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/react/61dafb"
+                 alt="React logo">
+            React
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/nodedotjs/339933"
+                 alt="Node.js logo">
+            Node.js
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/php/777bb4"
+                 alt="PHP logo">
+            PHP
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/mysql/4479a1"
+                 alt="MySQL logo">
+            MySQL
+          </div>
+
+          <div class="tool-item">
+            <!-- REST APIs — use a generic API/plug icon -->
+            <svg class="tool-logo" style="width:22px;height:22px;fill:#22d3ee;filter:none;opacity:0.9;flex-shrink:0;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="#22d3ee" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            REST APIs
+          </div>
+
         </div>
       </div>
 
-      <div class="tool-card-dense set-amber">
-        <h4><span class="sw"></span>Workspace &amp; Collaboration</h4>
-        <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">G</span>Google Workspace</span>
-          <span class="tool-row-dense"><span class="tool-mono">M</span>Microsoft 365</span>
-          <span class="tool-row-dense"><span class="tool-mono">S</span>Slack</span>
+      <!-- Workspace & Collaboration -->
+      <div class="tool-category">
+        <h4 class="category-title">Workspace &amp; Collaboration</h4>
+        <div class="tool-list">
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/google/4285f4"
+                 alt="Google Workspace logo">
+            Google Workspace
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/microsoftoffice/d83b01"
+                 alt="Microsoft 365 logo">
+            Microsoft 365
+          </div>
+
+          <div class="tool-item">
+            <img class="tool-logo colored"
+                 src="https://cdn.simpleicons.org/slack/4a154b"
+                 alt="Slack logo">
+            Slack
+          </div>
+
         </div>
       </div>
-    </div>
-  </div>
+
+    </div><!-- /.tools-grid -->
+  </div><!-- /.container -->
 </section>
-
 <!-- ================= PROJECTS ================= -->
 <section id="work">
   <div class="container">
