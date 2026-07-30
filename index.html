@@ -321,18 +321,22 @@
   .tool-rows{ display:flex; flex-direction:column; gap:8px; }
   .tool-row-dense{ display:flex; align-items:center; gap:9px; font-size:.82rem; color:var(--text-dim); transition:color .2s, transform .2s; }
   .tool-row-dense:hover{ color:var(--text); transform:translateX(2px); }
-  .tool-mono{
+  .tool-logo{
     width:19px; height:19px; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
-    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:.62rem; color:#04141c;
+    position:relative; overflow:hidden;
   }
+  .tool-logo img{ width:12px; height:12px; object-fit:contain; filter:brightness(0) invert(1); display:block; }
+  .tl-fallback-icon{ display:none; width:11px; height:11px; }
+  .tl-fallback-icon svg{ width:100%; height:100%; stroke:#04141c; }
+  .tool-logo.tl-fallback .tl-fallback-icon{ display:block; }
   .set-cyan h4{ color:var(--cyan); } .set-cyan h4 .sw{ background:var(--cyan); }
   .set-violet h4{ color:var(--violet); } .set-violet h4 .sw{ background:var(--violet); }
   .set-amber h4{ color:var(--amber); } .set-amber h4 .sw{ background:var(--amber); }
   .set-coral h4{ color:var(--coral); } .set-coral h4 .sw{ background:var(--coral); }
   .set-cyan:hover{ border-color:var(--cyan); } .set-violet:hover{ border-color:var(--violet); }
   .set-amber:hover{ border-color:var(--amber); } .set-coral:hover{ border-color:var(--coral); }
-  .set-cyan .tool-mono{ background:var(--cyan); } .set-violet .tool-mono{ background:var(--violet); }
-  .set-amber .tool-mono{ background:var(--amber); } .set-coral .tool-mono{ background:var(--coral); }
+  .set-cyan .tool-logo{ background:var(--cyan); } .set-violet .tool-logo{ background:var(--violet); }
+  .set-amber .tool-logo{ background:var(--amber); } .set-coral .tool-logo{ background:var(--coral); }
 
   /* ---------- MARQUEE TEASER ---------- */
   .marquee-wrap{
@@ -843,90 +847,90 @@
       <div class="tool-card-dense set-cyan">
         <h4><span class="sw"></span>AI Assistants</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">C</span>ChatGPT</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>Claude</span>
-          <span class="tool-row-dense"><span class="tool-mono">P</span>Perplexity</span>
-          <span class="tool-row-dense"><span class="tool-mono">G</span>Gemini</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/openai" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>ChatGPT</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/anthropic" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Claude</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/perplexity" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Perplexity</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googlegemini" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Gemini</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-violet">
         <h4><span class="sw"></span>AI Image, Design &amp; Video</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">M</span>Midjourney</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>Canva AI</span>
-          <span class="tool-row-dense"><span class="tool-mono">A</span>Adobe Firefly</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>CapCut</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/midjourney" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Midjourney</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/canva" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Canva AI</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobe" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Adobe Firefly</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/capcut" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>CapCut</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-amber">
         <h4><span class="sw"></span>Automation &amp; Workflows</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">Z</span>Zapier</span>
-          <span class="tool-row-dense"><span class="tool-mono">M</span>Make.com</span>
-          <span class="tool-row-dense"><span class="tool-mono">N</span>n8n</span>
-          <span class="tool-row-dense"><span class="tool-mono">G</span>GoHighLevel</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/zapier" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Zapier</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/make" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Make.com</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/n8n" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>n8n</span>
+          <span class="tool-row-dense"><span class="tool-logo tl-fallback"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>GoHighLevel</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-coral">
         <h4><span class="sw"></span>Voice &amp; Conversational AI</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">V</span>Vapi</span>
-          <span class="tool-row-dense"><span class="tool-mono">R</span>Retell AI</span>
-          <span class="tool-row-dense"><span class="tool-mono">T</span>Twilio Voice</span>
-          <span class="tool-row-dense"><span class="tool-mono">E</span>ElevenLabs</span>
+          <span class="tool-row-dense"><span class="tool-logo tl-fallback"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Vapi</span>
+          <span class="tool-row-dense"><span class="tool-logo tl-fallback"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Retell AI</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/twilio" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Twilio Voice</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/elevenlabs" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>ElevenLabs</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-cyan">
         <h4><span class="sw"></span>AI Agents, APIs &amp; Webhooks</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">O</span>OpenAI API</span>
-          <span class="tool-row-dense"><span class="tool-mono">L</span>LangChain</span>
-          <span class="tool-row-dense"><span class="tool-mono">W</span>Webhooks</span>
-          <span class="tool-row-dense"><span class="tool-mono">T</span>Telegram Bot API</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/openai" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>OpenAI API</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/langchain" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>LangChain</span>
+          <span class="tool-row-dense"><span class="tool-logo tl-fallback"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Webhooks</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/telegram" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Telegram Bot API</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-coral">
         <h4><span class="sw"></span>CRM &amp; Sales</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">H</span>HubSpot</span>
-          <span class="tool-row-dense"><span class="tool-mono">G</span>GoHighLevel CRM</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>Calendly</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/hubspot" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>HubSpot</span>
+          <span class="tool-row-dense"><span class="tool-logo tl-fallback"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>GoHighLevel CRM</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/calendly" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Calendly</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-cyan">
         <h4><span class="sw"></span>Project &amp; Task Management</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">N</span>Notion</span>
-          <span class="tool-row-dense"><span class="tool-mono">A</span>Airtable</span>
-          <span class="tool-row-dense"><span class="tool-mono">C</span>ClickUp</span>
-          <span class="tool-row-dense"><span class="tool-mono">T</span>Trello</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/notion" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Notion</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/airtable" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Airtable</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/clickup" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>ClickUp</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/trello" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Trello</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-violet">
         <h4><span class="sw"></span>Development</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">H</span>HTML / CSS / JS</span>
-          <span class="tool-row-dense"><span class="tool-mono">R</span>React</span>
-          <span class="tool-row-dense"><span class="tool-mono">N</span>Node.js</span>
-          <span class="tool-row-dense"><span class="tool-mono">P</span>PHP</span>
-          <span class="tool-row-dense"><span class="tool-mono">M</span>MySQL</span>
-          <span class="tool-row-dense"><span class="tool-mono">R</span>REST APIs</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/html5" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>HTML / CSS / JS</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>React</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Node.js</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/php" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>PHP</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/mysql" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>MySQL</span>
+          <span class="tool-row-dense"><span class="tool-logo tl-fallback"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>REST APIs</span>
         </div>
       </div>
 
       <div class="tool-card-dense set-amber">
         <h4><span class="sw"></span>Workspace &amp; Collaboration</h4>
         <div class="tool-rows">
-          <span class="tool-row-dense"><span class="tool-mono">G</span>Google Workspace</span>
-          <span class="tool-row-dense"><span class="tool-mono">M</span>Microsoft 365</span>
-          <span class="tool-row-dense"><span class="tool-mono">S</span>Slack</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleworkspace" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Google Workspace</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/microsoftoffice" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Microsoft 365</span>
+          <span class="tool-row-dense"><span class="tool-logo"><img src="https://cdn.simpleicons.org/slack" alt="" loading="lazy" onerror="this.parentElement.classList.add('tl-fallback');this.remove()"><span class="tl-fallback-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M9.8 10.2 6.4 6.8M14.2 10.2l3.4-3.4M9.8 13.8l-3.4 3.4M14.2 13.8l3.4 3.4"/></svg></span></span>Slack</span>
         </div>
       </div>
     </div>
