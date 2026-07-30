@@ -632,6 +632,1274 @@
 </section>
 
 <!-- ================= TOOLS ================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franzen Barredo — AI Automation & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#060810;
+    --bg-soft:#0b0f1c;
+    --surface:#111527;
+    --surface-2:#161b30;
+    --line: rgba(150,170,220,0.14);
+    --cyan:#2fe8cf;
+    --violet:#a48bff;
+    --amber:#ffb454;
+    --coral:#ff6f61;
+    --text:#f1f3fb;
+    --text-dim:#96a1c4;
+    --text-faint:#57608a;
+    --radius: 16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+    line-height:1.55;
+  }
+  ::selection{ background: var(--cyan); color:#04141c; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .glow{ position:fixed; border-radius:50%; filter:blur(90px); z-index:0; pointer-events:none; }
+  .glow.g1{ width:520px; height:520px; background:radial-gradient(circle, rgba(47,232,207,.22), transparent 70%); top:-120px; left:-140px; }
+  .glow.g2{ width:600px; height:600px; background:radial-gradient(circle, rgba(164,139,255,.18), transparent 70%); top:20%; right:-200px; }
+  .glow.g3{ width:500px; height:500px; background:radial-gradient(circle, rgba(255,111,97,.12), transparent 70%); bottom:-100px; left:20%; }
+
+  .grid-bg{
+    position:fixed; inset:0; z-index:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 10%, black 5%, transparent 70%);
+    opacity:.45;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color: var(--cyan);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:18px; height:1px; background: var(--cyan); }
+
+  h1,h2,h3,.display{ font-family:'Space Grotesk', sans-serif; font-weight:700; letter-spacing:-0.015em; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px clamp(20px,5vw,64px);
+    backdrop-filter: blur(14px);
+    background: rgba(6,8,16,0.6);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:8px;}
+  .logo .dot{ width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); animation: pulse 2.2s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{opacity:.4; transform:scale(.7);} }
+  nav ul{ list-style:none; display:flex; gap:34px; }
+  nav a{ font-size:.87rem; font-weight:600; color:var(--text-dim); transition:color .25s; position:relative; }
+  nav a:hover{ color:var(--text); }
+  nav a::after{ content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:var(--cyan); transition:width .25s; }
+  nav a:hover::after{ width:100%; }
+  .nav-cta{
+    font-family:'JetBrains Mono', monospace; font-size:.76rem; letter-spacing:.05em;
+    border:1px solid var(--cyan); color:var(--cyan); padding:9px 18px; border-radius:999px;
+    transition: all .25s;
+  }
+  .nav-cta:hover{ background:var(--cyan); color:#04141c; box-shadow:0 0 24px rgba(47,232,207,.4); }
+  .burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:110; background:none; border:none; }
+  .burger span{ width:24px; height:2px; background:var(--text); display:block; }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    position:relative; min-height:100vh; display:flex; align-items:center;
+    padding: 120px clamp(20px,5vw,64px) 60px; z-index:1;
+  }
+  #hero-canvas{ position:absolute; inset:0; z-index:-1; opacity:.7; }
+  .hero-grid{
+    display:grid; grid-template-columns: 1fr .9fr; gap:50px; align-items:center; width:100%; max-width:1280px; margin:0 auto;
+  }
+  .hero-copy .eyebrow{ margin-bottom:20px; }
+  .hero-copy h1{ font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height:1.02; margin-bottom:20px; }
+  .hero-copy h1 .grad{
+    background: linear-gradient(100deg, var(--cyan), var(--violet) 75%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-copy p.lead{ font-size:1.1rem; color:var(--text-dim); max-width:460px; margin-bottom:28px; }
+  .role-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px; }
+  .role-tag{
+    font-family:'JetBrains Mono', monospace; font-size:.74rem; padding:7px 14px; border-radius:999px;
+    border:1px solid var(--line); color:var(--text-dim); background:var(--surface);
+  }
+  .role-tag b{ color:var(--cyan); font-weight:600; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+  .btn-primary{
+    font-family:'JetBrains Mono', monospace; font-size:.82rem; font-weight:500;
+    background: linear-gradient(100deg, var(--cyan), #22c9b3);
+    color:#04141c; padding:14px 26px; border-radius:10px; display:inline-flex; align-items:center; gap:10px;
+    transition: box-shadow .3s, transform .2s;
+  }
+  .btn-primary:hover{ box-shadow:0 8px 30px rgba(47,232,207,.35); transform:translateY(-2px); }
+  .btn-ghost{
+    font-family:'JetBrains Mono', monospace; font-size:.82rem; color:var(--text); border:1px solid var(--line);
+    padding:14px 24px; border-radius:10px; transition:.25s;
+  }
+  .btn-ghost:hover{ border-color:var(--violet); color:var(--violet); }
+
+  .hero-portrait{ position:relative; display:flex; justify-content:center; perspective:900px; }
+  .portrait-frame{
+    position:relative; width:min(360px, 84%); aspect-ratio:4/5; border-radius:22px; overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.65);
+    transition: transform .15s ease-out;
+    will-change: transform;
+  }
+  .portrait-frame img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.04); }
+  .portrait-frame::after{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(200deg, transparent 55%, rgba(6,8,16,.8) 100%);
+  }
+  .scan-line{
+    position:absolute; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    animation: scan 3.4s linear infinite; opacity:.85;
+  }
+  @keyframes scan{ 0%{ top:4%;} 100%{ top:96%;} }
+  .corner{ position:absolute; width:22px; height:22px; border:2px solid var(--cyan); opacity:.9; }
+  .corner.tl{ top:-1px; left:-1px; border-right:none; border-bottom:none; border-radius:8px 0 0 0;}
+  .corner.br{ bottom:-1px; right:-1px; border-left:none; border-top:none; border-radius:0 0 8px 0;}
+  .badge-float{
+    position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
+    background: var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:11px 18px; display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:.72rem;
+    color:var(--text-dim); box-shadow:0 14px 30px rgba(0,0,0,.5); white-space:nowrap;
+  }
+  .badge-float .dotlive{ width:7px; height:7px; border-radius:50%; background:#5be07a; box-shadow:0 0 8px #5be07a; }
+
+  /* floating AI chat mock */
+  .chat-float{
+    position:absolute; top:-6%; left:-14%; width:230px; background:var(--surface); border:1px solid var(--line);
+    border-radius:14px; padding:14px; box-shadow:0 20px 50px rgba(0,0,0,.5); animation: float 6s ease-in-out infinite;
+    display:flex; flex-direction:column; gap:8px; z-index:3;
+  }
+  @keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-12px);} }
+  .chat-float .chip-label{ font-family:'JetBrains Mono',monospace; font-size:.6rem; color:var(--text-faint); letter-spacing:.1em; text-transform:uppercase; margin-bottom:2px;}
+  .bubble{ font-size:.72rem; padding:8px 10px; border-radius:10px; max-width:90%; line-height:1.4; }
+  .bubble.lead{ background:var(--surface-2); color:var(--text-dim); align-self:flex-start; border-bottom-left-radius:3px; }
+  .bubble.ai{ background: linear-gradient(100deg, rgba(47,232,207,.18), rgba(164,139,255,.18)); color:var(--text); align-self:flex-end; border-bottom-right-radius:3px; border:1px solid rgba(47,232,207,.3); }
+  .typing{ display:flex; gap:3px; align-self:flex-end; padding:6px 4px; }
+  .typing span{ width:5px; height:5px; background:var(--cyan); border-radius:50%; animation:typingDot 1.2s infinite; }
+  .typing span:nth-child(2){ animation-delay:.2s; } .typing span:nth-child(3){ animation-delay:.4s; }
+  @keyframes typingDot{ 0%,60%,100%{ opacity:.3; transform:translateY(0);} 30%{opacity:1; transform:translateY(-3px);} }
+
+  .scroll-cue{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .scroll-cue span{ font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.2em; color:var(--text-faint); }
+  .mouse{ width:20px; height:32px; border:1px solid var(--text-faint); border-radius:12px; position:relative; }
+  .mouse::before{ content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px; height:6px; background:var(--cyan); border-radius:2px; animation:wheel 1.8s ease-in-out infinite; }
+  @keyframes wheel{ 0%{opacity:1; top:6px;} 100%{opacity:0; top:16px;} }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ position:relative; z-index:1; padding: 100px clamp(20px,5vw,64px); }
+  .container{ max-width:1280px; margin:0 auto; }
+  .section-head{ margin-bottom:44px; max-width:620px; }
+  .section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); margin-top:14px; }
+  .section-head p{ color:var(--text-dim); margin-top:12px; font-size:.98rem; }
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- BACKGROUND ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:60px; align-items:start; }
+  .about-copy h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); margin:14px 0 20px; }
+  .about-copy p{ color:var(--text-dim); font-size:1rem; margin-bottom:16px; max-width:620px; }
+  .about-cta{ margin-top:24px; }
+  .about-proof{ display:flex; flex-direction:column; gap:18px; }
+  .proof-item{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px;
+    display:flex; align-items:center; gap:20px; transition: border-color .3s, transform .3s;
+  }
+  .proof-item:hover{ border-color:var(--cyan); transform:translateX(4px); }
+  .proof-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:2rem; flex-shrink:0; min-width:56px;
+    background:linear-gradient(100deg, var(--cyan), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .proof-text{ font-size:.86rem; color:var(--text-dim); line-height:1.5; }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; gap:32px; } }
+
+  #tools{ background: linear-gradient(180deg, transparent, var(--bg-soft) 12%, var(--bg-soft) 88%, transparent); }
+  .tool-groups{ display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; }
+  .tool-group{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px;
+    transition: transform .3s, border-color .3s;
+  }
+  .tool-group:hover{ transform:translateY(-5px); }
+  .tool-group.c-auto:hover{ border-color: var(--cyan); }
+  .tool-group.c-dev:hover{ border-color: var(--violet); }
+  .tool-group.c-ai:hover{ border-color: var(--coral); }
+  .tool-group.c-work:hover{ border-color: var(--amber); }
+  .tool-group.c-creative:hover{ border-color: var(--cyan); }
+  .tool-group h4{
+    font-family:'JetBrains Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:14px; display:flex; align-items:center; gap:7px;
+  }
+  .tool-group h4 .sw{ width:7px; height:7px; border-radius:50%; }
+  .c-auto h4 .sw{ background:var(--cyan); }
+  .c-dev h4 .sw{ background:var(--violet); }
+  .c-ai h4 .sw{ background:var(--coral); }
+  .c-work h4 .sw{ background:var(--amber); }
+  .c-creative h4 .sw{ background:var(--cyan); }
+  .chip-col{ display:flex; flex-direction:column; gap:7px; }
+  .chip{
+    display:flex; align-items:center; gap:8px; font-size:.82rem; font-weight:600; color:var(--text-dim);
+    transition: color .2s, transform .2s;
+  }
+  .chip:hover{ color:var(--text); transform:translateX(3px); }
+  .chip svg{ width:15px; height:15px; flex-shrink:0; }
+  .c-auto .chip svg{ stroke:var(--cyan); }
+  .c-dev .chip svg{ stroke:var(--violet); }
+  .c-ai .chip svg{ stroke:var(--coral); }
+  .c-work .chip svg{ stroke:var(--amber); }
+  .c-creative .chip svg{ stroke:var(--cyan); }
+
+  @media (max-width:1080px){ .tool-groups{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:640px){ .tool-groups{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- DENSE TOOL GRID ---------- */
+  .tools-dense-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  @media (max-width:1080px){ .tools-dense-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:760px){ .tools-dense-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:480px){ .tools-dense-grid{ grid-template-columns:1fr; } }
+
+  .tool-card-dense{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 18px 14px;
+    transition: transform .3s, border-color .3s;
+  }
+  .tool-card-dense:hover{ transform:translateY(-4px); }
+  .tool-card-dense h4{
+    font-family:'JetBrains Mono', monospace; font-size:.66rem; letter-spacing:.09em; text-transform:uppercase;
+    display:flex; align-items:center; gap:7px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .tool-card-dense h4 .sw{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .tool-rows{ display:flex; flex-direction:column; gap:8px; }
+  .tool-row-dense{ display:flex; align-items:center; gap:9px; font-size:.82rem; color:var(--text-dim); transition:color .2s, transform .2s; }
+  .tool-row-dense:hover{ color:var(--text); transform:translateX(2px); }
+  .tool-mono{
+    width:19px; height:19px; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:.62rem; color:#04141c;
+  }
+  .set-cyan h4{ color:var(--cyan); } .set-cyan h4 .sw{ background:var(--cyan); }
+  .set-violet h4{ color:var(--violet); } .set-violet h4 .sw{ background:var(--violet); }
+  .set-amber h4{ color:var(--amber); } .set-amber h4 .sw{ background:var(--amber); }
+  .set-coral h4{ color:var(--coral); } .set-coral h4 .sw{ background:var(--coral); }
+  .set-cyan:hover{ border-color:var(--cyan); } .set-violet:hover{ border-color:var(--violet); }
+  .set-amber:hover{ border-color:var(--amber); } .set-coral:hover{ border-color:var(--coral); }
+  .set-cyan .tool-mono{ background:var(--cyan); } .set-violet .tool-mono{ background:var(--violet); }
+  .set-amber .tool-mono{ background:var(--amber); } .set-coral .tool-mono{ background:var(--coral); }
+
+  /* ---------- MARQUEE TEASER ---------- */
+  .marquee-wrap{
+    position:relative; z-index:1; padding:22px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--bg-soft); overflow:hidden;
+  }
+  .marquee-wrap::before, .marquee-wrap::after{
+    content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none;
+  }
+  .marquee-wrap::before{ left:0; background:linear-gradient(90deg, var(--bg-soft), transparent); }
+  .marquee-wrap::after{ right:0; background:linear-gradient(-90deg, var(--bg-soft), transparent); }
+  .marquee-track{ display:flex; width:max-content; animation: marquee 32s linear infinite; }
+  .marquee-wrap:hover .marquee-track{ animation-play-state:paused; }
+  @keyframes marquee{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
+  .marquee-item{
+    display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:.8rem;
+    color:var(--text-dim); padding:0 28px; white-space:nowrap; border-right:1px solid var(--line);
+  }
+  .marquee-item b{ color:var(--text); font-weight:600; }
+  .marquee-item .dot-sep{ width:5px; height:5px; border-radius:50%; background:var(--cyan); flex-shrink:0; }
+
+  /* ---------- STAT COUNTERS ---------- */
+  .stat-row{ display:flex; justify-content:center; gap:0; flex-wrap:wrap; margin:36px 0 8px; }
+  .stat-item{ text-align:center; padding:0 40px; border-right:1px solid var(--line); }
+  .stat-item:last-child{ border-right:none; }
+  .stat-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(2rem,4vw,2.8rem);
+    background:linear-gradient(100deg, var(--cyan), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .stat-label{ font-family:'JetBrains Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint); margin-top:6px; }
+  @media (max-width:640px){ .stat-item{ padding:0 18px 18px; border-right:none; border-bottom:1px solid var(--line); } }
+
+  /* ---------- PROJECTS ---------- */
+  .platform-tabs{ display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap; }
+  .ptab{
+    font-family:'JetBrains Mono', monospace; font-size:.8rem; font-weight:500; padding:11px 20px; border-radius:10px;
+    border:1px solid var(--line); color:var(--text-dim); background:var(--surface); cursor:pointer; transition:.25s;
+    display:flex; align-items:center; gap:9px;
+  }
+  .ptab .n{ font-size:.68rem; color:var(--text-faint); }
+  .ptab:hover{ border-color:var(--text-dim); color:var(--text); }
+  .ptab.active{ border-color:var(--cyan); color:var(--text); background:rgba(47,232,207,.08); }
+  .ptab.active .n{ color:var(--cyan); }
+
+  .platform-panel{ display:none; }
+  .platform-panel.active{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:900px){ .platform-panel.active{ grid-template-columns:1fr; } }
+
+  .project-card{
+    background: var(--surface); border:1px solid var(--line); border-radius:20px; padding:28px;
+    display:flex; flex-direction:column; gap:18px; transition: transform .3s, border-color .3s;
+  }
+  .project-card:hover{ transform:translateY(-4px); border-color: var(--cyan); }
+  .project-shot{
+    position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg, rgba(150,170,220,0.06) 0px, rgba(150,170,220,0.06) 2px, transparent 2px, transparent 14px),
+      linear-gradient(135deg, var(--surface-2), var(--bg-soft));
+    border:1px dashed var(--line);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  }
+  .project-shot svg{ width:26px; height:26px; stroke:var(--text-faint); }
+  .project-shot span{
+    font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .project-shot.has-shot{ border-style:solid; padding:0; cursor:zoom-in; }
+  .project-shot.has-shot img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+  .project-shot.has-shot::after{
+    content:''; position:absolute; inset:0; border-radius:12px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+    background: linear-gradient(200deg, transparent 60%, rgba(6,8,16,.55) 100%);
+    pointer-events:none;
+  }
+  .zoom-hint{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:8px;
+    background:rgba(6,8,16,.62); backdrop-filter:blur(2px);
+    opacity:0; transition:opacity .22s ease; border-radius:12px;
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.04em; color:var(--text);
+    z-index:2;
+  }
+  .zoom-hint svg{ width:16px; height:16px; stroke:var(--cyan); }
+  .project-shot.has-shot:hover .zoom-hint{ opacity:1; }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox-overlay{
+    position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
+    background:rgba(4,6,12,.92); backdrop-filter:blur(6px); padding:5vh 4vw; cursor:zoom-out;
+  }
+  .lightbox-overlay.open{ display:flex; }
+  .lightbox-overlay img{
+    max-width:100%; max-height:82vh; border-radius:10px; border:1px solid var(--line);
+    box-shadow:0 30px 80px rgba(0,0,0,.6); cursor:default;
+  }
+  .lightbox-caption{
+    position:absolute; bottom:5vh; left:0; right:0; text-align:center;
+    font-family:'JetBrains Mono', monospace; font-size:.78rem; color:var(--text-dim); letter-spacing:.03em;
+  }
+  .lightbox-close{
+    position:absolute; top:24px; right:28px; width:42px; height:42px; border-radius:50%;
+    background:var(--surface); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:border-color .2s, transform .2s;
+  }
+  .lightbox-close:hover{ border-color:var(--cyan); transform:rotate(90deg); }
+  .lightbox-close svg{ width:18px; height:18px; stroke:var(--text); }
+
+  .project-shot.arch{ border-style:solid; flex-direction:column; gap:12px; background: linear-gradient(150deg, var(--surface-2), var(--bg-soft)); }
+  .project-shot.arch .arch-icon{ width:48px; height:48px; border-radius:13px; display:flex; align-items:center; justify-content:center; }
+  .project-shot.arch .arch-icon svg{ width:24px; height:24px; stroke:#04141c; }
+  .project-shot.arch.c-ghl .arch-icon{ background:linear-gradient(100deg, var(--amber), #ff8a3d); }
+  .project-shot.arch.c-n8n .arch-icon{ background:linear-gradient(100deg, var(--violet), #7c5cff); }
+  .project-shot.arch .arch-label{
+    font-family:'JetBrains Mono', monospace; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim);
+  }
+  .project-shot.arch .arch-sub{
+    font-family:'JetBrains Mono', monospace; font-size:.62rem; letter-spacing:.04em; color:var(--text-faint);
+  }
+
+  .status-pill{
+    font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 11px; border-radius:999px; border:1px solid var(--violet); color:var(--violet); background:rgba(164,139,255,.1);
+    width:fit-content;
+  }
+  .project-card h3{ font-size:1.28rem; line-height:1.25; }
+  .project-card .pain{ font-size:.87rem; color:var(--text-dim); }
+  .niche-tag{
+    font-family:'JetBrains Mono', monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+    color: var(--amber); display:flex; align-items:center; gap:6px; margin-top:-6px;
+  }
+  .niche-tag::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--amber); }
+
+  /* icon-chain workflow diagram */
+  .icon-chain{ display:flex; align-items:center; flex-wrap:wrap; gap:0; padding:14px 4px; background:var(--bg-soft); border-radius:12px; border:1px solid var(--line); }
+  .ic-node{ display:flex; flex-direction:column; align-items:center; gap:7px; width:74px; text-align:center; }
+  .ic-node .ic-circle{
+    width:38px; height:38px; border-radius:10px; background:var(--surface-2); border:1px solid var(--cyan);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .ic-node .ic-circle svg{ width:18px; height:18px; stroke:var(--cyan); }
+  .ic-node.alt .ic-circle{ border-color:var(--violet); }
+  .ic-node.alt .ic-circle svg{ stroke:var(--violet); }
+  .ic-node.warm .ic-circle{ border-color:var(--coral); }
+  .ic-node.warm .ic-circle svg{ stroke:var(--coral); }
+  .ic-node span{ font-size:.64rem; color:var(--text-dim); line-height:1.25; font-weight:600; }
+  .ic-arrow{ flex-shrink:0; width:22px; height:2px; background: repeating-linear-gradient(90deg, var(--text-faint) 0 4px, transparent 4px 7px); margin:0 2px 20px; position:relative; }
+  .ic-arrow::after{ content:''; position:absolute; right:0; top:-3px; border:4px solid transparent; border-left-color:var(--text-faint); }
+
+  .stack-tags{ display:flex; flex-wrap:wrap; gap:7px; }
+  .stack-tags span{ font-size:.68rem; font-family:'JetBrains Mono', monospace; color:var(--text-dim); border:1px solid var(--line); padding:5px 9px; border-radius:6px; }
+
+  /* ---------- PROCESS ---------- */
+  .process-line{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .process-line::before{
+    content:''; position:absolute; top:24px; left:6%; right:6%; height:1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px); z-index:0;
+  }
+  .process-step{ position:relative; z-index:1; }
+  .process-num{
+    width:48px; height:48px; border-radius:50%; background:var(--surface); border:1px solid var(--cyan);
+    display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; color:var(--cyan);
+    margin-bottom:18px;
+  }
+  .process-step h4{ font-size:1.05rem; margin-bottom:7px; font-family:'Space Grotesk',sans-serif; }
+  .process-step p{ font-size:.85rem; color:var(--text-dim); }
+  @media (max-width:860px){ .process-line{ grid-template-columns:1fr 1fr; row-gap:36px; } .process-line::before{ display:none; } }
+
+  /* ---------- CONTACT ---------- */
+  #contact{ text-align:center; }
+  #contact h2{ font-size:clamp(2rem,5vw,3.2rem); max-width:760px; margin:16px auto 20px; }
+  #contact p.lead{ color:var(--text-dim); max-width:500px; margin:0 auto 32px; }
+  .contact-row{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:40px; }
+  .contact-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 24px;
+    display:flex; align-items:center; gap:11px; font-size:.9rem; font-weight:600; transition:.25s;
+  }
+  .contact-card:hover{ border-color:var(--cyan); transform:translateY(-3px); }
+  .contact-card svg{ width:18px; height:18px; stroke:var(--cyan); }
+
+  .contact-form{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:36px clamp(20px,4vw,44px); max-width:640px; margin:0 auto; text-align:left;
+  }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  @media (max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+  .form-field{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+  .form-field label{
+    font-family:'JetBrains Mono', monospace; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .form-field input, .form-field textarea{
+    background:var(--bg-soft); border:1px solid var(--line); border-radius:10px; padding:13px 14px;
+    color:var(--text); font-family:'Manrope', sans-serif; font-size:.92rem; resize:vertical; transition:border-color .25s;
+  }
+  .form-field input:focus, .form-field textarea:focus{ outline:none; border-color:var(--cyan); }
+  .form-field textarea{ min-height:120px; }
+  .form-submit{
+    font-family:'JetBrains Mono', monospace; font-size:.85rem; font-weight:500; width:100%;
+    background: linear-gradient(100deg, var(--cyan), #22c9b3); color:#04141c; padding:15px 26px;
+    border:none; border-radius:10px; cursor:pointer; transition: box-shadow .3s, transform .2s;
+  }
+  .form-submit:hover{ box-shadow:0 8px 30px rgba(47,232,207,.35); transform:translateY(-2px); }
+  .form-note{ font-size:.76rem; color:var(--text-faint); margin-top:14px; text-align:center; }
+  .form-divider{
+    display:flex; align-items:center; gap:14px; max-width:640px; margin:36px auto; color:var(--text-faint);
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  }
+  .form-divider::before, .form-divider::after{ content:''; flex:1; height:1px; background:var(--line); }
+
+  footer{
+    border-top:1px solid var(--line); padding:24px clamp(20px,5vw,64px); display:flex; justify-content:space-between;
+    font-size:.78rem; color:var(--text-faint); flex-wrap:wrap; gap:10px; position:relative; z-index:1;
+  }
+
+  @media (max-width:860px){
+    nav{ position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px); background:var(--bg-soft);
+      border-left:1px solid var(--line); display:flex; align-items:center; transform:translateX(100%); transition:transform .35s ease; z-index:105;}
+    nav.open{ transform:translateX(0); }
+    nav ul{ flex-direction:column; gap:28px; padding:0 40px; }
+    .nav-cta{ display:none; }
+    .burger{ display:flex; }
+    .hero-grid{ grid-template-columns:1fr; text-align:center; }
+    .hero-copy p.lead{ margin-left:auto; margin-right:auto; }
+    .role-tags, .hero-ctas{ justify-content:center; }
+    .hero-portrait{ order:-1; margin-bottom:26px;}
+    .chat-float{ display:none; }
+  }
+  @media (max-width:540px){
+    section{ padding:70px 18px; }
+    .icon-chain{ justify-content:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+  :focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="logo"><span class="dot"></span>FRANZEN.DEV</div>
+  <nav id="nav">
+    <ul>
+      <li><a href="#hero" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">Background</a></li>
+      <li><a href="#tools" class="nav-link">Stack</a></li>
+      <li><a href="#work" class="nav-link">Work</a></li>
+      <li><a href="#process" class="nav-link">Process</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="nav-cta">Start a project</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">AUTOMATION &amp; DEVELOPMENT</div>
+      <h1>Systems that work <span class="grad">while you don't.</span></h1>
+      <p class="lead">I build the AI automations and websites <strong style="color:var(--text)">small businesses</strong> use to stop losing leads to slow replies, manual busywork, and follow-ups that never happen.</p>
+      <div class="role-tags" style="margin-bottom:14px;">
+        <span class="role-tag"><b>01</b> &nbsp;AI Automation Specialist</span>
+        <span class="role-tag"><b>02</b> &nbsp;Web Developer</span>
+      </div>
+      <div class="role-tags">
+        <span class="role-tag">⚡ Lead Response</span>
+        <span class="role-tag">🤖 AI Workflows</span>
+        <span class="role-tag">🔗 Tool Integrations</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-primary">See the builds ↓</a>
+        <a href="#contact" class="btn-ghost">Let's talk</a>
+      </div>
+    </div>
+    <div class="hero-portrait" id="tiltWrap">
+      <div class="chat-float">
+        <div class="chip-label">● live automation preview</div>
+        <div class="bubble lead">Hey, do you have availability this week?</div>
+        <div class="bubble ai">Yes! Thursday 2:00 PM or Friday 10:00 AM — which works better?</div>
+        <div class="typing"><span></span><span></span><span></span></div>
+      </div>
+      <div class="portrait-frame" id="tiltCard">
+        <img src="assets/img/profile.jpg" alt="Portrait of Franzen Barredo" loading="eager">
+        <div class="corner tl"></div>
+        <div class="corner br"></div>
+        <div class="scan-line"></div>
+      </div>
+      <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · San Jose, Occidental Mindoro, PH</div>
+    </div>
+  </div>
+  <a href="#work" class="scroll-cue"><span>12 BUILDS BELOW ↓</span><div class="mouse"></div></a>
+</section>
+
+<!-- ================= MARQUEE TEASER ================= -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Email Triage &amp; Auto-Responder</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Lead Qualification</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Review Request Automation</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Sales Assistant Agent</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Cart Recovery</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Content Repurposing</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>New Client Welcome Sequence</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Voice Agent</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Support Triage</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Multi-Agent Content Pipeline</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Win-Back &amp; Reactivation Engine</b>&nbsp;— GoHighLevel</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Email Triage &amp; Auto-Responder</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Lead Qualification</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Review Request Automation</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Sales Assistant Agent</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Cart Recovery</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Content Repurposing</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>New Client Welcome Sequence</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Voice Agent</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Support Triage</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Multi-Agent Content Pipeline</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Win-Back &amp; Reactivation Engine</b>&nbsp;— GoHighLevel</span>
+  </div>
+</div>
+
+<!-- ================= BACKGROUND ================= -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <div class="eyebrow">BACKGROUND</div>
+        <h2>Nobody assigned these builds. I did.</h2>
+        <p>My foundation is BSIT — but what actually taught me automation was building real systems, breaking them, and rebuilding until they held up under a live test. Every workflow on this site was mapped, built, debugged, and pressure-tested by me alone, the same way a client engagement runs: understand the real bottleneck, wire every integration by hand, and ship something that keeps running after I walk away.</p>
+        <p>I didn't learn this from a course library. I learned it from staring at a broken field mapping at 2am until I understood exactly why it failed — then doing it again on the next platform, and the next, until the underlying pattern held across all of them. That's the difference between knowing a tool and knowing how automation actually works.</p>
+        <div class="about-cta">
+          <a href="#work" class="btn-ghost">See the proof ↓</a>
+        </div>
+      </div>
+      <div class="about-proof reveal">
+        <div class="proof-item">
+          <div class="proof-num">11</div>
+          <div class="proof-text">Systems designed, built, and tested live end-to-end — not templates, not tutorials.</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">4</div>
+          <div class="proof-text">Automation platforms fluent enough to solve the same business problem four different ways.</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">1:1</div>
+          <div class="proof-text">Solo build ratio. No team, no template marketplace — every integration wired by hand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franzen Barredo — AI Automation & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#060810;
+    --bg-soft:#0b0f1c;
+    --surface:#111527;
+    --surface-2:#161b30;
+    --line: rgba(150,170,220,0.14);
+    --cyan:#2fe8cf;
+    --violet:#a48bff;
+    --amber:#ffb454;
+    --coral:#ff6f61;
+    --text:#f1f3fb;
+    --text-dim:#96a1c4;
+    --text-faint:#57608a;
+    --radius: 16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+    line-height:1.55;
+  }
+  ::selection{ background: var(--cyan); color:#04141c; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .glow{ position:fixed; border-radius:50%; filter:blur(90px); z-index:0; pointer-events:none; }
+  .glow.g1{ width:520px; height:520px; background:radial-gradient(circle, rgba(47,232,207,.22), transparent 70%); top:-120px; left:-140px; }
+  .glow.g2{ width:600px; height:600px; background:radial-gradient(circle, rgba(164,139,255,.18), transparent 70%); top:20%; right:-200px; }
+  .glow.g3{ width:500px; height:500px; background:radial-gradient(circle, rgba(255,111,97,.12), transparent 70%); bottom:-100px; left:20%; }
+
+  .grid-bg{
+    position:fixed; inset:0; z-index:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 10%, black 5%, transparent 70%);
+    opacity:.45;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color: var(--cyan);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:18px; height:1px; background: var(--cyan); }
+
+  h1,h2,h3,.display{ font-family:'Space Grotesk', sans-serif; font-weight:700; letter-spacing:-0.015em; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px clamp(20px,5vw,64px);
+    backdrop-filter: blur(14px);
+    background: rgba(6,8,16,0.6);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:8px;}
+  .logo .dot{ width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); animation: pulse 2.2s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{opacity:.4; transform:scale(.7);} }
+  nav ul{ list-style:none; display:flex; gap:34px; }
+  nav a{ font-size:.87rem; font-weight:600; color:var(--text-dim); transition:color .25s; position:relative; }
+  nav a:hover{ color:var(--text); }
+  nav a::after{ content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:var(--cyan); transition:width .25s; }
+  nav a:hover::after{ width:100%; }
+  .nav-cta{
+    font-family:'JetBrains Mono', monospace; font-size:.76rem; letter-spacing:.05em;
+    border:1px solid var(--cyan); color:var(--cyan); padding:9px 18px; border-radius:999px;
+    transition: all .25s;
+  }
+  .nav-cta:hover{ background:var(--cyan); color:#04141c; box-shadow:0 0 24px rgba(47,232,207,.4); }
+  .burger{ display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:110; background:none; border:none; }
+  .burger span{ width:24px; height:2px; background:var(--text); display:block; }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    position:relative; min-height:100vh; display:flex; align-items:center;
+    padding: 120px clamp(20px,5vw,64px) 60px; z-index:1;
+  }
+  #hero-canvas{ position:absolute; inset:0; z-index:-1; opacity:.7; }
+  .hero-grid{
+    display:grid; grid-template-columns: 1fr .9fr; gap:50px; align-items:center; width:100%; max-width:1280px; margin:0 auto;
+  }
+  .hero-copy .eyebrow{ margin-bottom:20px; }
+  .hero-copy h1{ font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height:1.02; margin-bottom:20px; }
+  .hero-copy h1 .grad{
+    background: linear-gradient(100deg, var(--cyan), var(--violet) 75%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-copy p.lead{ font-size:1.1rem; color:var(--text-dim); max-width:460px; margin-bottom:28px; }
+  .role-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px; }
+  .role-tag{
+    font-family:'JetBrains Mono', monospace; font-size:.74rem; padding:7px 14px; border-radius:999px;
+    border:1px solid var(--line); color:var(--text-dim); background:var(--surface);
+  }
+  .role-tag b{ color:var(--cyan); font-weight:600; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+  .btn-primary{
+    font-family:'JetBrains Mono', monospace; font-size:.82rem; font-weight:500;
+    background: linear-gradient(100deg, var(--cyan), #22c9b3);
+    color:#04141c; padding:14px 26px; border-radius:10px; display:inline-flex; align-items:center; gap:10px;
+    transition: box-shadow .3s, transform .2s;
+  }
+  .btn-primary:hover{ box-shadow:0 8px 30px rgba(47,232,207,.35); transform:translateY(-2px); }
+  .btn-ghost{
+    font-family:'JetBrains Mono', monospace; font-size:.82rem; color:var(--text); border:1px solid var(--line);
+    padding:14px 24px; border-radius:10px; transition:.25s;
+  }
+  .btn-ghost:hover{ border-color:var(--violet); color:var(--violet); }
+
+  .hero-portrait{ position:relative; display:flex; justify-content:center; perspective:900px; }
+  .portrait-frame{
+    position:relative; width:min(360px, 84%); aspect-ratio:4/5; border-radius:22px; overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.65);
+    transition: transform .15s ease-out;
+    will-change: transform;
+  }
+  .portrait-frame img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.04); }
+  .portrait-frame::after{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(200deg, transparent 55%, rgba(6,8,16,.8) 100%);
+  }
+  .scan-line{
+    position:absolute; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    animation: scan 3.4s linear infinite; opacity:.85;
+  }
+  @keyframes scan{ 0%{ top:4%;} 100%{ top:96%;} }
+  .corner{ position:absolute; width:22px; height:22px; border:2px solid var(--cyan); opacity:.9; }
+  .corner.tl{ top:-1px; left:-1px; border-right:none; border-bottom:none; border-radius:8px 0 0 0;}
+  .corner.br{ bottom:-1px; right:-1px; border-left:none; border-top:none; border-radius:0 0 8px 0;}
+  .badge-float{
+    position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
+    background: var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:11px 18px; display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:.72rem;
+    color:var(--text-dim); box-shadow:0 14px 30px rgba(0,0,0,.5); white-space:nowrap;
+  }
+  .badge-float .dotlive{ width:7px; height:7px; border-radius:50%; background:#5be07a; box-shadow:0 0 8px #5be07a; }
+
+  /* floating AI chat mock */
+  .chat-float{
+    position:absolute; top:-6%; left:-14%; width:230px; background:var(--surface); border:1px solid var(--line);
+    border-radius:14px; padding:14px; box-shadow:0 20px 50px rgba(0,0,0,.5); animation: float 6s ease-in-out infinite;
+    display:flex; flex-direction:column; gap:8px; z-index:3;
+  }
+  @keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-12px);} }
+  .chat-float .chip-label{ font-family:'JetBrains Mono',monospace; font-size:.6rem; color:var(--text-faint); letter-spacing:.1em; text-transform:uppercase; margin-bottom:2px;}
+  .bubble{ font-size:.72rem; padding:8px 10px; border-radius:10px; max-width:90%; line-height:1.4; }
+  .bubble.lead{ background:var(--surface-2); color:var(--text-dim); align-self:flex-start; border-bottom-left-radius:3px; }
+  .bubble.ai{ background: linear-gradient(100deg, rgba(47,232,207,.18), rgba(164,139,255,.18)); color:var(--text); align-self:flex-end; border-bottom-right-radius:3px; border:1px solid rgba(47,232,207,.3); }
+  .typing{ display:flex; gap:3px; align-self:flex-end; padding:6px 4px; }
+  .typing span{ width:5px; height:5px; background:var(--cyan); border-radius:50%; animation:typingDot 1.2s infinite; }
+  .typing span:nth-child(2){ animation-delay:.2s; } .typing span:nth-child(3){ animation-delay:.4s; }
+  @keyframes typingDot{ 0%,60%,100%{ opacity:.3; transform:translateY(0);} 30%{opacity:1; transform:translateY(-3px);} }
+
+  .scroll-cue{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .scroll-cue span{ font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.2em; color:var(--text-faint); }
+  .mouse{ width:20px; height:32px; border:1px solid var(--text-faint); border-radius:12px; position:relative; }
+  .mouse::before{ content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px; height:6px; background:var(--cyan); border-radius:2px; animation:wheel 1.8s ease-in-out infinite; }
+  @keyframes wheel{ 0%{opacity:1; top:6px;} 100%{opacity:0; top:16px;} }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ position:relative; z-index:1; padding: 100px clamp(20px,5vw,64px); }
+  .container{ max-width:1280px; margin:0 auto; }
+  .section-head{ margin-bottom:44px; max-width:620px; }
+  .section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); margin-top:14px; }
+  .section-head p{ color:var(--text-dim); margin-top:12px; font-size:.98rem; }
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- BACKGROUND ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:60px; align-items:start; }
+  .about-copy h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); margin:14px 0 20px; }
+  .about-copy p{ color:var(--text-dim); font-size:1rem; margin-bottom:16px; max-width:620px; }
+  .about-cta{ margin-top:24px; }
+  .about-proof{ display:flex; flex-direction:column; gap:18px; }
+  .proof-item{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px;
+    display:flex; align-items:center; gap:20px; transition: border-color .3s, transform .3s;
+  }
+  .proof-item:hover{ border-color:var(--cyan); transform:translateX(4px); }
+  .proof-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:2rem; flex-shrink:0; min-width:56px;
+    background:linear-gradient(100deg, var(--cyan), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .proof-text{ font-size:.86rem; color:var(--text-dim); line-height:1.5; }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; gap:32px; } }
+
+  #tools{ background: linear-gradient(180deg, transparent, var(--bg-soft) 12%, var(--bg-soft) 88%, transparent); }
+  .tool-groups{ display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; }
+  .tool-group{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px;
+    transition: transform .3s, border-color .3s;
+  }
+  .tool-group:hover{ transform:translateY(-5px); }
+  .tool-group.c-auto:hover{ border-color: var(--cyan); }
+  .tool-group.c-dev:hover{ border-color: var(--violet); }
+  .tool-group.c-ai:hover{ border-color: var(--coral); }
+  .tool-group.c-work:hover{ border-color: var(--amber); }
+  .tool-group.c-creative:hover{ border-color: var(--cyan); }
+  .tool-group h4{
+    font-family:'JetBrains Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:14px; display:flex; align-items:center; gap:7px;
+  }
+  .tool-group h4 .sw{ width:7px; height:7px; border-radius:50%; }
+  .c-auto h4 .sw{ background:var(--cyan); }
+  .c-dev h4 .sw{ background:var(--violet); }
+  .c-ai h4 .sw{ background:var(--coral); }
+  .c-work h4 .sw{ background:var(--amber); }
+  .c-creative h4 .sw{ background:var(--cyan); }
+  .chip-col{ display:flex; flex-direction:column; gap:7px; }
+  .chip{
+    display:flex; align-items:center; gap:8px; font-size:.82rem; font-weight:600; color:var(--text-dim);
+    transition: color .2s, transform .2s;
+  }
+  .chip:hover{ color:var(--text); transform:translateX(3px); }
+  .chip svg{ width:15px; height:15px; flex-shrink:0; }
+  .c-auto .chip svg{ stroke:var(--cyan); }
+  .c-dev .chip svg{ stroke:var(--violet); }
+  .c-ai .chip svg{ stroke:var(--coral); }
+  .c-work .chip svg{ stroke:var(--amber); }
+  .c-creative .chip svg{ stroke:var(--cyan); }
+
+  @media (max-width:1080px){ .tool-groups{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:640px){ .tool-groups{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- DENSE TOOL GRID ---------- */
+  .tools-dense-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  @media (max-width:1080px){ .tools-dense-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:760px){ .tools-dense-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:480px){ .tools-dense-grid{ grid-template-columns:1fr; } }
+
+  .tool-card-dense{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 18px 14px;
+    transition: transform .3s, border-color .3s;
+  }
+  .tool-card-dense:hover{ transform:translateY(-4px); }
+  .tool-card-dense h4{
+    font-family:'JetBrains Mono', monospace; font-size:.66rem; letter-spacing:.09em; text-transform:uppercase;
+    display:flex; align-items:center; gap:7px; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .tool-card-dense h4 .sw{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .tool-rows{ display:flex; flex-direction:column; gap:8px; }
+  .tool-row-dense{ display:flex; align-items:center; gap:9px; font-size:.82rem; color:var(--text-dim); transition:color .2s, transform .2s; }
+  .tool-row-dense:hover{ color:var(--text); transform:translateX(2px); }
+  .tool-mono{
+    width:19px; height:19px; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:.62rem; color:#04141c;
+  }
+  .set-cyan h4{ color:var(--cyan); } .set-cyan h4 .sw{ background:var(--cyan); }
+  .set-violet h4{ color:var(--violet); } .set-violet h4 .sw{ background:var(--violet); }
+  .set-amber h4{ color:var(--amber); } .set-amber h4 .sw{ background:var(--amber); }
+  .set-coral h4{ color:var(--coral); } .set-coral h4 .sw{ background:var(--coral); }
+  .set-cyan:hover{ border-color:var(--cyan); } .set-violet:hover{ border-color:var(--violet); }
+  .set-amber:hover{ border-color:var(--amber); } .set-coral:hover{ border-color:var(--coral); }
+  .set-cyan .tool-mono{ background:var(--cyan); } .set-violet .tool-mono{ background:var(--violet); }
+  .set-amber .tool-mono{ background:var(--amber); } .set-coral .tool-mono{ background:var(--coral); }
+
+  /* ---------- MARQUEE TEASER ---------- */
+  .marquee-wrap{
+    position:relative; z-index:1; padding:22px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--bg-soft); overflow:hidden;
+  }
+  .marquee-wrap::before, .marquee-wrap::after{
+    content:''; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none;
+  }
+  .marquee-wrap::before{ left:0; background:linear-gradient(90deg, var(--bg-soft), transparent); }
+  .marquee-wrap::after{ right:0; background:linear-gradient(-90deg, var(--bg-soft), transparent); }
+  .marquee-track{ display:flex; width:max-content; animation: marquee 32s linear infinite; }
+  .marquee-wrap:hover .marquee-track{ animation-play-state:paused; }
+  @keyframes marquee{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
+  .marquee-item{
+    display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:.8rem;
+    color:var(--text-dim); padding:0 28px; white-space:nowrap; border-right:1px solid var(--line);
+  }
+  .marquee-item b{ color:var(--text); font-weight:600; }
+  .marquee-item .dot-sep{ width:5px; height:5px; border-radius:50%; background:var(--cyan); flex-shrink:0; }
+
+  /* ---------- STAT COUNTERS ---------- */
+  .stat-row{ display:flex; justify-content:center; gap:0; flex-wrap:wrap; margin:36px 0 8px; }
+  .stat-item{ text-align:center; padding:0 40px; border-right:1px solid var(--line); }
+  .stat-item:last-child{ border-right:none; }
+  .stat-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(2rem,4vw,2.8rem);
+    background:linear-gradient(100deg, var(--cyan), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .stat-label{ font-family:'JetBrains Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint); margin-top:6px; }
+  @media (max-width:640px){ .stat-item{ padding:0 18px 18px; border-right:none; border-bottom:1px solid var(--line); } }
+
+  /* ---------- PROJECTS ---------- */
+  .platform-tabs{ display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap; }
+  .ptab{
+    font-family:'JetBrains Mono', monospace; font-size:.8rem; font-weight:500; padding:11px 20px; border-radius:10px;
+    border:1px solid var(--line); color:var(--text-dim); background:var(--surface); cursor:pointer; transition:.25s;
+    display:flex; align-items:center; gap:9px;
+  }
+  .ptab .n{ font-size:.68rem; color:var(--text-faint); }
+  .ptab:hover{ border-color:var(--text-dim); color:var(--text); }
+  .ptab.active{ border-color:var(--cyan); color:var(--text); background:rgba(47,232,207,.08); }
+  .ptab.active .n{ color:var(--cyan); }
+
+  .platform-panel{ display:none; }
+  .platform-panel.active{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:900px){ .platform-panel.active{ grid-template-columns:1fr; } }
+
+  .project-card{
+    background: var(--surface); border:1px solid var(--line); border-radius:20px; padding:28px;
+    display:flex; flex-direction:column; gap:18px; transition: transform .3s, border-color .3s;
+  }
+  .project-card:hover{ transform:translateY(-4px); border-color: var(--cyan); }
+  .project-shot{
+    position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg, rgba(150,170,220,0.06) 0px, rgba(150,170,220,0.06) 2px, transparent 2px, transparent 14px),
+      linear-gradient(135deg, var(--surface-2), var(--bg-soft));
+    border:1px dashed var(--line);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  }
+  .project-shot svg{ width:26px; height:26px; stroke:var(--text-faint); }
+  .project-shot span{
+    font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .project-shot.has-shot{ border-style:solid; padding:0; cursor:zoom-in; }
+  .project-shot.has-shot img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+  .project-shot.has-shot::after{
+    content:''; position:absolute; inset:0; border-radius:12px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+    background: linear-gradient(200deg, transparent 60%, rgba(6,8,16,.55) 100%);
+    pointer-events:none;
+  }
+  .zoom-hint{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:8px;
+    background:rgba(6,8,16,.62); backdrop-filter:blur(2px);
+    opacity:0; transition:opacity .22s ease; border-radius:12px;
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.04em; color:var(--text);
+    z-index:2;
+  }
+  .zoom-hint svg{ width:16px; height:16px; stroke:var(--cyan); }
+  .project-shot.has-shot:hover .zoom-hint{ opacity:1; }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox-overlay{
+    position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
+    background:rgba(4,6,12,.92); backdrop-filter:blur(6px); padding:5vh 4vw; cursor:zoom-out;
+  }
+  .lightbox-overlay.open{ display:flex; }
+  .lightbox-overlay img{
+    max-width:100%; max-height:82vh; border-radius:10px; border:1px solid var(--line);
+    box-shadow:0 30px 80px rgba(0,0,0,.6); cursor:default;
+  }
+  .lightbox-caption{
+    position:absolute; bottom:5vh; left:0; right:0; text-align:center;
+    font-family:'JetBrains Mono', monospace; font-size:.78rem; color:var(--text-dim); letter-spacing:.03em;
+  }
+  .lightbox-close{
+    position:absolute; top:24px; right:28px; width:42px; height:42px; border-radius:50%;
+    background:var(--surface); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:border-color .2s, transform .2s;
+  }
+  .lightbox-close:hover{ border-color:var(--cyan); transform:rotate(90deg); }
+  .lightbox-close svg{ width:18px; height:18px; stroke:var(--text); }
+
+  .project-shot.arch{ border-style:solid; flex-direction:column; gap:12px; background: linear-gradient(150deg, var(--surface-2), var(--bg-soft)); }
+  .project-shot.arch .arch-icon{ width:48px; height:48px; border-radius:13px; display:flex; align-items:center; justify-content:center; }
+  .project-shot.arch .arch-icon svg{ width:24px; height:24px; stroke:#04141c; }
+  .project-shot.arch.c-ghl .arch-icon{ background:linear-gradient(100deg, var(--amber), #ff8a3d); }
+  .project-shot.arch.c-n8n .arch-icon{ background:linear-gradient(100deg, var(--violet), #7c5cff); }
+  .project-shot.arch .arch-label{
+    font-family:'JetBrains Mono', monospace; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim);
+  }
+  .project-shot.arch .arch-sub{
+    font-family:'JetBrains Mono', monospace; font-size:.62rem; letter-spacing:.04em; color:var(--text-faint);
+  }
+
+  .status-pill{
+    font-family:'JetBrains Mono', monospace; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 11px; border-radius:999px; border:1px solid var(--violet); color:var(--violet); background:rgba(164,139,255,.1);
+    width:fit-content;
+  }
+  .project-card h3{ font-size:1.28rem; line-height:1.25; }
+  .project-card .pain{ font-size:.87rem; color:var(--text-dim); }
+  .niche-tag{
+    font-family:'JetBrains Mono', monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+    color: var(--amber); display:flex; align-items:center; gap:6px; margin-top:-6px;
+  }
+  .niche-tag::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--amber); }
+
+  /* icon-chain workflow diagram */
+  .icon-chain{ display:flex; align-items:center; flex-wrap:wrap; gap:0; padding:14px 4px; background:var(--bg-soft); border-radius:12px; border:1px solid var(--line); }
+  .ic-node{ display:flex; flex-direction:column; align-items:center; gap:7px; width:74px; text-align:center; }
+  .ic-node .ic-circle{
+    width:38px; height:38px; border-radius:10px; background:var(--surface-2); border:1px solid var(--cyan);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .ic-node .ic-circle svg{ width:18px; height:18px; stroke:var(--cyan); }
+  .ic-node.alt .ic-circle{ border-color:var(--violet); }
+  .ic-node.alt .ic-circle svg{ stroke:var(--violet); }
+  .ic-node.warm .ic-circle{ border-color:var(--coral); }
+  .ic-node.warm .ic-circle svg{ stroke:var(--coral); }
+  .ic-node span{ font-size:.64rem; color:var(--text-dim); line-height:1.25; font-weight:600; }
+  .ic-arrow{ flex-shrink:0; width:22px; height:2px; background: repeating-linear-gradient(90deg, var(--text-faint) 0 4px, transparent 4px 7px); margin:0 2px 20px; position:relative; }
+  .ic-arrow::after{ content:''; position:absolute; right:0; top:-3px; border:4px solid transparent; border-left-color:var(--text-faint); }
+
+  .stack-tags{ display:flex; flex-wrap:wrap; gap:7px; }
+  .stack-tags span{ font-size:.68rem; font-family:'JetBrains Mono', monospace; color:var(--text-dim); border:1px solid var(--line); padding:5px 9px; border-radius:6px; }
+
+  /* ---------- PROCESS ---------- */
+  .process-line{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .process-line::before{
+    content:''; position:absolute; top:24px; left:6%; right:6%; height:1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px); z-index:0;
+  }
+  .process-step{ position:relative; z-index:1; }
+  .process-num{
+    width:48px; height:48px; border-radius:50%; background:var(--surface); border:1px solid var(--cyan);
+    display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; color:var(--cyan);
+    margin-bottom:18px;
+  }
+  .process-step h4{ font-size:1.05rem; margin-bottom:7px; font-family:'Space Grotesk',sans-serif; }
+  .process-step p{ font-size:.85rem; color:var(--text-dim); }
+  @media (max-width:860px){ .process-line{ grid-template-columns:1fr 1fr; row-gap:36px; } .process-line::before{ display:none; } }
+
+  /* ---------- CONTACT ---------- */
+  #contact{ text-align:center; }
+  #contact h2{ font-size:clamp(2rem,5vw,3.2rem); max-width:760px; margin:16px auto 20px; }
+  #contact p.lead{ color:var(--text-dim); max-width:500px; margin:0 auto 32px; }
+  .contact-row{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:40px; }
+  .contact-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 24px;
+    display:flex; align-items:center; gap:11px; font-size:.9rem; font-weight:600; transition:.25s;
+  }
+  .contact-card:hover{ border-color:var(--cyan); transform:translateY(-3px); }
+  .contact-card svg{ width:18px; height:18px; stroke:var(--cyan); }
+
+  .contact-form{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:36px clamp(20px,4vw,44px); max-width:640px; margin:0 auto; text-align:left;
+  }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  @media (max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+  .form-field{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+  .form-field label{
+    font-family:'JetBrains Mono', monospace; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .form-field input, .form-field textarea{
+    background:var(--bg-soft); border:1px solid var(--line); border-radius:10px; padding:13px 14px;
+    color:var(--text); font-family:'Manrope', sans-serif; font-size:.92rem; resize:vertical; transition:border-color .25s;
+  }
+  .form-field input:focus, .form-field textarea:focus{ outline:none; border-color:var(--cyan); }
+  .form-field textarea{ min-height:120px; }
+  .form-submit{
+    font-family:'JetBrains Mono', monospace; font-size:.85rem; font-weight:500; width:100%;
+    background: linear-gradient(100deg, var(--cyan), #22c9b3); color:#04141c; padding:15px 26px;
+    border:none; border-radius:10px; cursor:pointer; transition: box-shadow .3s, transform .2s;
+  }
+  .form-submit:hover{ box-shadow:0 8px 30px rgba(47,232,207,.35); transform:translateY(-2px); }
+  .form-note{ font-size:.76rem; color:var(--text-faint); margin-top:14px; text-align:center; }
+  .form-divider{
+    display:flex; align-items:center; gap:14px; max-width:640px; margin:36px auto; color:var(--text-faint);
+    font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+  }
+  .form-divider::before, .form-divider::after{ content:''; flex:1; height:1px; background:var(--line); }
+
+  footer{
+    border-top:1px solid var(--line); padding:24px clamp(20px,5vw,64px); display:flex; justify-content:space-between;
+    font-size:.78rem; color:var(--text-faint); flex-wrap:wrap; gap:10px; position:relative; z-index:1;
+  }
+
+  @media (max-width:860px){
+    nav{ position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px); background:var(--bg-soft);
+      border-left:1px solid var(--line); display:flex; align-items:center; transform:translateX(100%); transition:transform .35s ease; z-index:105;}
+    nav.open{ transform:translateX(0); }
+    nav ul{ flex-direction:column; gap:28px; padding:0 40px; }
+    .nav-cta{ display:none; }
+    .burger{ display:flex; }
+    .hero-grid{ grid-template-columns:1fr; text-align:center; }
+    .hero-copy p.lead{ margin-left:auto; margin-right:auto; }
+    .role-tags, .hero-ctas{ justify-content:center; }
+    .hero-portrait{ order:-1; margin-bottom:26px;}
+    .chat-float{ display:none; }
+  }
+  @media (max-width:540px){
+    section{ padding:70px 18px; }
+    .icon-chain{ justify-content:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+  :focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="logo"><span class="dot"></span>FRANZEN.DEV</div>
+  <nav id="nav">
+    <ul>
+      <li><a href="#hero" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">Background</a></li>
+      <li><a href="#tools" class="nav-link">Stack</a></li>
+      <li><a href="#work" class="nav-link">Work</a></li>
+      <li><a href="#process" class="nav-link">Process</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="nav-cta">Start a project</a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">AUTOMATION &amp; DEVELOPMENT</div>
+      <h1>Systems that work <span class="grad">while you don't.</span></h1>
+      <p class="lead">I build the AI automations and websites <strong style="color:var(--text)">small businesses</strong> use to stop losing leads to slow replies, manual busywork, and follow-ups that never happen.</p>
+      <div class="role-tags" style="margin-bottom:14px;">
+        <span class="role-tag"><b>01</b> &nbsp;AI Automation Specialist</span>
+        <span class="role-tag"><b>02</b> &nbsp;Web Developer</span>
+      </div>
+      <div class="role-tags">
+        <span class="role-tag">⚡ Lead Response</span>
+        <span class="role-tag">🤖 AI Workflows</span>
+        <span class="role-tag">🔗 Tool Integrations</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-primary">See the builds ↓</a>
+        <a href="#contact" class="btn-ghost">Let's talk</a>
+      </div>
+    </div>
+    <div class="hero-portrait" id="tiltWrap">
+      <div class="chat-float">
+        <div class="chip-label">● live automation preview</div>
+        <div class="bubble lead">Hey, do you have availability this week?</div>
+        <div class="bubble ai">Yes! Thursday 2:00 PM or Friday 10:00 AM — which works better?</div>
+        <div class="typing"><span></span><span></span><span></span></div>
+      </div>
+      <div class="portrait-frame" id="tiltCard">
+        <img src="assets/img/profile.jpg" alt="Portrait of Franzen Barredo" loading="eager">
+        <div class="corner tl"></div>
+        <div class="corner br"></div>
+        <div class="scan-line"></div>
+      </div>
+      <div class="badge-float"><span class="dotlive"></span>AVAILABLE FOR PROJECTS · San Jose, Occidental Mindoro, PH</div>
+    </div>
+  </div>
+  <a href="#work" class="scroll-cue"><span>12 BUILDS BELOW ↓</span><div class="mouse"></div></a>
+</section>
+
+<!-- ================= MARQUEE TEASER ================= -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Email Triage &amp; Auto-Responder</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Lead Qualification</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Review Request Automation</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Sales Assistant Agent</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Cart Recovery</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Content Repurposing</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>New Client Welcome Sequence</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Voice Agent</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Support Triage</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Multi-Agent Content Pipeline</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Win-Back &amp; Reactivation Engine</b>&nbsp;— GoHighLevel</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Email Triage &amp; Auto-Responder</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Lead Qualification</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Review Request Automation</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Sales Assistant Agent</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Cart Recovery</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Content Repurposing</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>New Client Welcome Sequence</b>&nbsp;— Zapier</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Voice Agent</b>&nbsp;— GoHighLevel</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>AI Support Triage</b>&nbsp;— Make.com</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Multi-Agent Content Pipeline</b>&nbsp;— n8n</span>
+    <span class="marquee-item"><span class="dot-sep"></span><b>Win-Back &amp; Reactivation Engine</b>&nbsp;— GoHighLevel</span>
+  </div>
+</div>
+
+<!-- ================= BACKGROUND ================= -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <div class="eyebrow">BACKGROUND</div>
+        <h2>Nobody assigned these builds. I did.</h2>
+        <p>My foundation is BSIT — but what actually taught me automation was building real systems, breaking them, and rebuilding until they held up under a live test. Every workflow on this site was mapped, built, debugged, and pressure-tested by me alone, the same way a client engagement runs: understand the real bottleneck, wire every integration by hand, and ship something that keeps running after I walk away.</p>
+        <p>I didn't learn this from a course library. I learned it from staring at a broken field mapping at 2am until I understood exactly why it failed — then doing it again on the next platform, and the next, until the underlying pattern held across all of them. That's the difference between knowing a tool and knowing how automation actually works.</p>
+        <div class="about-cta">
+          <a href="#work" class="btn-ghost">See the proof ↓</a>
+        </div>
+      </div>
+      <div class="about-proof reveal">
+        <div class="proof-item">
+          <div class="proof-num">11</div>
+          <div class="proof-text">Systems designed, built, and tested live end-to-end — not templates, not tutorials.</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">4</div>
+          <div class="proof-text">Automation platforms fluent enough to solve the same business problem four different ways.</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">1:1</div>
+          <div class="proof-text">Solo build ratio. No team, no template marketplace — every integration wired by hand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
 <section id="tools">
   <div class="container">
     <div class="section-head reveal">
@@ -733,6 +2001,895 @@
     </div>
   </div>
 </section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">SAMPLE BUILDS</div>
+      <h2>Three sample builds per platform, mapped to common business bottlenecks</h2>
+      <p>Pick a platform to see how I use it in practice.</p>
+    </div>
+
+    <div class="stat-row reveal">
+      <div class="stat-item"><div class="stat-num" data-count="12">0</div><div class="stat-label">Sample Builds</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="4">0</div><div class="stat-label">Platforms</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="36">0</div><div class="stat-label">Tools In The Stack</div></div>
+    </div>
+
+    <div class="platform-tabs reveal">
+      <button class="ptab active" data-tab="zapier">Zapier <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="ghl">GoHighLevel <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="make">Make.com <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="n8n">n8n <span class="n">01/03</span></button>
+    </div>
+
+    <!-- ZAPIER -->
+    <div class="platform-panel active" id="panel-zapier">
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-ai-email-triage-full.jpg" data-caption="AI Email Triage & Auto-Responder — Zapier scenario screenshot"><img src="assets/builds/zapier-ai-email-triage.jpg" alt="AI Email Triage & Auto-Responder — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Service-Based Businesses</div>
+        <h3>AI Email Triage &amp; Auto-Responder</h3>
+        <p class="pain">A support email lands at 2am — AI reads it, classifies urgency, drafts the right reply, and routes billing or technical issues straight to a human. Nothing sits in an inbox untouched.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Email received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI classifies</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Routed by urgency</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reply sent &amp; logged</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Gmail</span><span>AI by Zapier</span><span>Google Sheets</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-review-request-full.jpg" data-caption="Review Request Automation — Zapier scenario screenshot"><img src="assets/builds/zapier-review-request.jpg" alt="Review Request Automation — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
+        <h3>Review Request Automation</h3>
+        <p class="pain">A client leaves happy right after their appointment — they get the 5-star review ask right then, before the feeling fades. A rough experience gets routed to you privately instead of Google.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Job marked done</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span>2hr delay</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m12 17.3-6.2 3.3 1.2-6.9L2 8.9l7-1L12 1.5l3 6.4 7 1-5 4.8 1.2 6.9z"/></svg></div><span>Review ask</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Branches by rating</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Google Reviews</span><span>Email/SMS</span><span>Typeform</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-new-client-intake-full.jpg" data-caption="New Client Intake & Welcome Sequence — Zapier scenario screenshot"><img src="assets/builds/zapier-new-client-intake.jpg" alt="New Client Intake & Welcome Sequence — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Coaches &amp; Consultants</div>
+        <h3>New Client Intake &amp; Welcome Sequence</h3>
+        <p class="pain">A new client fills out your intake form — AI drafts a personalized welcome email, adds them to your CRM, and schedules the kickoff reminder, all before you've seen the notification.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 7h6M9 11h6M9 15h3"/><rect x="5" y="3" width="14" height="18" rx="2"/></svg></div><span>Form submitted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts welcome</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Added to CRM</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Kickoff reminder set</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Typeform</span><span>Google Sheets</span><span>Gmail</span></div>
+      </div>
+    </div>
+
+    <!-- GHL -->
+    <div class="platform-panel" id="panel-ghl">
+      <div class="project-card">
+        <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/><path d="M9 10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1Z"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Voice AI Build</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For High-Call-Volume Businesses</div>
+        <h3>AI Voice Agent for Inbound Call Handling</h3>
+        <p class="pain">Every call gets picked up by a voice AI that qualifies the caller in natural conversation, checks the calendar in real time, and either books the slot or routes to a human — no IVR menu, no hold music.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/></svg></div><span>Call comes in</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI converses live</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Calendar checked live</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Booked or handed off</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>Vapi</span><span>Twilio Voice</span><span>OpenAI</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6.5 7 10 11M17.5 7 14 11M6.5 17 10 13M17.5 17 14 13"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Multi-Location CRM</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Multi-Location Franchises</div>
+        <h3>Multi-Location Franchise CRM Orchestration</h3>
+        <p class="pain">A lead comes in for one location out of twelve — the system auto-detects the nearest or requested branch, routes the lead to that location's pipeline and staff, and rolls every location's numbers up into one owner-level dashboard.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Lead comes in</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></div><span>Branch detected</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Routed to that pipeline</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><span>Rolled into one dashboard</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>Sub-Accounts API</span><span>Webhooks</span><span>Google Sheets</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Reactivation Engine</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Businesses Sitting on a Dead List</div>
+        <h3>Win-Back &amp; Reactivation Engine</h3>
+        <p class="pain">A contact hasn't booked in 90+ days — AI scores how likely they are to return, writes a personalized win-back offer based on what they bought before, and stops the moment they respond so no one gets double-messaged.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span>90 days silent</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI scores &amp; drafts offer</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 18h6"/></svg></div><span>Sent by SMS &amp; email</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Auto-stops on reply</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>OpenAI</span><span>SMS</span><span>Workflow Triggers</span></div>
+      </div>
+    </div>
+
+    <!-- MAKE -->
+    <div class="platform-panel" id="panel-make">
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-cart-recovery-full.jpg" data-caption="AI Package & Membership Cart Recovery — Make.com scenario screenshot"><img src="assets/builds/make-cart-recovery.jpg" alt="AI Package & Membership Cart Recovery — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
+        <h3>AI Package &amp; Membership Cart Recovery</h3>
+        <p class="pain">Someone almost books a package or membership online, then closes the tab — AI follows up referencing that exact offer, not a generic "come back" email.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 7H6"/></svg></div><span>Cart abandoned</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts nudge</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 18h6"/></svg></div><span>SMS + email</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Discount escalation</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Booking Widget</span><span>ChatGPT</span><span>Klaviyo</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-content-repurposing-full.jpg" data-caption="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot"><img src="assets/builds/make-content-repurposing.jpg" alt="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Local Businesses</div>
+        <h3>Job-Site Content Repurposing Pipeline</h3>
+        <p class="pain">You film one before-and-after clip on-site — it becomes a full week of captions and posts, drafted by AI and queued for your approval.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></div><span>Video uploaded</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 8-8M20 12a8 8 0 0 1-8 8"/><circle cx="12" cy="12" r="2.5"/></svg></div><span>Claude summarizes</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><span>Captions drafted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Scheduled</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Notion</span><span>CapCut</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-ai-support-triage-full.jpg" data-caption="AI Customer Support Ticket Triage — Make.com scenario screenshot"><img src="assets/builds/make-ai-support-triage.jpg" alt="AI Customer Support Ticket Triage — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For E-Commerce Brands</div>
+        <h3>AI Customer Support Ticket Triage</h3>
+        <p class="pain">A support email lands at midnight — AI reads it, drafts a reply, tags it by urgency, and routes anything time-sensitive straight to you instead of sitting in a queue.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Ticket received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts reply</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Tagged by urgency</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Routed to inbox</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Gmail</span><span>Helpdesk</span></div>
+      </div>
+    </div>
+
+    <!-- N8N -->
+    <div class="platform-panel" id="panel-n8n">
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/n8n-ai-lead-qualification-full.jpg" data-caption="AI Lead Qualification & Auto-Booking — n8n workflow screenshot"><img src="assets/builds/n8n-ai-lead-qualification.jpg" alt="AI Lead Qualification & Auto-Booking — n8n workflow screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Service-Based Businesses</div>
+        <h3>AI Lead Qualification &amp; Auto-Booking</h3>
+        <p class="pain">A lead comes in through a form — AI scores them Hot, Warm, or Cold based on intent and budget, then auto-books a call, sends a tailored follow-up, or logs it for later. Tested end-to-end across all three branches, live.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Lead comes in</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI scores tier</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Books or emails</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Logged &amp; tracked</span></div>
+        </div>
+        <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Google Calendar</span><span>Gmail</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-n8n"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 11 15.5M15.5 7.5 13 15.5"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">n8n · AI Agent Build</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Sales-Led Businesses</div>
+        <h3>AI Sales Assistant Agent</h3>
+        <p class="pain">Deployed live on Telegram: an AI agent that reasons about what a customer is actually asking, then decides on its own which tool to call — pricing lookup, live math, or a real-time currency API — instead of following a fixed script.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-11.9 7.6L4 20l1-4.8A8.4 8.4 0 1 1 21 11.5z"/></svg></div><span>Message received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>Agent picks tool</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Tool executes live</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reply, reasoned</span></div>
+        </div>
+        <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Telegram API</span><span>Google Sheets</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-n8n"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="15" width="7" height="7" rx="1.5"/><path d="M6.5 11v2.5a2 2 0 0 0 2 2H10M17.5 11v2.5a2 2 0 0 1-2 2H14"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">n8n · Multi-Agent Build</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Content-Led Businesses</div>
+        <h3>Multi-Agent Content Pipeline</h3>
+        <p class="pain">A topic gets submitted — a Research Agent gathers grounded facts, a Writer Agent drafts the piece, and an Editor Agent checks the draft against the research before anything ships. Three agents, one pipeline, no unreviewed AI copy going out.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Topic submitted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>Research agent</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><span>Writer agent drafts</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Editor agent approves</span></div>
+        </div>
+        <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Wikipedia API</span><span>Google Docs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">HOW I WORK</div>
+      <h2>The Automate &amp; Elevate Method</h2>
+    </div>
+    <div class="process-line reveal">
+      <div class="process-step"><div class="process-num">01</div><h4>Map</h4><p>Trace the exact manual steps and where they break down.</p></div>
+      <div class="process-step"><div class="process-num">02</div><h4>Build</h4><p>Build against the real workflow, not a generic template.</p></div>
+      <div class="process-step"><div class="process-num">03</div><h4>Automate</h4><p>Connect every tool end-to-end so nothing needs a human touch.</p></div>
+      <div class="process-step"><div class="process-num">04</div><h4>Elevate</h4><p>Monitor and refine the build after launch as you grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center;">GET IN TOUCH</div>
+    <h2>Got a workflow that's<br>still held together by hand?</h2>
+    <p class="lead">Tell me what's slow, manual, or falling through the cracks — I'll map how it gets automated.</p>
+    <form class="contact-form reveal" action="https://formsubmit.co/barredofranzen.va@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New portfolio inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="Name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="Email" placeholder="you@company.com" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="f-project">What are you trying to automate?</label>
+        <textarea id="f-project" name="Message" placeholder="Tell me what's slow, manual, or falling through the cracks..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message →</button>
+      <p class="form-note">Goes straight to my inbox — I reply within 24 hours.</p>
+    </form>
+
+    <div class="form-divider">or reach me directly</div>
+
+    <div class="contact-row">
+      <a class="contact-card" href="mailto:barredofranzen.va@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg>barredofranzen.va@gmail.com</a>
+      <a class="contact-card" href="https://wa.me/639665972498" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/></svg>+63 966 597 2498</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Franzen Barredo — San Jose, Occidental Mindoro, Philippines</span>
+  <span>Built &amp; automated by hand.</span>
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // Animated stat counters
+  const statNums = document.querySelectorAll('.stat-num');
+  function animateCount(el){
+    const target = parseInt(el.dataset.count, 10);
+    if (reduceMotion) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (statNums.length) {
+    const statIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); statIo.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    statNums.forEach(el => statIo.observe(el));
+  }
+
+  // Platform tabs
+  const tabs = document.querySelectorAll('.ptab');
+  const panels = document.querySelectorAll('.platform-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Portrait tilt on mouse move
+  const tiltWrap = document.getElementById('tiltWrap');
+  const tiltCard = document.getElementById('tiltCard');
+  if (tiltWrap && !reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    tiltWrap.addEventListener('mousemove', (e) => {
+      const r = tiltWrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      tiltCard.style.transform = `rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+    });
+    tiltWrap.addEventListener('mouseleave', () => { tiltCard.style.transform = 'rotateY(0) rotateX(0)'; });
+  }
+
+  // Hero canvas — automation node network
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+  const NODE_COUNT = 42;
+  function resize(){ W = canvas.width = canvas.offsetWidth * devicePixelRatio; H = canvas.height = canvas.offsetHeight * devicePixelRatio; }
+  function initNodes(){
+    nodes = Array.from({length: NODE_COUNT}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.25*devicePixelRatio, vy: (Math.random()-0.5)*0.25*devicePixelRatio,
+      r: Math.random()*1.6 + 1
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const n of nodes){
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > W) n.vx *= -1;
+      if(n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a = nodes[i], b = nodes[j];
+        const d = Math.hypot(a.x-b.x, a.y-b.y);
+        const maxD = 160*devicePixelRatio;
+        if(d < maxD){
+          ctx.strokeStyle = `rgba(47,232,207,${0.13 * (1-d/maxD)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    for(const n of nodes){
+      ctx.fillStyle = 'rgba(164,139,255,0.55)';
+      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+    }
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  resize(); initNodes(); draw();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+
+  // ---------- LIGHTBOX ----------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, caption){
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || '';
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  document.querySelectorAll('.project-shot.has-shot[data-lightbox]').forEach(el => {
+    el.addEventListener('click', () => {
+      openLightbox(el.getAttribute('data-lightbox'), el.getAttribute('data-caption'));
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
+<!-- ================= PROJECTS ================= -->
+<section id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">SAMPLE BUILDS</div>
+      <h2>Three sample builds per platform, mapped to common business bottlenecks</h2>
+      <p>Pick a platform to see how I use it in practice.</p>
+    </div>
+
+    <div class="stat-row reveal">
+      <div class="stat-item"><div class="stat-num" data-count="12">0</div><div class="stat-label">Sample Builds</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="4">0</div><div class="stat-label">Platforms</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="36">0</div><div class="stat-label">Tools In The Stack</div></div>
+    </div>
+
+    <div class="platform-tabs reveal">
+      <button class="ptab active" data-tab="zapier">Zapier <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="ghl">GoHighLevel <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="make">Make.com <span class="n">01/03</span></button>
+      <button class="ptab" data-tab="n8n">n8n <span class="n">01/03</span></button>
+    </div>
+
+    <!-- ZAPIER -->
+    <div class="platform-panel active" id="panel-zapier">
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-ai-email-triage-full.jpg" data-caption="AI Email Triage & Auto-Responder — Zapier scenario screenshot"><img src="assets/builds/zapier-ai-email-triage.jpg" alt="AI Email Triage & Auto-Responder — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Service-Based Businesses</div>
+        <h3>AI Email Triage &amp; Auto-Responder</h3>
+        <p class="pain">A support email lands at 2am — AI reads it, classifies urgency, drafts the right reply, and routes billing or technical issues straight to a human. Nothing sits in an inbox untouched.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Email received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI classifies</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Routed by urgency</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reply sent &amp; logged</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Gmail</span><span>AI by Zapier</span><span>Google Sheets</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-review-request-full.jpg" data-caption="Review Request Automation — Zapier scenario screenshot"><img src="assets/builds/zapier-review-request.jpg" alt="Review Request Automation — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
+        <h3>Review Request Automation</h3>
+        <p class="pain">A client leaves happy right after their appointment — they get the 5-star review ask right then, before the feeling fades. A rough experience gets routed to you privately instead of Google.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Job marked done</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span>2hr delay</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m12 17.3-6.2 3.3 1.2-6.9L2 8.9l7-1L12 1.5l3 6.4 7 1-5 4.8 1.2 6.9z"/></svg></div><span>Review ask</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Branches by rating</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Google Reviews</span><span>Email/SMS</span><span>Typeform</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/zapier-new-client-intake-full.jpg" data-caption="New Client Intake & Welcome Sequence — Zapier scenario screenshot"><img src="assets/builds/zapier-new-client-intake.jpg" alt="New Client Intake & Welcome Sequence — Zapier scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Coaches &amp; Consultants</div>
+        <h3>New Client Intake &amp; Welcome Sequence</h3>
+        <p class="pain">A new client fills out your intake form — AI drafts a personalized welcome email, adds them to your CRM, and schedules the kickoff reminder, all before you've seen the notification.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 7h6M9 11h6M9 15h3"/><rect x="5" y="3" width="14" height="18" rx="2"/></svg></div><span>Form submitted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts welcome</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Added to CRM</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Kickoff reminder set</span></div>
+        </div>
+        <div class="stack-tags"><span>Zapier</span><span>Typeform</span><span>Google Sheets</span><span>Gmail</span></div>
+      </div>
+    </div>
+
+    <!-- GHL -->
+    <div class="platform-panel" id="panel-ghl">
+      <div class="project-card">
+        <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/><path d="M9 10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1Z"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Voice AI Build</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For High-Call-Volume Businesses</div>
+        <h3>AI Voice Agent for Inbound Call Handling</h3>
+        <p class="pain">Every call gets picked up by a voice AI that qualifies the caller in natural conversation, checks the calendar in real time, and either books the slot or routes to a human — no IVR menu, no hold music.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/></svg></div><span>Call comes in</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI converses live</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Calendar checked live</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Booked or handed off</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>Vapi</span><span>Twilio Voice</span><span>OpenAI</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6.5 7 10 11M17.5 7 14 11M6.5 17 10 13M17.5 17 14 13"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Multi-Location CRM</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Multi-Location Franchises</div>
+        <h3>Multi-Location Franchise CRM Orchestration</h3>
+        <p class="pain">A lead comes in for one location out of twelve — the system auto-detects the nearest or requested branch, routes the lead to that location's pipeline and staff, and rolls every location's numbers up into one owner-level dashboard.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Lead comes in</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></div><span>Branch detected</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Routed to that pipeline</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><span>Rolled into one dashboard</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>Sub-Accounts API</span><span>Webhooks</span><span>Google Sheets</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-ghl"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">GoHighLevel · Reactivation Engine</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Businesses Sitting on a Dead List</div>
+        <h3>Win-Back &amp; Reactivation Engine</h3>
+        <p class="pain">A contact hasn't booked in 90+ days — AI scores how likely they are to return, writes a personalized win-back offer based on what they bought before, and stops the moment they respond so no one gets double-messaged.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span>90 days silent</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI scores &amp; drafts offer</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 18h6"/></svg></div><span>Sent by SMS &amp; email</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Auto-stops on reply</span></div>
+        </div>
+        <div class="stack-tags"><span>GoHighLevel</span><span>OpenAI</span><span>SMS</span><span>Workflow Triggers</span></div>
+      </div>
+    </div>
+
+    <!-- MAKE -->
+    <div class="platform-panel" id="panel-make">
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-cart-recovery-full.jpg" data-caption="AI Package & Membership Cart Recovery — Make.com scenario screenshot"><img src="assets/builds/make-cart-recovery.jpg" alt="AI Package & Membership Cart Recovery — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Appointment-Based Businesses</div>
+        <h3>AI Package &amp; Membership Cart Recovery</h3>
+        <p class="pain">Someone almost books a package or membership online, then closes the tab — AI follows up referencing that exact offer, not a generic "come back" email.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 7H6"/></svg></div><span>Cart abandoned</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts nudge</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 18h6"/></svg></div><span>SMS + email</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Discount escalation</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Booking Widget</span><span>ChatGPT</span><span>Klaviyo</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-content-repurposing-full.jpg" data-caption="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot"><img src="assets/builds/make-content-repurposing.jpg" alt="Job-Site Content Repurposing Pipeline — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Local Businesses</div>
+        <h3>Job-Site Content Repurposing Pipeline</h3>
+        <p class="pain">You film one before-and-after clip on-site — it becomes a full week of captions and posts, drafted by AI and queued for your approval.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></div><span>Video uploaded</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 8-8M20 12a8 8 0 0 1-8 8"/><circle cx="12" cy="12" r="2.5"/></svg></div><span>Claude summarizes</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><span>Captions drafted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Scheduled</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Notion</span><span>CapCut</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/make-ai-support-triage-full.jpg" data-caption="AI Customer Support Ticket Triage — Make.com scenario screenshot"><img src="assets/builds/make-ai-support-triage.jpg" alt="AI Customer Support Ticket Triage — Make.com scenario screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For E-Commerce Brands</div>
+        <h3>AI Customer Support Ticket Triage</h3>
+        <p class="pain">A support email lands at midnight — AI reads it, drafts a reply, tags it by urgency, and routes anything time-sensitive straight to you instead of sitting in a queue.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Ticket received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI drafts reply</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Tagged by urgency</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Routed to inbox</span></div>
+        </div>
+        <div class="stack-tags"><span>Make.com</span><span>Claude</span><span>Gmail</span><span>Helpdesk</span></div>
+      </div>
+    </div>
+
+    <!-- N8N -->
+    <div class="platform-panel" id="panel-n8n">
+      <div class="project-card">
+        <div class="project-shot has-shot" data-lightbox="assets/builds/n8n-ai-lead-qualification-full.jpg" data-caption="AI Lead Qualification & Auto-Booking — n8n workflow screenshot"><img src="assets/builds/n8n-ai-lead-qualification.jpg" alt="AI Lead Qualification & Auto-Booking — n8n workflow screenshot" loading="lazy"><div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>View full screenshot</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Service-Based Businesses</div>
+        <h3>AI Lead Qualification &amp; Auto-Booking</h3>
+        <p class="pain">A lead comes in through a form — AI scores them Hot, Warm, or Cold based on intent and budget, then auto-books a call, sends a tailored follow-up, or logs it for later. Tested end-to-end across all three branches, live.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Lead comes in</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>AI scores tier</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div><span>Books or emails</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div><span>Logged &amp; tracked</span></div>
+        </div>
+        <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Google Calendar</span><span>Gmail</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-n8n"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5 11 15.5M15.5 7.5 13 15.5"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">n8n · AI Agent Build</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Sales-Led Businesses</div>
+        <h3>AI Sales Assistant Agent</h3>
+        <p class="pain">Deployed live on Telegram: an AI agent that reasons about what a customer is actually asking, then decides on its own which tool to call — pricing lookup, live math, or a real-time currency API — instead of following a fixed script.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-11.9 7.6L4 20l1-4.8A8.4 8.4 0 1 1 21 11.5z"/></svg></div><span>Message received</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>Agent picks tool</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></div><span>Tool executes live</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Reply, reasoned</span></div>
+        </div>
+        <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Telegram API</span><span>Google Sheets</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-shot arch c-n8n"><div class="arch-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="15" width="7" height="7" rx="1.5"/><path d="M6.5 11v2.5a2 2 0 0 0 2 2H10M17.5 11v2.5a2 2 0 0 1-2 2H14"/></svg></div><div class="arch-label">System Architecture</div><div class="arch-sub">n8n · Multi-Agent Build</div></div>
+        <span class="status-pill">Sample build</span>
+        <div class="niche-tag">For Content-Led Businesses</div>
+        <h3>Multi-Agent Content Pipeline</h3>
+        <p class="pain">A topic gets submitted — a Research Agent gathers grounded facts, a Writer Agent drafts the piece, and an Editor Agent checks the draft against the research before anything ships. Three agents, one pipeline, no unreviewed AI copy going out.</p>
+        <div class="icon-chain">
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></div><span>Topic submitted</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node warm"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>Research agent</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node alt"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><span>Writer agent drafts</span></div>
+          <div class="ic-arrow"></div>
+          <div class="ic-node"><div class="ic-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><span>Editor agent approves</span></div>
+        </div>
+        <div class="stack-tags"><span>n8n</span><span>OpenAI</span><span>Wikipedia API</span><span>Google Docs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">HOW I WORK</div>
+      <h2>The Automate &amp; Elevate Method</h2>
+    </div>
+    <div class="process-line reveal">
+      <div class="process-step"><div class="process-num">01</div><h4>Map</h4><p>Trace the exact manual steps and where they break down.</p></div>
+      <div class="process-step"><div class="process-num">02</div><h4>Build</h4><p>Build against the real workflow, not a generic template.</p></div>
+      <div class="process-step"><div class="process-num">03</div><h4>Automate</h4><p>Connect every tool end-to-end so nothing needs a human touch.</p></div>
+      <div class="process-step"><div class="process-num">04</div><h4>Elevate</h4><p>Monitor and refine the build after launch as you grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center;">GET IN TOUCH</div>
+    <h2>Got a workflow that's<br>still held together by hand?</h2>
+    <p class="lead">Tell me what's slow, manual, or falling through the cracks — I'll map how it gets automated.</p>
+    <form class="contact-form reveal" action="https://formsubmit.co/barredofranzen.va@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New portfolio inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="Name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="Email" placeholder="you@company.com" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="f-project">What are you trying to automate?</label>
+        <textarea id="f-project" name="Message" placeholder="Tell me what's slow, manual, or falling through the cracks..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message →</button>
+      <p class="form-note">Goes straight to my inbox — I reply within 24 hours.</p>
+    </form>
+
+    <div class="form-divider">or reach me directly</div>
+
+    <div class="contact-row">
+      <a class="contact-card" href="mailto:barredofranzen.va@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg>barredofranzen.va@gmail.com</a>
+      <a class="contact-card" href="https://wa.me/639665972498" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 19L4 20z"/></svg>+63 966 597 2498</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Franzen Barredo — San Jose, Occidental Mindoro, Philippines</span>
+  <span>Built &amp; automated by hand.</span>
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // Animated stat counters
+  const statNums = document.querySelectorAll('.stat-num');
+  function animateCount(el){
+    const target = parseInt(el.dataset.count, 10);
+    if (reduceMotion) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (statNums.length) {
+    const statIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); statIo.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    statNums.forEach(el => statIo.observe(el));
+  }
+
+  // Platform tabs
+  const tabs = document.querySelectorAll('.ptab');
+  const panels = document.querySelectorAll('.platform-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Portrait tilt on mouse move
+  const tiltWrap = document.getElementById('tiltWrap');
+  const tiltCard = document.getElementById('tiltCard');
+  if (tiltWrap && !reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    tiltWrap.addEventListener('mousemove', (e) => {
+      const r = tiltWrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      tiltCard.style.transform = `rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+    });
+    tiltWrap.addEventListener('mouseleave', () => { tiltCard.style.transform = 'rotateY(0) rotateX(0)'; });
+  }
+
+  // Hero canvas — automation node network
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+  const NODE_COUNT = 42;
+  function resize(){ W = canvas.width = canvas.offsetWidth * devicePixelRatio; H = canvas.height = canvas.offsetHeight * devicePixelRatio; }
+  function initNodes(){
+    nodes = Array.from({length: NODE_COUNT}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.25*devicePixelRatio, vy: (Math.random()-0.5)*0.25*devicePixelRatio,
+      r: Math.random()*1.6 + 1
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const n of nodes){
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > W) n.vx *= -1;
+      if(n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a = nodes[i], b = nodes[j];
+        const d = Math.hypot(a.x-b.x, a.y-b.y);
+        const maxD = 160*devicePixelRatio;
+        if(d < maxD){
+          ctx.strokeStyle = `rgba(47,232,207,${0.13 * (1-d/maxD)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    for(const n of nodes){
+      ctx.fillStyle = 'rgba(164,139,255,0.55)';
+      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+    }
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  resize(); initNodes(); draw();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+
+  // ---------- LIGHTBOX ----------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, caption){
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || '';
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  document.querySelectorAll('.project-shot.has-shot[data-lightbox]').forEach(el => {
+    el.addEventListener('click', () => {
+      openLightbox(el.getAttribute('data-lightbox'), el.getAttribute('data-caption'));
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
 
 <!-- ================= PROJECTS ================= -->
 <section id="work">
