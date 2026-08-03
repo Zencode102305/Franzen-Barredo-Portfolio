@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#121510"/><stop offset="1" stop-color="#080908"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#ff6b2b" stop-opacity=".22"/><stop offset="1" stop-color="#ff6b2b" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#fff" stroke-opacity=".045"/></pattern>
+ <filter id="blur"><feGaussianBlur stdDeviation="30"/></filter>
+</defs>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<rect width="1400" height="900" fill="url(#grid)"/>
+<circle cx="1060" cy="190" r="330" fill="url(#glow)" filter="url(#blur)"/>
+<g fill="none" stroke="#ff6b2b" stroke-opacity=".24" stroke-width="2"><path d="M507 439 C577 439, 753 318, 823 318"/><path d="M947 318 C1017 318, 200 197, 270 197"/><path d="M407 197 C477 197, 627 536, 697 536"/><path d="M847 536 C917 536, 74 415, 144 415"/><path d="M307 415 C377 415, 501 294, 571 294"/><path d="M747 294 C817 294, 928 173, 998 173"/><path d="M1187 173 C1257 173, 375 512, 445 512"/></g>
+<g fill="#0c0e0c" stroke="#fff" stroke-opacity=".16"><g><rect x="396" y="415" width="111" height="48" rx="4"/><circle cx="414" cy="439" r="5"/><line x1="430" y1="433" x2="492" y2="433"/><line x1="430" y1="444" x2="467" y2="444"/></g><g><rect x="823" y="294" width="124" height="48" rx="4"/><circle cx="841" cy="318" r="5"/><line x1="857" y1="312" x2="932" y2="312"/><line x1="857" y1="323" x2="907" y2="323"/></g><g><rect x="270" y="173" width="137" height="48" rx="4"/><circle cx="288" cy="197" r="5"/><line x1="304" y1="191" x2="392" y2="191"/><line x1="304" y1="202" x2="367" y2="202"/></g><g><rect x="697" y="512" width="150" height="48" rx="4"/><circle cx="715" cy="536" r="5"/><line x1="731" y1="530" x2="832" y2="530"/><line x1="731" y1="541" x2="807" y2="541"/></g><g><rect x="144" y="391" width="163" height="48" rx="4"/><circle cx="162" cy="415" r="5"/><line x1="178" y1="409" x2="292" y2="409"/><line x1="178" y1="420" x2="267" y2="420"/></g><g><rect x="571" y="270" width="176" height="48" rx="4"/><circle cx="589" cy="294" r="5"/><line x1="605" y1="288" x2="732" y2="288"/><line x1="605" y1="299" x2="707" y2="299"/></g><g><rect x="998" y="149" width="189" height="48" rx="4"/><circle cx="1016" cy="173" r="5"/><line x1="1032" y1="167" x2="1172" y2="167"/><line x1="1032" y1="178" x2="1147" y2="178"/></g><g><rect x="445" y="488" width="112" height="48" rx="4"/><circle cx="463" cy="512" r="5"/><line x1="479" y1="506" x2="542" y2="506"/><line x1="479" y1="517" x2="517" y2="517"/></g></g>
+<g fill="#ff6b2b"><circle cx="414" cy="439" r="5"/><circle cx="841" cy="318" r="5"/><circle cx="288" cy="197" r="5"/><circle cx="715" cy="536" r="5"/><circle cx="162" cy="415" r="5"/><circle cx="589" cy="294" r="5"/><circle cx="1016" cy="173" r="5"/><circle cx="463" cy="512" r="5"/></g>
+<text x="70" y="82" fill="#ff6b2b" font-family="monospace" font-size="18" letter-spacing="4">ZAPIER / PROJECT SLOT 05</text>
+<text x="70" y="760" fill="#f1efe8" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">ADD YOUR SCREENSHOT</text>
+<text x="74" y="814" fill="#9c9f97" font-family="monospace" font-size="18" letter-spacing="2">REPLACE THIS IMAGE SOURCE IN INDEX.HTML</text>
+<rect x="70" y="846" width="1260" height="1" fill="#fff" fill-opacity=".12"/>
+<text x="1280" y="82" text-anchor="end" fill="#fff" fill-opacity=".3" font-family="monospace" font-size="15">FB / AUTOMATION ARCHIVE</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#121510"/><stop offset="1" stop-color="#080908"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#9d83ff" stop-opacity=".22"/><stop offset="1" stop-color="#9d83ff" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#fff" stroke-opacity=".045"/></pattern>
+ <filter id="blur"><feGaussianBlur stdDeviation="30"/></filter>
+</defs>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<rect width="1400" height="900" fill="url(#grid)"/>
+<circle cx="1060" cy="190" r="330" fill="url(#glow)" filter="url(#blur)"/>
+<g fill="none" stroke="#9d83ff" stroke-opacity=".24" stroke-width="2"><path d="M429 444 C499 444, 881 232, 951 232"/><path d="M1146 232 C1216 232, 605 480, 675 480"/><path d="M793 480 C863 480, 329 268, 399 268"/><path d="M530 268 C600 268, 53 516, 123 516"/><path d="M267 516 C337 516, 757 304, 827 304"/><path d="M984 304 C1054 304, 481 552, 551 552"/><path d="M721 552 C791 552, 205 340, 275 340"/></g>
+<g fill="#0c0e0c" stroke="#fff" stroke-opacity=".16"><g><rect x="247" y="420" width="182" height="48" rx="4"/><circle cx="265" cy="444" r="5"/><line x1="281" y1="438" x2="414" y2="438"/><line x1="281" y1="449" x2="389" y2="449"/></g><g><rect x="951" y="208" width="195" height="48" rx="4"/><circle cx="969" cy="232" r="5"/><line x1="985" y1="226" x2="1131" y2="226"/><line x1="985" y1="237" x2="1106" y2="237"/></g><g><rect x="675" y="456" width="118" height="48" rx="4"/><circle cx="693" cy="480" r="5"/><line x1="709" y1="474" x2="778" y2="474"/><line x1="709" y1="485" x2="753" y2="485"/></g><g><rect x="399" y="244" width="131" height="48" rx="4"/><circle cx="417" cy="268" r="5"/><line x1="433" y1="262" x2="515" y2="262"/><line x1="433" y1="273" x2="490" y2="273"/></g><g><rect x="123" y="492" width="144" height="48" rx="4"/><circle cx="141" cy="516" r="5"/><line x1="157" y1="510" x2="252" y2="510"/><line x1="157" y1="521" x2="227" y2="521"/></g><g><rect x="827" y="280" width="157" height="48" rx="4"/><circle cx="845" cy="304" r="5"/><line x1="861" y1="298" x2="969" y2="298"/><line x1="861" y1="309" x2="944" y2="309"/></g><g><rect x="551" y="528" width="170" height="48" rx="4"/><circle cx="569" cy="552" r="5"/><line x1="585" y1="546" x2="706" y2="546"/><line x1="585" y1="557" x2="681" y2="557"/></g><g><rect x="275" y="316" width="183" height="48" rx="4"/><circle cx="293" cy="340" r="5"/><line x1="309" y1="334" x2="443" y2="334"/><line x1="309" y1="345" x2="418" y2="345"/></g></g>
+<g fill="#9d83ff"><circle cx="265" cy="444" r="5"/><circle cx="969" cy="232" r="5"/><circle cx="693" cy="480" r="5"/><circle cx="417" cy="268" r="5"/><circle cx="141" cy="516" r="5"/><circle cx="845" cy="304" r="5"/><circle cx="569" cy="552" r="5"/><circle cx="293" cy="340" r="5"/></g>
+<text x="70" y="82" fill="#9d83ff" font-family="monospace" font-size="18" letter-spacing="4">MAKE / PROJECT SLOT 04</text>
+<text x="70" y="760" fill="#f1efe8" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">ADD YOUR SCREENSHOT</text>
+<text x="74" y="814" fill="#9c9f97" font-family="monospace" font-size="18" letter-spacing="2">REPLACE THIS IMAGE SOURCE IN INDEX.HTML</text>
+<rect x="70" y="846" width="1260" height="1" fill="#fff" fill-opacity=".12"/>
+<text x="1280" y="82" text-anchor="end" fill="#fff" fill-opacity=".3" font-family="monospace" font-size="15">FB / AUTOMATION ARCHIVE</text>
+</svg>

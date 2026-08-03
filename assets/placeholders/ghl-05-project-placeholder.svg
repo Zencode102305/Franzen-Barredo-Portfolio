@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#121510"/><stop offset="1" stop-color="#080908"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#61e7f0" stop-opacity=".22"/><stop offset="1" stop-color="#61e7f0" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#fff" stroke-opacity=".045"/></pattern>
+ <filter id="blur"><feGaussianBlur stdDeviation="30"/></filter>
+</defs>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<rect width="1400" height="900" fill="url(#grid)"/>
+<circle cx="1060" cy="190" r="330" fill="url(#glow)" filter="url(#blur)"/>
+<g fill="none" stroke="#61e7f0" stroke-opacity=".24" stroke-width="2"><path d="M1241 464 C1311 464, 309 256, 379 256"/><path d="M500 256 C570 256, 625 508, 695 508"/><path d="M829 508 C899 508, 941 300, 1011 300"/><path d="M1158 300 C1228 300, 277 552, 347 552"/><path d="M507 552 C577 552, 593 344, 663 344"/><path d="M836 344 C906 344, 909 136, 979 136"/><path d="M1165 136 C1235 136, 245 388, 315 388"/></g>
+<g fill="#0c0e0c" stroke="#fff" stroke-opacity=".16"><g><rect x="1043" y="440" width="198" height="48" rx="4"/><circle cx="1061" cy="464" r="5"/><line x1="1077" y1="458" x2="1226" y2="458"/><line x1="1077" y1="469" x2="1201" y2="469"/></g><g><rect x="379" y="232" width="121" height="48" rx="4"/><circle cx="397" cy="256" r="5"/><line x1="413" y1="250" x2="485" y2="250"/><line x1="413" y1="261" x2="460" y2="261"/></g><g><rect x="695" y="484" width="134" height="48" rx="4"/><circle cx="713" cy="508" r="5"/><line x1="729" y1="502" x2="814" y2="502"/><line x1="729" y1="513" x2="789" y2="513"/></g><g><rect x="1011" y="276" width="147" height="48" rx="4"/><circle cx="1029" cy="300" r="5"/><line x1="1045" y1="294" x2="1143" y2="294"/><line x1="1045" y1="305" x2="1118" y2="305"/></g><g><rect x="347" y="528" width="160" height="48" rx="4"/><circle cx="365" cy="552" r="5"/><line x1="381" y1="546" x2="492" y2="546"/><line x1="381" y1="557" x2="467" y2="557"/></g><g><rect x="663" y="320" width="173" height="48" rx="4"/><circle cx="681" cy="344" r="5"/><line x1="697" y1="338" x2="821" y2="338"/><line x1="697" y1="349" x2="796" y2="349"/></g><g><rect x="979" y="112" width="186" height="48" rx="4"/><circle cx="997" cy="136" r="5"/><line x1="1013" y1="130" x2="1150" y2="130"/><line x1="1013" y1="141" x2="1125" y2="141"/></g><g><rect x="315" y="364" width="199" height="48" rx="4"/><circle cx="333" cy="388" r="5"/><line x1="349" y1="382" x2="499" y2="382"/><line x1="349" y1="393" x2="474" y2="393"/></g></g>
+<g fill="#61e7f0"><circle cx="1061" cy="464" r="5"/><circle cx="397" cy="256" r="5"/><circle cx="713" cy="508" r="5"/><circle cx="1029" cy="300" r="5"/><circle cx="365" cy="552" r="5"/><circle cx="681" cy="344" r="5"/><circle cx="997" cy="136" r="5"/><circle cx="333" cy="388" r="5"/></g>
+<text x="70" y="82" fill="#61e7f0" font-family="monospace" font-size="18" letter-spacing="4">GOHIGHLEVEL / PROJECT SLOT 05</text>
+<text x="70" y="760" fill="#f1efe8" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">ADD YOUR SCREENSHOT</text>
+<text x="74" y="814" fill="#9c9f97" font-family="monospace" font-size="18" letter-spacing="2">REPLACE THIS IMAGE SOURCE IN INDEX.HTML</text>
+<rect x="70" y="846" width="1260" height="1" fill="#fff" fill-opacity=".12"/>
+<text x="1280" y="82" text-anchor="end" fill="#fff" fill-opacity=".3" font-family="monospace" font-size="15">FB / AUTOMATION ARCHIVE</text>
+</svg>
