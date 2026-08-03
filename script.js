@@ -302,50 +302,60 @@ contactForm?.addEventListener('submit', event => {
   window.location.href = `mailto:barredofranzen.va@gmail.com?subject=${subject}&body=${body}`;
 });
 
-// Clean logo-based toolkit filters and spotlight
+// Tools-only stack upgrade: multi-category filters, count, and spotlight
 const toolkit = qs('#stack');
-const toolFilters = qsa('.tool-filter');
+const toolFilters = qsa('.tool-filter', toolkit || document);
 const toolCards = qsa('.tool-card', toolkit || document);
 const visibleToolCount = qs('#visibleToolCount');
+const activeToolLabel = qs('#activeToolLabel');
 
 function filterTools(filter) {
   if (!toolkit) return;
   toolkit.dataset.toolFilter = filter;
   let visible = 0;
+  const selectedButton = toolFilters.find(button => button.dataset.filter === filter);
+
   toolFilters.forEach(button => {
     const active = button.dataset.filter === filter;
     button.classList.toggle('active', active);
     button.setAttribute('aria-selected', String(active));
   });
-  toolCards.forEach((card, index) => {
-    const show = filter === 'all' || card.dataset.category === filter;
+
+  toolCards.forEach(card => {
+    const categories = (card.dataset.category || '').split(/\s+/).filter(Boolean);
+    const show = filter === 'all' || categories.includes(filter);
     card.hidden = !show;
+    card.style.transform = '';
+
     if (show) {
-      card.style.setProperty('--reveal-delay', `${Math.min(220, visible * 26)}ms`);
+      card.style.setProperty('--reveal-delay', `${Math.min(240, visible * 22)}ms`);
       visible += 1;
       card.classList.remove('tool-pop');
       requestAnimationFrame(() => card.classList.add('tool-pop'));
     }
   });
+
   if (visibleToolCount) visibleToolCount.textContent = String(visible).padStart(2, '0');
+  if (activeToolLabel) activeToolLabel.textContent = (selectedButton?.dataset.label || 'Complete stack').toUpperCase();
 }
 
 toolFilters.forEach(button => button.addEventListener('click', () => filterTools(button.dataset.filter)));
-filterTools('all');
+filterTools('core');
 
 if (toolkit && !touchDevice && !reduceMotion) {
   toolkit.addEventListener('pointermove', event => {
     const card = event.target.closest('.tool-card');
-    if (!card) return;
+    if (!card || card.hidden) return;
     const rect = card.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     card.style.setProperty('--tool-x', `${x}px`);
     card.style.setProperty('--tool-y', `${y}px`);
-    const rx = ((y / rect.height) - .5) * -3.5;
-    const ry = ((x / rect.width) - .5) * 4.5;
+    const rx = ((y / rect.height) - .5) * -2.5;
+    const ry = ((x / rect.width) - .5) * 3.2;
     card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
   });
+
   toolkit.addEventListener('pointerout', event => {
     const card = event.target.closest('.tool-card');
     if (card && !card.contains(event.relatedTarget)) card.style.transform = '';
