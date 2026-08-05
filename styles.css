@@ -543,3 +543,220 @@ footer{min-height:120px;border-top:1px solid var(--line);display:grid;grid-templ
 @media (prefers-reduced-motion:reduce){.stack-v3-orb,.stack-v3 .toolkit-shell:before,.stack-v3 .toolkit-status i,.automation-pulse i{animation:none!important}.stack-v3 .tool-card{transform:none!important}}
 .stack-v3-stage:not(:has(.automation-feature:not([hidden]))) .stack-v3-stage-head{display:none}
 .stack-v3-stage:not(:has(.library-tool:not([hidden]))) .stack-v3-library-head,.stack-v3-stage:not(:has(.library-tool:not([hidden]))) .stack-v3-divider{display:none}
+
+/* =========================================================
+   POLISHED UPGRADE — COOLER, CALMER, FULLSCREEN VISUALS
+   ========================================================= */
+.site-header.scrolled{
+  background:rgba(8,9,8,.76);
+  box-shadow:0 18px 48px rgba(0,0,0,.22);
+}
+.identity-mark,.hero-lab,.toolkit-shell,.system-shell,.about-card,.contact,.case-dialog,.project-card,.platform-nav,.vault-console,.tool-card,.stack-v2 .toolkit-shell{
+  border-radius:24px;
+}
+.identity-mark{border-radius:14px}
+.platform-nav,.vault-console,.toolkit-shell,.stack-v2 .toolkit-shell,.hero-lab,.about-card,.contact,.case-dialog{overflow:hidden}
+.section{position:relative}
+.section:after{
+  content:"";
+  position:absolute;
+  left:4vw;right:4vw;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  pointer-events:none;
+}
+.hero{
+  background:
+    radial-gradient(circle at 12% 18%, rgba(97,231,240,.07), transparent 28%),
+    radial-gradient(circle at 82% 14%, rgba(157,131,255,.09), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.01), transparent 26%);
+}
+.hero h1,.work-head h2,.expertise-head h2,.principles-copy h2,.about-copy h2,.contact-copy h2{
+  text-wrap:balance;
+}
+.primary-button{
+  border-radius:18px;
+  box-shadow:0 16px 36px rgba(217,255,67,.12);
+}
+.inline-link{border-bottom-color:rgba(255,255,255,.18)}
+.project-card{
+  border-radius:28px;
+  box-shadow:0 18px 60px rgba(0,0,0,.16);
+}
+.project-card:hover{
+  box-shadow:0 30px 90px rgba(0,0,0,.26);
+}
+.project-media{background:linear-gradient(180deg,#141715,#0d0f0d)}
+.project-media img{object-position:center top}
+.project-body{
+  padding:28px;
+  gap:0;
+}
+.project-meta{align-items:center}
+.project-card h3{
+  margin:26px 0 14px;
+}
+.project-card p{
+  color:#a5aaa1;
+}
+.project-tags span{
+  border-radius:999px;
+  background:rgba(255,255,255,.03);
+}
+.project-code,.project-state{
+  border-radius:999px;
+}
+.project-open{
+  width:54px;height:54px;
+}
+.case-dialog{
+  border-radius:30px;
+  background:linear-gradient(180deg,#0d100d,#090b09);
+}
+.dialog-close,.lightbox-close{
+  border-radius:14px;
+}
+.dialog-visual{
+  background:
+    radial-gradient(circle at 30% 20%, rgba(157,131,255,.16), transparent 26%),
+    radial-gradient(circle at 78% 78%, rgba(97,231,240,.12), transparent 26%),
+    #0d0f0d;
+}
+.dialog-visual img{
+  transition:transform .35s ease, filter .3s ease;
+}
+.dialog-visual:hover img{transform:scale(1.015);filter:saturate(1.03)}
+.dialog-visual .visual-expand{
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  z-index:3;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(8,9,8,.74);
+  color:var(--paper);
+  min-height:42px;
+  padding:0 14px;
+  border-radius:999px;
+  font:600 8px var(--mono);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  cursor:pointer;
+  backdrop-filter:blur(16px);
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  transition:.28s ease;
+}
+.dialog-visual .visual-expand:hover{
+  background:var(--paper);
+  color:var(--ink);
+}
+.dialog-visual .visual-hint{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  z-index:3;
+  font:500 7px var(--mono);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:rgba(241,239,232,.7);
+  padding:10px 12px;
+  border-radius:999px;
+  background:rgba(8,9,8,.54);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+}
+.dialog-content{
+  padding:60px;
+}
+.dialog-flow span,.dialog-tags span{
+  border-radius:999px;
+}
+.image-lightbox{
+  width:min(1320px,96vw);
+  height:min(94vh,980px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:30px;
+  background:rgba(9,11,9,.96);
+  color:var(--paper);
+  padding:0;
+  overflow:hidden;
+  box-shadow:0 48px 140px rgba(0,0,0,.78);
+}
+.image-lightbox::backdrop{
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(10px);
+}
+.lightbox-shell{
+  height:100%;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+}
+#lightboxImage{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+    radial-gradient(circle at center, rgba(157,131,255,.11), transparent 36%),
+    #0a0c0a;
+}
+.lightbox-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:6;
+  width:48px;
+  height:48px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(8,9,8,.82);
+  color:var(--paper);
+  font-size:28px;
+  cursor:pointer;
+}
+.lightbox-close:hover{background:var(--paper);color:var(--ink)}
+.lightbox-caption{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 24px;
+  border-top:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.02);
+}
+.lightbox-caption strong{
+  font-size:15px;
+  letter-spacing:-.02em;
+}
+.lightbox-caption span{
+  font:500 7px var(--mono);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.about-card,.contact,.toolkit-shell,.stack-v2 .toolkit-shell,.system-shell{
+  box-shadow:0 30px 80px rgba(0,0,0,.18);
+}
+footer{
+  position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.01),transparent);
+}
+footer:before{
+  content:"";
+  position:absolute;
+  left:18px;right:18px;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);
+}
+@media (max-width:900px){
+  .identity-mark,.hero-lab,.toolkit-shell,.system-shell,.about-card,.contact,.case-dialog,.project-card,.platform-nav,.vault-console,.tool-card,.stack-v2 .toolkit-shell,.image-lightbox{border-radius:22px}
+  .dialog-content{padding:34px 22px}
+  .lightbox-caption{align-items:flex-start;flex-direction:column}
+}
+@media (max-width:640px){
+  .section:after{left:14px;right:14px}
+  .project-body{padding:22px 18px}
+  .dialog-visual .visual-expand{right:12px;bottom:12px;min-height:38px;padding:0 12px}
+  .dialog-visual .visual-hint{left:12px;bottom:12px;padding:9px 10px}
+  .image-lightbox{width:100vw;height:100vh;max-width:none;max-height:none;border-radius:0;border:0}
+  .lightbox-close{top:12px;right:12px;width:44px;height:44px}
+  .lightbox-caption{padding:14px 16px}
+}
