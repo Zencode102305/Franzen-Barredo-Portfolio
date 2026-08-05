@@ -760,3 +760,109 @@ footer:before{
   .lightbox-close{top:12px;right:12px;width:44px;height:44px}
   .lightbox-caption{padding:14px 16px}
 }
+
+/* =========================================================
+   FUNCTIONAL MODAL FIX — READABLE, SCROLLABLE, ACCESSIBLE
+   ========================================================= */
+.case-dialog{
+  position:relative;
+  width:min(1320px,96vw);
+  height:min(900px,92dvh);
+  max-height:92dvh;
+  overflow:hidden!important;
+  overscroll-behavior:contain;
+}
+.case-dialog[open]{display:block}
+.dialog-inner{
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  width:100%;
+  height:100%;
+  min-height:0!important;
+  overflow:hidden;
+}
+.dialog-visual{
+  width:100%;
+  height:100%;
+  min-height:0!important;
+  overflow:hidden;
+}
+.dialog-content{
+  height:100%;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  padding:58px 62px 72px 58px;
+}
+.dialog-content::-webkit-scrollbar{width:10px}
+.dialog-content::-webkit-scrollbar-track{background:rgba(255,255,255,.025)}
+.dialog-content::-webkit-scrollbar-thumb{
+  background:rgba(217,255,67,.32);
+  border:3px solid #0c0e0c;
+  border-radius:999px;
+}
+.dialog-content::-webkit-scrollbar-thumb:hover{background:rgba(217,255,67,.58)}
+.dialog-content{scrollbar-width:thin;scrollbar-color:rgba(217,255,67,.45) rgba(255,255,255,.025)}
+.dialog-close{
+  position:absolute!important;
+  top:16px!important;
+  right:16px!important;
+  float:none!important;
+  margin:0!important;
+  z-index:20;
+}
+.dialog-content .primary-button{margin-bottom:4px}
+
+@media (max-width:900px){
+  .case-dialog{
+    width:min(96vw,760px);
+    height:94dvh;
+    max-height:94dvh;
+  }
+  .dialog-inner{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  .dialog-visual{
+    flex:0 0 clamp(260px,38dvh,430px);
+    height:auto!important;
+    min-height:0!important;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .dialog-content{
+    flex:1 1 auto;
+    height:auto;
+    min-height:0;
+    padding:36px 30px 54px;
+  }
+}
+
+@media (max-width:640px){
+  .case-dialog{
+    width:100vw;
+    height:100dvh;
+    max-width:none;
+    max-height:none;
+    margin:0;
+    border:0;
+    border-radius:0!important;
+  }
+  .dialog-visual{
+    flex-basis:clamp(230px,32dvh,320px);
+  }
+  .dialog-content{
+    padding:30px 20px 48px;
+  }
+  .dialog-close{
+    top:12px!important;
+    right:12px!important;
+  }
+  .dialog-content h2{font-size:clamp(38px,12vw,54px)}
+  .dialog-summary{font-size:13px}
+}
+.dialog-content{touch-action:pan-y;scroll-behavior:smooth}
+.dialog-content:focus-visible{outline:2px solid rgba(217,255,67,.55);outline-offset:-3px}
