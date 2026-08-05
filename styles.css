@@ -961,3 +961,207 @@ html.modal-open,body.modal-open{
   overflow:visible!important;
   overscroll-behavior:auto!important;
 }
+
+
+/* =========================================================
+   FEATURED REAL ESTATE AI VOICE PROJECT — 3-SCREEN SHOWCASE
+   ========================================================= */
+.project-media-triptych{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(145px,.75fr);
+  gap:7px;
+  padding:7px;
+  background:#0a0c0a;
+}
+.project-media-triptych:after{z-index:5}
+.project-triptych-primary,.project-triptych-stack{min-width:0;min-height:0;overflow:hidden}
+.project-triptych-primary{border-radius:17px 8px 8px 17px}
+.project-triptych-stack{display:grid;grid-template-rows:1fr 1fr;gap:7px}
+.project-triptych-stack img:first-child{border-radius:8px 17px 8px 8px}
+.project-triptych-stack img:last-child{border-radius:8px 8px 17px 8px}
+.project-media-triptych img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;filter:saturate(.86) contrast(1.04)!important}
+.project-card[data-featured-project="real-estate-ai-voice"]:hover .project-media-triptych img{transform:scale(1.025);filter:saturate(1) contrast(1.03)!important}
+.project-media-triptych .media-overlay{z-index:1;border-radius:22px}
+.project-media-triptych .project-code,.project-media-triptych .project-state,.project-media-triptych .project-open,.project-media-triptych .project-shot-count{z-index:6}
+.project-shot-count{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  z-index:2;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  background:rgba(8,9,8,.74);
+  color:var(--paper-2);
+  backdrop-filter:blur(12px);
+  font:600 7px var(--mono);
+  letter-spacing:.09em;
+}
+.project-card[data-featured-project="real-estate-ai-voice"]{
+  background:
+    radial-gradient(circle at 85% 10%,rgba(217,255,67,.08),transparent 26%),
+    linear-gradient(145deg,#121612,#0a0d0a);
+}
+.project-card[data-featured-project="real-estate-ai-voice"] .project-state{
+  background:rgba(217,255,67,.12);
+  border-color:rgba(217,255,67,.3);
+}
+.dialog-gallery{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+  min-height:100%;
+  background:#090b09;
+}
+.dialog-gallery-stage{
+  position:relative;
+  min-height:0;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 28%,rgba(157,131,255,.12),transparent 38%),
+    #0d0f0d;
+}
+.dialog-gallery-main{
+  width:100%;
+  height:100%;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:#0d0f0d;
+  cursor:zoom-in;
+  filter:none!important;
+}
+.dialog-gallery-copy{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  z-index:3;
+  max-width:640px;
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:rgba(8,9,8,.82);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 50px rgba(0,0,0,.3);
+}
+.dialog-gallery-copy span{
+  display:block;
+  margin-bottom:7px;
+  color:var(--acid);
+  font:600 7px var(--mono);
+  letter-spacing:.11em;
+}
+.dialog-gallery-copy strong{
+  display:block;
+  font-size:15px;
+  letter-spacing:-.02em;
+}
+.dialog-gallery-copy p{
+  margin:7px 0 0;
+  color:#b1b6ad;
+  font-size:10px;
+  line-height:1.55;
+}
+.dialog-gallery-nav{
+  position:absolute;
+  top:50%;
+  z-index:4;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;
+  background:rgba(8,9,8,.78);
+  color:var(--paper);
+  backdrop-filter:blur(14px);
+  cursor:pointer;
+  transform:translateY(-50%);
+  transition:.25s ease;
+}
+.dialog-gallery-nav:hover{
+  background:var(--acid);
+  color:var(--ink);
+  border-color:var(--acid);
+}
+.dialog-gallery-prev{left:16px}
+.dialog-gallery-next{right:16px}
+.dialog-gallery-thumbs{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  padding:12px;
+  border-top:1px solid rgba(255,255,255,.09);
+  background:#0a0c0a;
+}
+.dialog-gallery-thumb{
+  position:relative;
+  height:86px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;
+  background:#111;
+  cursor:pointer;
+  opacity:.56;
+  transition:.25s ease;
+}
+.dialog-gallery-thumb:hover,
+.dialog-gallery-thumb.active{
+  opacity:1;
+  border-color:rgba(217,255,67,.7);
+  transform:translateY(-2px);
+}
+.dialog-gallery-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  filter:none!important;
+}
+.dialog-gallery-thumb span{
+  position:absolute;
+  right:6px;
+  bottom:6px;
+  min-width:24px;
+  padding:5px 6px;
+  border-radius:999px;
+  background:rgba(8,9,8,.82);
+  color:var(--paper);
+  font:600 6px var(--mono);
+}
+.dialog-gallery ~ .visual-hint{
+  left:auto;
+  right:78px;
+}
+@media (max-width:900px){
+  .dialog-gallery{position:relative;min-height:620px}
+  .dialog-gallery-stage{min-height:500px}
+  .dialog-gallery-copy{left:12px;right:12px;bottom:12px}
+  .dialog-gallery-thumbs{gap:7px;padding:9px}
+  .dialog-gallery-thumb{height:74px}
+}
+@media (max-width:600px){
+  .dialog-gallery{min-height:540px}
+  .dialog-gallery-stage{min-height:410px}
+  .dialog-gallery-main{object-fit:contain!important}
+  .dialog-gallery-copy{
+    padding:12px 13px;
+    border-radius:14px;
+  }
+  .dialog-gallery-copy p{font-size:8.5px}
+  .dialog-gallery-nav{
+    top:42%;
+    width:40px;
+    height:40px;
+  }
+  .dialog-gallery-prev{left:8px}
+  .dialog-gallery-next{right:8px}
+  .dialog-gallery-thumb{height:62px}
+  .dialog-visual .visual-expand{right:10px;bottom:103px}
+  .dialog-gallery ~ .visual-hint{display:none}
+}
+
+@media (max-width:600px){
+  .project-media-triptych{grid-template-columns:1fr .62fr;gap:5px;padding:5px}
+  .project-triptych-stack{gap:5px}
+}
