@@ -200,8 +200,26 @@ filterProjects('n8n', false);
 const dialog = qs('#caseDialog');
 const dialogClose = qs('#dialogClose');
 const dialogCta = qs('#dialogCta');
+let lockedPageY = 0;
+let lastOpenedProjectCard = null;
+
+function lockPagePosition() {
+  lockedPageY = window.scrollY || window.pageYOffset || 0;
+  document.body.classList.add('modal-open');
+  document.body.style.top = `-${lockedPageY}px`;
+}
+
+function unlockPagePosition() {
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+  document.body.style.overflow = '';
+  window.scrollTo({ top: lockedPageY, left: 0, behavior: 'auto' });
+}
+
 function openProject(card) {
   if (!card || !dialog) return;
+  lastOpenedProjectCard = card;
+  lockPagePosition();
   const image = qs('.project-media img', card);
   const flow = qsa('.project-flow span', card);
   const tags = qsa('.project-tags span', card);
@@ -215,12 +233,12 @@ function openProject(card) {
   qs('#dialogTags').innerHTML = tags.map(tag => `<span>${tag.textContent}</span>`).join('');
   qs('#dialogVisual').innerHTML = image ? `<img src="${image.getAttribute('src')}" alt="${image.getAttribute('alt') || ''}">` : '';
   dialog.showModal();
-  document.body.style.overflow = 'hidden';
 }
 function closeProject() {
   if (!dialog?.open) return;
   dialog.close();
-  document.body.style.overflow = '';
+  unlockPagePosition();
+  requestAnimationFrame(() => lastOpenedProjectCard?.focus({ preventScroll: true }));
 }
 projectGrid?.addEventListener('click', event => {
   const card = event.target.closest('.project-card');
@@ -233,7 +251,9 @@ projectGrid?.addEventListener('keydown', event => {
   }
 });
 dialogClose?.addEventListener('click', closeProject);
-dialogCta?.addEventListener('click', closeProject);
+dialogCta?.addEventListener('click', () => {
+  closeProject();
+});
 dialog?.addEventListener('click', event => { if (event.target === dialog) closeProject(); });
 dialog?.addEventListener('cancel', event => { event.preventDefault(); closeProject(); });
 
@@ -424,13 +444,12 @@ function openImageLightbox() {
   lightboxImage.alt = sourceImage.getAttribute('alt') || '';
   if (lightboxTitle) lightboxTitle.textContent = qs('#dialogTitle')?.textContent || 'Project preview';
   imageLightbox.showModal();
-  document.body.style.overflow = 'hidden';
 }
 
 function closeImageLightbox() {
   if (!imageLightbox?.open) return;
   imageLightbox.close();
-  document.body.style.overflow = dialog?.open ? 'hidden' : '';
+  if (!dialog?.open) document.body.style.overflow = '';
 }
 
 dialogVisual?.addEventListener('click', event => {
