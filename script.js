@@ -159,6 +159,52 @@ const activePlatformName = qs('#activePlatformName');
 const activePlatformLine = qs('#activePlatformLine');
 const workGhost = qs('#workGhost');
 
+const featuredGhlProject = qs('.project-card[data-platform="ghl"]', projectGrid);
+if (featuredGhlProject) {
+  featuredGhlProject.classList.remove('is-placeholder');
+  featuredGhlProject.dataset.featuredProject = 'real-estate-ai-voice';
+  featuredGhlProject.setAttribute('aria-label', 'Open project: Real Estate AI Voice Automation System');
+  featuredGhlProject.innerHTML = `
+    <div class="project-media project-media-triptych">
+      <div class="project-triptych-primary"><img alt="Real Estate AI Voice Automation lead intake workflow" loading="lazy" src="assets/builds/real-estate-ai-intake.png"/></div>
+      <div class="project-triptych-stack">
+        <img alt="Real Estate AI Voice Automation calendar availability workflow" loading="lazy" src="assets/builds/real-estate-ai-availability.png"/>
+        <img alt="Real Estate AI Voice Automation appointment booking workflow" loading="lazy" src="assets/builds/real-estate-ai-booking.png"/>
+      </div>
+      <div class="media-overlay"></div>
+      <span class="project-code">GHL / 01</span>
+      <span class="project-state">FEATURED SYSTEM</span>
+      <span class="project-open">↗</span>
+      <span class="project-shot-count">03 WORKFLOWS</span>
+    </div>
+    <div class="project-body">
+      <div class="project-meta"><span class="project-platform">GoHighLevel · Real estate teams</span><b class="project-status">End-to-end build</b></div>
+      <h3>Real Estate AI Voice Automation System</h3>
+      <p class="project-summary">An AI voice and CRM system that captures real estate leads, logs call intelligence, checks calendar availability, and books appointments automatically.</p>
+      <div class="project-tags"><span>GoHighLevel</span><span>Retell AI</span><span>n8n</span><span>Webhooks</span><span>Calendar API</span></div>
+    </div>
+    <div class="project-details" hidden>
+      <p class="project-problem">Real estate teams can lose qualified callers when lead details, notes, opportunities, availability checks, and booking steps are handled manually across separate tools.</p>
+      <p class="project-solution">I connected Retell AI, n8n, and GoHighLevel into one system: analyzed calls create or update CRM contacts, store call notes, create opportunities, return live free slots, and confirm appointments through dedicated booking workflows.</p>
+      <div class="project-flow"><span>AI call</span><span>Lead qualification</span><span>CRM upsert</span><span>Availability check</span><span>Appointment booked</span></div>
+    </div>
+    <div class="project-gallery-data" hidden>
+      <img src="assets/builds/real-estate-ai-intake.png"
+           alt="Real Estate Retell intake workflow"
+           data-title="Lead Intake & CRM Sync"
+           data-caption="Processes analyzed Retell calls, normalizes lead data, upserts the GoHighLevel contact, adds the call note, and creates or updates the opportunity."/>
+      <img src="assets/builds/real-estate-ai-availability.png"
+           alt="Retell calendar availability workflow"
+           data-title="Calendar Availability Tool"
+           data-caption="Receives an availability request, retrieves free GoHighLevel calendar slots, formats the options, and returns them to the voice agent."/>
+      <img src="assets/builds/real-estate-ai-booking.png"
+           alt="Retell appointment booking workflow"
+           data-title="Automated Appointment Booking"
+           data-caption="Prepares booking data, upserts the contact, creates the GoHighLevel appointment, and returns a structured confirmation response."/>
+    </div>
+  `;
+}
+
 function filterProjects(platform, keepGridInView = true) {
   const selectedTab = platformTabs.find(tab => tab.dataset.platform === platform);
   const cards = qsa('.project-card', projectGrid);
@@ -214,6 +260,78 @@ function unlockPagePosition() {
   document.body.classList.remove('modal-open');
 }
 
+
+let activeDialogGallery = [];
+let activeDialogGalleryIndex = 0;
+
+function setDialogGalleryIndex(index) {
+  if (!dialogVisual || !activeDialogGallery.length) return;
+  activeDialogGalleryIndex = (index + activeDialogGallery.length) % activeDialogGallery.length;
+  const item = activeDialogGallery[activeDialogGalleryIndex];
+  const mainImage = qs('.dialog-gallery-main', dialogVisual);
+  const title = qs('.dialog-gallery-copy strong', dialogVisual);
+  const caption = qs('.dialog-gallery-copy p', dialogVisual);
+  const counter = qs('.dialog-gallery-counter', dialogVisual);
+  const thumbs = qsa('.dialog-gallery-thumb', dialogVisual);
+
+  if (mainImage) {
+    mainImage.src = item.src;
+    mainImage.alt = item.alt;
+  }
+  if (title) title.textContent = item.title;
+  if (caption) caption.textContent = item.caption;
+  if (counter) counter.textContent = `${String(activeDialogGalleryIndex + 1).padStart(2, '0')} / ${String(activeDialogGallery.length).padStart(2, '0')}`;
+  thumbs.forEach((thumb, thumbIndex) => {
+    const active = thumbIndex === activeDialogGalleryIndex;
+    thumb.classList.toggle('active', active);
+    thumb.setAttribute('aria-current', active ? 'true' : 'false');
+  });
+}
+
+function renderDialogVisual(card, fallbackImage) {
+  if (!dialogVisual) return;
+  const galleryImages = qsa('.project-gallery-data img', card);
+  activeDialogGallery = galleryImages.map(img => ({
+    src: img.getAttribute('src') || '',
+    alt: img.getAttribute('alt') || '',
+    title: img.dataset.title || 'Workflow preview',
+    caption: img.dataset.caption || ''
+  })).filter(item => item.src);
+  activeDialogGalleryIndex = 0;
+
+  if (activeDialogGallery.length > 1) {
+    const first = activeDialogGallery[0];
+    dialogVisual.innerHTML = `
+      <div class="dialog-gallery">
+        <div class="dialog-gallery-stage">
+          <img class="dialog-gallery-main" src="${first.src}" alt="${first.alt}">
+          <button class="dialog-gallery-nav dialog-gallery-prev" type="button" aria-label="Previous workflow">←</button>
+          <button class="dialog-gallery-nav dialog-gallery-next" type="button" aria-label="Next workflow">→</button>
+          <div class="dialog-gallery-copy">
+            <span class="dialog-gallery-counter">01 / ${String(activeDialogGallery.length).padStart(2, '0')}</span>
+            <strong>${first.title}</strong>
+            <p>${first.caption}</p>
+          </div>
+        </div>
+        <div class="dialog-gallery-thumbs" aria-label="Project workflow screenshots">
+          ${activeDialogGallery.map((item, index) => `
+            <button class="dialog-gallery-thumb${index === 0 ? ' active' : ''}" type="button" data-gallery-index="${index}" aria-label="View ${item.title}" aria-current="${index === 0 ? 'true' : 'false'}">
+              <img src="${item.src}" alt="">
+              <span>${String(index + 1).padStart(2, '0')}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  activeDialogGallery = [];
+  dialogVisual.innerHTML = fallbackImage
+    ? `<img src="${fallbackImage.getAttribute('src')}" alt="${fallbackImage.getAttribute('alt') || ''}">`
+    : '';
+}
+
 function openProject(card) {
   if (!card || !dialog || dialog.hasAttribute('open')) return;
   lastOpenedProjectCard = card;
@@ -228,7 +346,7 @@ function openProject(card) {
   qs('#dialogSolution').textContent = qs('.project-solution', card)?.textContent || '';
   qs('#dialogFlow').innerHTML = flow.map((step, index) => `${index ? '<i>→</i>' : ''}<span>${step.textContent}</span>`).join('');
   qs('#dialogTags').innerHTML = tags.map(tag => `<span>${tag.textContent}</span>`).join('');
-  qs('#dialogVisual').innerHTML = image ? `<img src="${image.getAttribute('src')}" alt="${image.getAttribute('alt') || ''}">` : '';
+  renderDialogVisual(card, image);
   const contentPanel = qs('.dialog-content', dialog);
   if (contentPanel) contentPanel.scrollTop = 0;
   lockPagePosition();
@@ -293,6 +411,19 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && dialog?.hasAttribute('open') && !imageLightbox?.open) {
     event.preventDefault();
     closeProject();
+    return;
+  }
+  if (dialog?.hasAttribute('open') && activeDialogGallery.length > 1 && !imageLightbox?.open) {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      setDialogGalleryIndex(activeDialogGalleryIndex - 1);
+      enhanceDialogVisual();
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      setDialogGalleryIndex(activeDialogGalleryIndex + 1);
+      enhanceDialogVisual();
+    }
   }
 });
 
@@ -481,7 +612,11 @@ function openImageLightbox() {
   if (!sourceImage) return;
   lightboxImage.src = sourceImage.getAttribute('src') || '';
   lightboxImage.alt = sourceImage.getAttribute('alt') || '';
-  if (lightboxTitle) lightboxTitle.textContent = qs('#dialogTitle')?.textContent || 'Project preview';
+  if (lightboxTitle) {
+    const galleryItem = activeDialogGallery[activeDialogGalleryIndex];
+    const projectTitle = qs('#dialogTitle')?.textContent || 'Project preview';
+    lightboxTitle.textContent = galleryItem ? `${projectTitle} — ${galleryItem.title}` : projectTitle;
+  }
   imageLightbox.showModal();
 }
 
@@ -492,7 +627,34 @@ function closeImageLightbox() {
 }
 
 dialogVisual?.addEventListener('click', event => {
-  if (event.target.closest('.visual-expand') || event.target.tagName === 'IMG') openImageLightbox();
+  const previous = event.target.closest('.dialog-gallery-prev');
+  const next = event.target.closest('.dialog-gallery-next');
+  const thumb = event.target.closest('.dialog-gallery-thumb');
+
+  if (previous) {
+    event.preventDefault();
+    event.stopPropagation();
+    setDialogGalleryIndex(activeDialogGalleryIndex - 1);
+    enhanceDialogVisual();
+    return;
+  }
+  if (next) {
+    event.preventDefault();
+    event.stopPropagation();
+    setDialogGalleryIndex(activeDialogGalleryIndex + 1);
+    enhanceDialogVisual();
+    return;
+  }
+  if (thumb) {
+    event.preventDefault();
+    event.stopPropagation();
+    setDialogGalleryIndex(Number(thumb.dataset.galleryIndex || 0));
+    enhanceDialogVisual();
+    return;
+  }
+  if (event.target.closest('.visual-expand') || event.target.matches('.dialog-gallery-main, #dialogVisual > img')) {
+    openImageLightbox();
+  }
 });
 
 dialogVisual?.addEventListener('keydown', event => {
