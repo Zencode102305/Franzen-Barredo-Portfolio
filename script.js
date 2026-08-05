@@ -205,21 +205,18 @@ let lastOpenedProjectCard = null;
 
 function lockPagePosition() {
   lockedPageY = window.scrollY || window.pageYOffset || 0;
+  document.documentElement.classList.add('modal-open');
   document.body.classList.add('modal-open');
-  document.body.style.top = `-${lockedPageY}px`;
 }
 
 function unlockPagePosition() {
+  document.documentElement.classList.remove('modal-open');
   document.body.classList.remove('modal-open');
-  document.body.style.top = '';
-  document.body.style.overflow = '';
-  window.scrollTo({ top: lockedPageY, left: 0, behavior: 'auto' });
 }
 
 function openProject(card) {
-  if (!card || !dialog) return;
+  if (!card || !dialog || dialog.hasAttribute('open')) return;
   lastOpenedProjectCard = card;
-  lockPagePosition();
   const image = qs('.project-media img', card);
   const flow = qsa('.project-flow span', card);
   const tags = qsa('.project-tags span', card);
@@ -232,17 +229,40 @@ function openProject(card) {
   qs('#dialogFlow').innerHTML = flow.map((step, index) => `${index ? '<i>→</i>' : ''}<span>${step.textContent}</span>`).join('');
   qs('#dialogTags').innerHTML = tags.map(tag => `<span>${tag.textContent}</span>`).join('');
   qs('#dialogVisual').innerHTML = image ? `<img src="${image.getAttribute('src')}" alt="${image.getAttribute('alt') || ''}">` : '';
-  dialog.showModal();
+  const contentPanel = qs('.dialog-content', dialog);
+  if (contentPanel) contentPanel.scrollTop = 0;
+  lockPagePosition();
+  dialog.setAttribute('open', '');
+  dialog.setAttribute('aria-hidden', 'false');
+  requestAnimationFrame(() => dialogClose?.focus({ preventScroll: true }));
 }
-function closeProject() {
-  if (!dialog?.open) return;
-  dialog.close();
+function closeProject(restorePosition = true) {
+  if (!dialog?.hasAttribute('open')) return;
+  const returnY = lockedPageY;
+  // Move focus back before hiding the overlay. Leaving focus on a hidden close button
+  // makes some browsers scroll to the dialog's DOM position at the bottom of the page.
+  if (lastOpenedProjectCard) lastOpenedProjectCard.focus({ preventScroll: true });
+  else dialogClose?.blur();
+  dialog.removeAttribute('open');
+  dialog.setAttribute('aria-hidden', 'true');
   unlockPagePosition();
-  requestAnimationFrame(() => lastOpenedProjectCard?.focus({ preventScroll: true }));
+  if (restorePosition) {
+    // Browser focus restoration can happen after the close event. Correct it before paint,
+    // then verify once more on the next frame for Chromium, Edge, Safari, and mobile browsers.
+    requestAnimationFrame(() => {
+      if (Math.abs(window.scrollY - returnY) > 1) window.scrollTo({ top: returnY, left: 0, behavior: 'auto' });
+      requestAnimationFrame(() => {
+        if (Math.abs(window.scrollY - returnY) > 1) window.scrollTo({ top: returnY, left: 0, behavior: 'auto' });
+      });
+    });
+  }
 }
 projectGrid?.addEventListener('click', event => {
   const card = event.target.closest('.project-card');
-  if (card) openProject(card);
+  if (card) {
+    event.preventDefault();
+    openProject(card);
+  }
 });
 projectGrid?.addEventListener('keydown', event => {
   if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('.project-card')) {
@@ -250,12 +270,31 @@ projectGrid?.addEventListener('keydown', event => {
     openProject(event.target);
   }
 });
-dialogClose?.addEventListener('click', closeProject);
-dialogCta?.addEventListener('click', () => {
+dialogClose?.addEventListener('pointerdown', event => {
+  event.preventDefault();
+  event.stopPropagation();
+});
+dialogClose?.addEventListener('pointerup', event => {
+  event.preventDefault();
+  event.stopPropagation();
   closeProject();
+});
+dialogClose?.addEventListener('click', event => {
+  event.preventDefault();
+  event.stopPropagation();
+});
+dialogCta?.addEventListener('click', () => {
+  // The CTA intentionally navigates to #contact, so do not restore the previous project position.
+  closeProject(false);
 });
 dialog?.addEventListener('click', event => { if (event.target === dialog) closeProject(); });
 dialog?.addEventListener('cancel', event => { event.preventDefault(); closeProject(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && dialog?.hasAttribute('open') && !imageLightbox?.open) {
+    event.preventDefault();
+    closeProject();
+  }
+});
 
 // Interactive spotlight follows the pointer across every project card.
 if (!touchDevice && !reduceMotion) {
