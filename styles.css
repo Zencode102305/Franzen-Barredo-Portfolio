@@ -765,7 +765,9 @@ footer:before{
    FUNCTIONAL MODAL FIX — READABLE, SCROLLABLE, ACCESSIBLE
    ========================================================= */
 .case-dialog{
-  position:relative;
+  position:fixed;
+  inset:0;
+  margin:auto;
   width:min(1320px,96vw);
   height:min(900px,92dvh);
   max-height:92dvh;
@@ -866,3 +868,19 @@ footer:before{
 }
 .dialog-content{touch-action:pan-y;scroll-behavior:smooth}
 .dialog-content:focus-visible{outline:2px solid rgba(217,255,67,.55);outline-offset:-3px}
+
+
+/* Scroll-stable modal override */
+.case-dialog{
+  position:fixed!important;
+  inset:0!important;
+  margin:auto!important;
+  transform:none!important;
+}
+body.modal-open{
+  position:fixed;
+  left:0;
+  right:0;
+  width:100%;
+  overflow:hidden!important;
+}
