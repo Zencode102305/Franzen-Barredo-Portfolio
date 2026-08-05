@@ -376,3 +376,77 @@ if (identityCard && !touchDevice && !reduceMotion) {
   });
   identityCard.addEventListener('pointerleave', () => { if (visual) visual.style.transform = ''; });
 }
+
+// Full-screen image viewer for project visuals
+const imageLightbox = qs('#imageLightbox');
+const lightboxImage = qs('#lightboxImage');
+const lightboxTitle = qs('#lightboxTitle');
+const lightboxClose = qs('#lightboxClose');
+const dialogVisual = qs('#dialogVisual');
+
+function enhanceDialogVisual() {
+  if (!dialogVisual) return;
+  const img = qs('img', dialogVisual);
+  if (!img) return;
+  if (!qs('.visual-expand', dialogVisual)) {
+    const expandButton = document.createElement('button');
+    expandButton.type = 'button';
+    expandButton.className = 'visual-expand';
+    expandButton.innerHTML = '<span>View Fullscreen</span><i>↗</i>';
+    dialogVisual.appendChild(expandButton);
+  }
+  if (!qs('.visual-hint', dialogVisual)) {
+    const hint = document.createElement('div');
+    hint.className = 'visual-hint';
+    hint.textContent = touchDevice ? 'Tap image to expand' : 'Click image to expand';
+    dialogVisual.appendChild(hint);
+  }
+  img.tabIndex = 0;
+  img.setAttribute('role', 'button');
+  img.setAttribute('aria-label', 'View project image fullscreen');
+}
+
+if (typeof openProject === 'function') {
+  const originalOpenProject = openProject;
+  openProject = function(card) {
+    originalOpenProject(card);
+    enhanceDialogVisual();
+  };
+}
+
+function openImageLightbox() {
+  if (!imageLightbox || !dialogVisual || !lightboxImage) return;
+  const sourceImage = qs('img', dialogVisual);
+  if (!sourceImage) return;
+  lightboxImage.src = sourceImage.getAttribute('src') || '';
+  lightboxImage.alt = sourceImage.getAttribute('alt') || '';
+  if (lightboxTitle) lightboxTitle.textContent = qs('#dialogTitle')?.textContent || 'Project preview';
+  imageLightbox.showModal();
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageLightbox() {
+  if (!imageLightbox?.open) return;
+  imageLightbox.close();
+  document.body.style.overflow = dialog?.open ? 'hidden' : '';
+}
+
+dialogVisual?.addEventListener('click', event => {
+  if (event.target.closest('.visual-expand') || event.target.tagName === 'IMG') openImageLightbox();
+});
+
+dialogVisual?.addEventListener('keydown', event => {
+  if ((event.key === 'Enter' || event.key === ' ') && event.target.tagName === 'IMG') {
+    event.preventDefault();
+    openImageLightbox();
+  }
+});
+
+lightboxClose?.addEventListener('click', closeImageLightbox);
+imageLightbox?.addEventListener('click', event => {
+  if (event.target === imageLightbox) closeImageLightbox();
+});
+imageLightbox?.addEventListener('cancel', event => {
+  event.preventDefault();
+  closeImageLightbox();
+});
