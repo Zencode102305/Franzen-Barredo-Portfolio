@@ -411,6 +411,8 @@ if (typeof openProject === 'function') {
   openProject = function(card) {
     originalOpenProject(card);
     enhanceDialogVisual();
+    const contentPanel = qs('.dialog-content', dialog);
+    if (contentPanel) contentPanel.scrollTop = 0;
   };
 }
 
@@ -450,3 +452,13 @@ imageLightbox?.addEventListener('cancel', event => {
   event.preventDefault();
   closeImageLightbox();
 });
+
+
+// Keep wheel scrolling useful even when the pointer is over the fixed visual panel.
+const projectDialogContent = qs('.dialog-content', dialog);
+dialogVisual?.addEventListener('wheel', event => {
+  if (!dialog?.open || !projectDialogContent) return;
+  if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+  projectDialogContent.scrollBy({ top: event.deltaY, behavior: 'auto' });
+  event.preventDefault();
+}, { passive: false });
