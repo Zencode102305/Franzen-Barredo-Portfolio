@@ -136,115 +136,98 @@
 </div>
 </section>
 <section class="toolkit section stack-v3" data-tool-filter="core" id="stack">
-  <div class="stack-v3-orb stack-v3-orb-a" aria-hidden="true"></div>
-  <div class="stack-v3-orb stack-v3-orb-b" aria-hidden="true"></div>
-  <div class="stack-v3-grid" aria-hidden="true"></div>
-
-  <div class="section-label reveal"><span>02</span><p>Tools &amp; technology stack</p></div>
-
-  <div class="toolkit-head reveal">
-    <div>
-      <span class="toolkit-kicker">AUTOMATION-FIRST TOOLKIT</span>
-      <h2>The stack behind<br><em>systems that move.</em></h2>
-    </div>
-    <p>My automation platforms lead the stack. AI, voice, web development, workspace, and integrations support the system around them.</p>
-  </div>
-
-  <div class="toolkit-shell reveal" id="toolkitShell">
-    <div class="toolkit-toolbar">
-      <div class="toolkit-status"><i></i><span id="activeToolLabel">FEATURED AUTOMATION</span></div>
-      <div class="tool-filters" role="tablist" aria-label="Filter tools by category">
-        <button class="tool-filter active" type="button" data-filter="core" data-label="Featured automation" aria-selected="true">Featured</button>
-        <button class="tool-filter" type="button" data-filter="automation" data-label="Automation platforms" aria-selected="false">Automation</button>
-        <button class="tool-filter" type="button" data-filter="ai" data-label="AI tools" aria-selected="false">AI Tools</button>
-        <button class="tool-filter" type="button" data-filter="voice" data-label="Voice AI" aria-selected="false">Voice AI</button>
-        <button class="tool-filter" type="button" data-filter="web" data-label="Web development" aria-selected="false">Web Dev</button>
-        <button class="tool-filter" type="button" data-filter="workspace" data-label="Workspace tools" aria-selected="false">Workspace</button>
-        <button class="tool-filter" type="button" data-filter="integrations" data-label="Integrations" aria-selected="false">Integrations</button>
-        <button class="tool-filter" type="button" data-filter="all" data-label="Complete stack" aria-selected="false">All Tools</button>
-      </div>
-      <span class="toolkit-count"><b id="visibleToolCount">04</b> IN VIEW</span>
-    </div>
-
-    <div class="stack-v3-stage">
-      <div class="stack-v3-stage-head">
-        <div><span>PRIMARY AUTOMATION PLATFORMS</span><strong>Featured stack</strong></div>
-        <p>Where workflows are designed, connected, tested, and deployed.</p>
-      </div>
-
-      <div class="automation-feature-grid" id="automationFeatureGrid">
-        <article class="tool-card automation-feature" data-category="core automation" style="--brand:#ff6d5a;--brand-rgb:255,109,90">
-          <div class="automation-card-top"><span class="stack-logo" data-fallback="n8n"><img class="stack-logo-img" src="assets/logos/custom/n8n-brand.svg" alt="n8n logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><b>01</b></div>
-          <div class="automation-card-copy"><small>FLEXIBLE ORCHESTRATION</small><h3>n8n</h3><p>Custom AI workflows, API connections, branching logic, data transformation, and advanced automation control.</p></div>
-          <div class="automation-card-tags"><span>AI workflows</span><span>APIs</span><span>Webhooks</span></div>
-          <div class="automation-pulse" aria-hidden="true"><i></i><i></i><i></i></div>
-        </article>
-
-        <article class="tool-card automation-feature" data-category="core automation" style="--brand:#ff4f00;--brand-rgb:255,79,0">
-          <div class="automation-card-top"><span class="stack-logo" data-fallback="Z"><img class="stack-logo-img" src="assets/logos/custom/zapier-brand.svg" alt="Zapier logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><b>02</b></div>
-          <div class="automation-card-copy"><small>FAST BUSINESS AUTOMATION</small><h3>Zapier</h3><p>Reliable no-code connections for forms, email, calendars, CRMs, notifications, and everyday business processes.</p></div>
-          <div class="automation-card-tags"><span>Zaps</span><span>Business apps</span><span>Triggers</span></div>
-          <div class="automation-pulse" aria-hidden="true"><i></i><i></i><i></i></div>
-        </article>
-
-        <article class="tool-card automation-feature" data-category="core automation" style="--brand:#a855f7;--brand-rgb:168,85,247">
-          <div class="automation-card-top"><span class="stack-logo" data-fallback="M"><img class="stack-logo-img" src="assets/logos/custom/make-brand.svg" alt="Make logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><b>03</b></div>
-          <div class="automation-card-copy"><small>VISUAL WORKFLOW DESIGN</small><h3>Make</h3><p>Visual scenarios, routers, filters, transformations, and multi-step workflows across connected applications.</p></div>
-          <div class="automation-card-tags"><span>Scenarios</span><span>Routers</span><span>Data mapping</span></div>
-          <div class="automation-pulse" aria-hidden="true"><i></i><i></i><i></i></div>
-        </article>
-
-        <article class="tool-card automation-feature" data-category="core automation" style="--brand:#3aa0ff;--brand-rgb:58,160,255">
-          <div class="automation-card-top"><span class="stack-logo" data-fallback="GHL"><img class="stack-logo-img" src="assets/logos/custom/highlevel-brand.svg" alt="GoHighLevel logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><b>04</b></div>
-          <div class="automation-card-copy"><small>CRM + REVENUE SYSTEMS</small><h3>GoHighLevel</h3><p>CRM pipelines, forms, calendars, conversations, lead nurturing, booking, and automated customer follow-up.</p></div>
-          <div class="automation-card-tags"><span>CRM</span><span>Funnels</span><span>Follow-up</span></div>
-          <div class="automation-pulse" aria-hidden="true"><i></i><i></i><i></i></div>
-        </article>
-      </div>
-
-      <div class="stack-v3-divider" aria-hidden="true"><span></span><i></i><span></span></div>
-
-      <div class="stack-v3-library-head">
-        <div><span>SUPPORTING TOOLKIT</span><strong>Everything around the automation</strong></div>
-        <p>Every card includes its software mark for faster scanning.</p>
-      </div>
-
-      <div class="tool-library" id="supportingTools">
-        <article class="tool-card library-tool" data-category="ai" style="--brand:#8fd0ff;--brand-rgb:143,208,255"><span class="stack-logo" data-fallback="CG"><img class="stack-logo-img" src="assets/logos/custom/chatgpt-brand.svg" alt="ChatGPT logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>AI WORKSPACE</small><h3>ChatGPT</h3><p>Ideation, prompting, troubleshooting, and rapid iteration.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai" style="--brand:#f5f7f2;--brand-rgb:245,247,242"><span class="stack-logo" data-fallback="AI"><img class="stack-logo-img" src="assets/logos/custom/openai-brand.svg" alt="OpenAI logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>MODEL + API</small><h3>OpenAI</h3><p>AI models, APIs, and automation-ready intelligence.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai" style="--brand:#d7b99a;--brand-rgb:215,185,154"><span class="stack-logo" data-fallback="C"><img class="stack-logo-img" src="assets/logos/custom/anthropic-brand.svg" alt="Claude logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>PLANNING + CODING</small><h3>Claude</h3><p>Workflow planning, writing, analysis, and coding support.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai" style="--brand:#4285f4;--brand-rgb:66,133,244"><span class="stack-logo" data-fallback="G"><img class="stack-logo-img" src="assets/logos/custom/gemini-brand.svg" alt="Gemini logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>MULTIMODAL AI</small><h3>Gemini</h3><p>Google-connected assistance and multimodal work.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai" style="--brand:#7dd3fc;--brand-rgb:125,211,252"><span class="stack-logo" data-fallback="P"><img class="stack-logo-img" src="assets/logos/custom/perplexity-brand.svg" alt="Perplexity logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>SEARCH + RESEARCH</small><h3>Perplexity</h3><p>Source-guided research and fast discovery.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai web" style="--brand:#fb7185;--brand-rgb:251,113,133"><span class="stack-logo" data-fallback="L"><img class="stack-logo-img" src="assets/logos/custom/lovable-brand.svg" alt="Lovable logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>AI WEB BUILDER</small><h3>Lovable</h3><p>Rapid interfaces, landing pages, and prototypes.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai web" style="--brand:#6ee7b7;--brand-rgb:110,231,183"><span class="stack-logo" data-fallback="CX"><img class="stack-logo-img" src="assets/logos/custom/codex-brand.svg" alt="Codex logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>CODE GENERATION</small><h3>Codex</h3><p>Implementation support and technical problem solving.</p></div></article>
-        <article class="tool-card library-tool" data-category="ai web" style="--brand:#9b8cff;--brand-rgb:155,140,255"><span class="stack-logo" data-fallback="CU"><img class="stack-logo-img" src="assets/logos/custom/cursor-brand.svg" alt="Cursor logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>AI CODE EDITOR</small><h3>Cursor</h3><p>AI-assisted coding, debugging, and project editing.</p></div></article>
-
-        <article class="tool-card library-tool" data-category="voice" style="--brand:#61e7f0;--brand-rgb:97,231,240"><span class="stack-logo" data-fallback="R"><img class="stack-logo-img" src="assets/logos/custom/retell.svg" alt="Retell AI logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>VOICE AI</small><h3>Retell AI</h3><p>Conversational voice agents for calls and customer workflows.</p></div></article>
-        <article class="tool-card library-tool" data-category="voice" style="--brand:#a78bfa;--brand-rgb:167,139,250"><span class="stack-logo" data-fallback="V"><img class="stack-logo-img" src="assets/logos/custom/vapi.svg" alt="Vapi logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>VOICE AI</small><h3>Vapi</h3><p>Programmable voice agents connected to business tools.</p></div></article>
-
-        <article class="tool-card library-tool" data-category="web" style="--brand:#e34f26;--brand-rgb:227,79,38"><span class="stack-logo" data-fallback="H5"><img class="stack-logo-img" src="assets/logos/custom/html-brand.svg" alt="HTML5 logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WEB DEVELOPMENT</small><h3>HTML5</h3><p>Semantic structure for responsive web interfaces.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#1572b6;--brand-rgb:21,114,182"><span class="stack-logo" data-fallback="C3"><img class="stack-logo-img" src="assets/logos/custom/css-brand.svg" alt="CSS3 logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WEB DEVELOPMENT</small><h3>CSS3</h3><p>Responsive layouts, visual systems, and interactive effects.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#f7df1e;--brand-rgb:247,223,30"><span class="stack-logo" data-fallback="JS"><img class="stack-logo-img" src="assets/logos/custom/javascript-brand.svg" alt="JavaScript logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WEB DEVELOPMENT</small><h3>JavaScript</h3><p>Interactions, application logic, and dynamic experiences.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#777bb4;--brand-rgb:119,123,180"><span class="stack-logo" data-fallback="PHP"><img class="stack-logo-img" src="assets/logos/custom/php-brand.svg" alt="PHP logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WEB DEVELOPMENT</small><h3>PHP</h3><p>Server-side logic and database-backed features.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#4479a1;--brand-rgb:68,121,161"><span class="stack-logo" data-fallback="MY"><img class="stack-logo-img" src="assets/logos/custom/mysql-brand.svg" alt="MySQL logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>DATABASE</small><h3>MySQL</h3><p>Relational data storage for web systems.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#23a8f2;--brand-rgb:35,168,242"><span class="stack-logo" data-fallback="VS"><img class="stack-logo-img" src="assets/logos/custom/vscode-brand.svg" alt="Visual Studio Code logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>CODE EDITOR</small><h3>VS Code</h3><p>Web files, scripts, debugging, and project organization.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#9b4fce;--brand-rgb:155,79,206"><span class="stack-logo" data-fallback="VS"><img class="stack-logo-img" src="assets/logos/custom/visual-studio-brand.svg" alt="Visual Studio logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>DEVELOPMENT IDE</small><h3>Visual Studio</h3><p>Desktop and application development with Microsoft’s IDE.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#f05032;--brand-rgb:240,80,50"><span class="stack-logo" data-fallback="GIT"><img class="stack-logo-img" src="assets/logos/custom/git-brand.svg" alt="Git logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>VERSION CONTROL</small><h3>Git</h3><p>Tracking changes and managing development work.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#f5f5f5;--brand-rgb:245,245,245"><span class="stack-logo" data-fallback="GH"><img class="stack-logo-img" src="assets/logos/custom/github-brand.svg" alt="GitHub logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>CODE HOSTING</small><h3>GitHub</h3><p>Repositories, collaboration, and project delivery.</p></div></article>
-        <article class="tool-card library-tool" data-category="web" style="--brand:#82c7ff;--brand-rgb:130,199,255"><span class="stack-logo" data-fallback="GP"><img class="stack-logo-img" src="assets/logos/custom/github-pages-brand.svg" alt="GitHub Pages logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WEB HOSTING</small><h3>GitHub Pages</h3><p>Static hosting for portfolios and front-end projects.</p></div></article>
-
-        <article class="tool-card library-tool" data-category="workspace" style="--brand:#34a853;--brand-rgb:52,168,83"><span class="stack-logo" data-fallback="GW"><img class="stack-logo-img brand-natural" src="assets/logos/custom/google-workspace-brand.svg" alt="Google Workspace logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WORKSPACE SUITE</small><h3>Google Workspace</h3><p>Gmail, Docs, Sheets, Drive, and Calendar.</p></div></article>
-        <article class="tool-card library-tool" data-category="workspace" style="--brand:#60a5fa;--brand-rgb:96,165,250"><span class="stack-logo" data-fallback="M365"><img class="stack-logo-img brand-natural" src="assets/logos/custom/microsoft-brand.svg" alt="Microsoft 365 logo" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>WORKSPACE SUITE</small><h3>Microsoft 365</h3><p>Word, Excel, PowerPoint, Outlook, and Teams.</p></div></article>
-
-        <article class="tool-card library-tool" data-category="integrations" style="--brand:#61e7f0;--brand-rgb:97,231,240"><span class="stack-logo" data-fallback="API"><img class="stack-logo-img" src="assets/logos/custom/api.svg" alt="API icon" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>INTEGRATION</small><h3>APIs</h3><p>Connecting platforms and exchanging data between systems.</p></div></article>
-        <article class="tool-card library-tool" data-category="integrations" style="--brand:#f59e0b;--brand-rgb:245,158,11"><span class="stack-logo" data-fallback="WH"><img class="stack-logo-img" src="assets/logos/custom/webhooks.svg" alt="Webhook icon" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')"></span><div><small>INTEGRATION</small><h3>Webhooks</h3><p>Real-time event triggers between connected systems.</p></div></article>
-      </div>
-    </div>
-
-    <div class="toolkit-footer"><span>AUTOMATION FIRST</span><i></i><span>AI ASSISTED</span><i></i><span>WEB READY</span><i></i><span>CLIENT FOCUSED</span></div>
-  </div>
+<div aria-hidden="true" class="stack-v3-orb stack-v3-orb-a"></div>
+<div aria-hidden="true" class="stack-v3-orb stack-v3-orb-b"></div>
+<div aria-hidden="true" class="stack-v3-grid"></div>
+<div class="section-label reveal"><span>02</span><p>Tools &amp; technology stack</p></div>
+<div class="toolkit-head reveal">
+<div>
+<span class="toolkit-kicker">AUTOMATION-FIRST TOOLKIT</span>
+<h2>The stack behind<br/><em>systems that move.</em></h2>
+</div>
+<p>My automation platforms lead the stack. AI, voice, web development, workspace, and integrations support the system around them.</p>
+</div>
+<div class="toolkit-shell reveal" id="toolkitShell">
+<div class="toolkit-toolbar">
+<div class="toolkit-status"><i></i><span id="activeToolLabel">FEATURED AUTOMATION</span></div>
+<div aria-label="Filter tools by category" class="tool-filters" role="tablist">
+<button aria-selected="true" class="tool-filter active" data-filter="core" data-label="Featured automation" type="button">Featured</button>
+<button aria-selected="false" class="tool-filter" data-filter="automation" data-label="Automation platforms" type="button">Automation</button>
+<button aria-selected="false" class="tool-filter" data-filter="ai" data-label="AI tools" type="button">AI Tools</button>
+<button aria-selected="false" class="tool-filter" data-filter="voice" data-label="Voice AI" type="button">Voice AI</button>
+<button aria-selected="false" class="tool-filter" data-filter="web" data-label="Web development" type="button">Web Dev</button>
+<button aria-selected="false" class="tool-filter" data-filter="workspace" data-label="Workspace tools" type="button">Workspace</button>
+<button aria-selected="false" class="tool-filter" data-filter="integrations" data-label="Integrations" type="button">Integrations</button>
+<button aria-selected="false" class="tool-filter" data-filter="all" data-label="Complete stack" type="button">All Tools</button>
+</div>
+<span class="toolkit-count"><b id="visibleToolCount">04</b> IN VIEW</span>
+</div>
+<div class="stack-v3-stage">
+<div class="stack-v3-stage-head">
+<div><span>PRIMARY AUTOMATION PLATFORMS</span><strong>Featured stack</strong></div>
+<p>Where workflows are designed, connected, tested, and deployed.</p>
+</div>
+<div class="automation-feature-grid" id="automationFeatureGrid">
+<article class="tool-card automation-feature" data-category="core automation" style="--brand:#ff6d5a;--brand-rgb:255,109,90">
+<div class="automation-card-top"><span class="stack-logo" data-fallback="n8n"><img alt="n8n logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/n8n-brand.svg"/></span><b>01</b></div>
+<div class="automation-card-copy"><small>FLEXIBLE ORCHESTRATION</small><h3>n8n</h3><p>Custom AI workflows, API connections, branching logic, data transformation, and advanced automation control.</p></div>
+<div class="automation-card-tags"><span>AI workflows</span><span>APIs</span><span>Webhooks</span></div>
+<div aria-hidden="true" class="automation-pulse"><i></i><i></i><i></i></div>
+</article>
+<article class="tool-card automation-feature" data-category="core automation" style="--brand:#ff4f00;--brand-rgb:255,79,0">
+<div class="automation-card-top"><span class="stack-logo" data-fallback="Z"><img alt="Zapier logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/zapier-brand.svg"/></span><b>02</b></div>
+<div class="automation-card-copy"><small>FAST BUSINESS AUTOMATION</small><h3>Zapier</h3><p>Reliable no-code connections for forms, email, calendars, CRMs, notifications, and everyday business processes.</p></div>
+<div class="automation-card-tags"><span>Zaps</span><span>Business apps</span><span>Triggers</span></div>
+<div aria-hidden="true" class="automation-pulse"><i></i><i></i><i></i></div>
+</article>
+<article class="tool-card automation-feature" data-category="core automation" style="--brand:#a855f7;--brand-rgb:168,85,247">
+<div class="automation-card-top"><span class="stack-logo" data-fallback="M"><img alt="Make logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/make-brand.svg"/></span><b>03</b></div>
+<div class="automation-card-copy"><small>VISUAL WORKFLOW DESIGN</small><h3>Make</h3><p>Visual scenarios, routers, filters, transformations, and multi-step workflows across connected applications.</p></div>
+<div class="automation-card-tags"><span>Scenarios</span><span>Routers</span><span>Data mapping</span></div>
+<div aria-hidden="true" class="automation-pulse"><i></i><i></i><i></i></div>
+</article>
+<article class="tool-card automation-feature" data-category="core automation" style="--brand:#3aa0ff;--brand-rgb:58,160,255">
+<div class="automation-card-top"><span class="stack-logo" data-fallback="GHL"><img alt="GoHighLevel logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/highlevel-brand.svg"/></span><b>04</b></div>
+<div class="automation-card-copy"><small>CRM + REVENUE SYSTEMS</small><h3>GoHighLevel</h3><p>CRM pipelines, forms, calendars, conversations, lead nurturing, booking, and automated customer follow-up.</p></div>
+<div class="automation-card-tags"><span>CRM</span><span>Funnels</span><span>Follow-up</span></div>
+<div aria-hidden="true" class="automation-pulse"><i></i><i></i><i></i></div>
+</article>
+</div>
+<div aria-hidden="true" class="stack-v3-divider"><span></span><i></i><span></span></div>
+<div class="stack-v3-library-head">
+<div><span>SUPPORTING TOOLKIT</span><strong>Everything around the automation</strong></div>
+<p>Every card includes its software mark for faster scanning.</p>
+</div>
+<div class="tool-library" id="supportingTools">
+<article class="tool-card library-tool" data-category="ai" style="--brand:#8fd0ff;--brand-rgb:143,208,255"><span class="stack-logo" data-fallback="CG"><img alt="ChatGPT logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/chatgpt-brand.svg"/></span><div><small>AI WORKSPACE</small><h3>ChatGPT</h3><p>Ideation, prompting, troubleshooting, and rapid iteration.</p></div></article>
+<article class="tool-card library-tool" data-category="ai" style="--brand:#f5f7f2;--brand-rgb:245,247,242"><span class="stack-logo" data-fallback="AI"><img alt="OpenAI logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/openai-brand.svg"/></span><div><small>MODEL + API</small><h3>OpenAI</h3><p>AI models, APIs, and automation-ready intelligence.</p></div></article>
+<article class="tool-card library-tool" data-category="ai" style="--brand:#d7b99a;--brand-rgb:215,185,154"><span class="stack-logo" data-fallback="C"><img alt="Claude logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/anthropic-brand.svg"/></span><div><small>PLANNING + CODING</small><h3>Claude</h3><p>Workflow planning, writing, analysis, and coding support.</p></div></article>
+<article class="tool-card library-tool" data-category="ai" style="--brand:#4285f4;--brand-rgb:66,133,244"><span class="stack-logo" data-fallback="G"><img alt="Gemini logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/gemini-brand.svg"/></span><div><small>MULTIMODAL AI</small><h3>Gemini</h3><p>Google-connected assistance and multimodal work.</p></div></article>
+<article class="tool-card library-tool" data-category="ai" style="--brand:#7dd3fc;--brand-rgb:125,211,252"><span class="stack-logo" data-fallback="P"><img alt="Perplexity logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/perplexity-brand.svg"/></span><div><small>SEARCH + RESEARCH</small><h3>Perplexity</h3><p>Source-guided research and fast discovery.</p></div></article>
+<article class="tool-card library-tool" data-category="ai web" style="--brand:#fb7185;--brand-rgb:251,113,133"><span class="stack-logo" data-fallback="L"><img alt="Lovable logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/lovable-brand.svg"/></span><div><small>AI WEB BUILDER</small><h3>Lovable</h3><p>Rapid interfaces, landing pages, and prototypes.</p></div></article>
+<article class="tool-card library-tool" data-category="ai web" style="--brand:#6ee7b7;--brand-rgb:110,231,183"><span class="stack-logo" data-fallback="CX"><img alt="Codex logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/codex-brand.svg"/></span><div><small>CODE GENERATION</small><h3>Codex</h3><p>Implementation support and technical problem solving.</p></div></article>
+<article class="tool-card library-tool" data-category="ai web" style="--brand:#9b8cff;--brand-rgb:155,140,255"><span class="stack-logo" data-fallback="CU"><img alt="Cursor logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/cursor-brand.svg"/></span><div><small>AI CODE EDITOR</small><h3>Cursor</h3><p>AI-assisted coding, debugging, and project editing.</p></div></article>
+<article class="tool-card library-tool" data-category="voice" style="--brand:#61e7f0;--brand-rgb:97,231,240"><span class="stack-logo" data-fallback="R"><img alt="Retell AI logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/retell.svg"/></span><div><small>VOICE AI</small><h3>Retell AI</h3><p>Conversational voice agents for calls and customer workflows.</p></div></article>
+<article class="tool-card library-tool" data-category="voice" style="--brand:#a78bfa;--brand-rgb:167,139,250"><span class="stack-logo" data-fallback="V"><img alt="Vapi logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/vapi.svg"/></span><div><small>VOICE AI</small><h3>Vapi</h3><p>Programmable voice agents connected to business tools.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#e34f26;--brand-rgb:227,79,38"><span class="stack-logo" data-fallback="H5"><img alt="HTML5 logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/html-brand.svg"/></span><div><small>WEB DEVELOPMENT</small><h3>HTML5</h3><p>Semantic structure for responsive web interfaces.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#1572b6;--brand-rgb:21,114,182"><span class="stack-logo" data-fallback="C3"><img alt="CSS3 logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/css-brand.svg"/></span><div><small>WEB DEVELOPMENT</small><h3>CSS3</h3><p>Responsive layouts, visual systems, and interactive effects.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#f7df1e;--brand-rgb:247,223,30"><span class="stack-logo" data-fallback="JS"><img alt="JavaScript logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/javascript-brand.svg"/></span><div><small>WEB DEVELOPMENT</small><h3>JavaScript</h3><p>Interactions, application logic, and dynamic experiences.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#777bb4;--brand-rgb:119,123,180"><span class="stack-logo" data-fallback="PHP"><img alt="PHP logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/php-brand.svg"/></span><div><small>WEB DEVELOPMENT</small><h3>PHP</h3><p>Server-side logic and database-backed features.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#4479a1;--brand-rgb:68,121,161"><span class="stack-logo" data-fallback="MY"><img alt="MySQL logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/mysql-brand.svg"/></span><div><small>DATABASE</small><h3>MySQL</h3><p>Relational data storage for web systems.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#23a8f2;--brand-rgb:35,168,242"><span class="stack-logo" data-fallback="VS"><img alt="Visual Studio Code logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/vscode-brand.svg"/></span><div><small>CODE EDITOR</small><h3>VS Code</h3><p>Web files, scripts, debugging, and project organization.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#9b4fce;--brand-rgb:155,79,206"><span class="stack-logo" data-fallback="VS"><img alt="Visual Studio logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/visual-studio-brand.svg"/></span><div><small>DEVELOPMENT IDE</small><h3>Visual Studio</h3><p>Desktop and application development with Microsoft’s IDE.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#f05032;--brand-rgb:240,80,50"><span class="stack-logo" data-fallback="GIT"><img alt="Git logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/git-brand.svg"/></span><div><small>VERSION CONTROL</small><h3>Git</h3><p>Tracking changes and managing development work.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#f5f5f5;--brand-rgb:245,245,245"><span class="stack-logo" data-fallback="GH"><img alt="GitHub logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/github-brand.svg"/></span><div><small>CODE HOSTING</small><h3>GitHub</h3><p>Repositories, collaboration, and project delivery.</p></div></article>
+<article class="tool-card library-tool" data-category="web" style="--brand:#82c7ff;--brand-rgb:130,199,255"><span class="stack-logo" data-fallback="GP"><img alt="GitHub Pages logo" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/github-pages-brand.svg"/></span><div><small>WEB HOSTING</small><h3>GitHub Pages</h3><p>Static hosting for portfolios and front-end projects.</p></div></article>
+<article class="tool-card library-tool" data-category="workspace" style="--brand:#34a853;--brand-rgb:52,168,83"><span class="stack-logo" data-fallback="GW"><img alt="Google Workspace logo" class="stack-logo-img brand-natural" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/google-workspace-brand.svg"/></span><div><small>WORKSPACE SUITE</small><h3>Google Workspace</h3><p>Gmail, Docs, Sheets, Drive, and Calendar.</p></div></article>
+<article class="tool-card library-tool" data-category="workspace" style="--brand:#60a5fa;--brand-rgb:96,165,250"><span class="stack-logo" data-fallback="M365"><img alt="Microsoft 365 logo" class="stack-logo-img brand-natural" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/microsoft-brand.svg"/></span><div><small>WORKSPACE SUITE</small><h3>Microsoft 365</h3><p>Word, Excel, PowerPoint, Outlook, and Teams.</p></div></article>
+<article class="tool-card library-tool" data-category="integrations" style="--brand:#61e7f0;--brand-rgb:97,231,240"><span class="stack-logo" data-fallback="API"><img alt="API icon" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/api.svg"/></span><div><small>INTEGRATION</small><h3>APIs</h3><p>Connecting platforms and exchanging data between systems.</p></div></article>
+<article class="tool-card library-tool" data-category="integrations" style="--brand:#f59e0b;--brand-rgb:245,158,11"><span class="stack-logo" data-fallback="WH"><img alt="Webhook icon" class="stack-logo-img" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('logo-failed')" src="assets/logos/custom/webhooks.svg"/></span><div><small>INTEGRATION</small><h3>Webhooks</h3><p>Real-time event triggers between connected systems.</p></div></article>
+</div>
+</div>
+<div class="toolkit-footer"><span>AUTOMATION FIRST</span><i></i><span>AI ASSISTED</span><i></i><span>WEB READY</span><i></i><span>CLIENT FOCUSED</span></div>
+</div>
 </section>
-
 <section class="system-story" id="systems">
 <div class="system-shell">
 <div class="system-visual" id="systemVisual">
@@ -299,7 +282,7 @@
 <div class="vault-status"><i></i><span>READY TO INSPECT</span><kbd>CLICK A CARD</kbd></div>
 </div>
 <div aria-live="polite" class="project-grid" id="projectGrid">
-<!-- EDIT N8N PROJECT 01: replace the img src, h3 text, and p text below. -->
+<!-- EDIT N8N PROJECT 01: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: AI Lead Qualification &amp; Auto-Booking" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
 <img alt="n8n AI lead qualification workflow" loading="lazy" src="assets/builds/n8n-ai-lead-qualification-full.png"/>
@@ -320,7 +303,7 @@
 <div class="project-flow"><span>Lead form</span><span>AI score</span><span>Validation</span><span>Tier routing</span><span>Book or follow up</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 02: replace the img src, h3 text, and p text below. -->
+<!-- EDIT N8N PROJECT 02: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: AI Sales Assistant Agent" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
 <img alt="n8n AI sales assistant agent workflow" loading="lazy" src="assets/builds/n8n-ai-sales-agent-full.png"/>
@@ -341,7 +324,7 @@
 <div class="project-flow"><span>Message</span><span>Agent decision</span><span>Tool call</span><span>Result check</span><span>Reply</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 03: replace the img src, h3 text, and p text below. -->
+<!-- EDIT N8N PROJECT 03: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: Multi-Agent Content Pipeline" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
 <img alt="n8n multi-agent content pipeline workflow" loading="lazy" src="assets/builds/n8n-content-pipeline-full.png"/>
@@ -362,154 +345,154 @@
 <div class="project-flow"><span>Topic</span><span>Research agent</span><span>Writer agent</span><span>Editor agent</span><span>Review document</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 04: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 04: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Revenue Leakage Detection &amp; Recovery Agent" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 04" loading="lazy" src="assets/placeholders/n8n-04-project-placeholder.svg"/>
+<img alt="System blueprint for Revenue Leakage Detection &amp; Recovery Agent" loading="lazy" src="assets/placeholders/n8n-04-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 04</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · SaaS &amp; subscription businesses</span><b class="project-status">Ready to build</b></div>
+<h3>Revenue Leakage Detection &amp; Recovery Agent</h3>
+<p class="project-summary">Reconciles billing, CRM, and product-usage signals to uncover failed payments, unbilled usage, silent downgrades, and overdue revenue before they disappear.</p>
+<div class="project-tags"><span>n8n</span><span>Stripe</span><span>CRM</span><span>OpenAI</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Revenue leakage hides across billing failures, missed plan changes, unbilled usage, and accounts that quietly stop paying. Finance and customer-success teams often discover the problem only after the recovery window has narrowed.</p>
+<p class="project-solution">The system ingests billing, CRM, and usage events, reconciles each account, classifies the leakage type, launches the correct recovery sequence, creates an owner task, and keeps a complete audit trail for finance.</p>
+<div class="project-flow"><span>Billing + usage events</span><span>Account reconciliation</span><span>Leakage classification</span><span>Recovery sequence</span><span>Finance escalation</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 05: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 05: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: RFP &amp; Proposal Response Orchestrator" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 05" loading="lazy" src="assets/placeholders/n8n-05-project-placeholder.svg"/>
+<img alt="System blueprint for RFP &amp; Proposal Response Orchestrator" loading="lazy" src="assets/placeholders/n8n-05-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 05</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · Agencies &amp; B2B service firms</span><b class="project-status">Ready to build</b></div>
+<h3>RFP &amp; Proposal Response Orchestrator</h3>
+<p class="project-summary">Turns complex RFP documents into a requirements matrix, grounded proposal draft, reviewer assignments, and a delivery-ready response package.</p>
+<div class="project-tags"><span>n8n</span><span>Claude</span><span>Google Drive</span><span>Google Docs</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Proposal teams lose days searching previous answers, copying credentials, tracking missing requirements, and coordinating reviews across scattered files and messages.</p>
+<p class="project-solution">The workflow extracts requirements from uploaded RFPs, maps them to approved company evidence, drafts response sections, flags unsupported claims, assigns reviewers, and assembles the approved content into a final proposal workspace.</p>
+<div class="project-flow"><span>RFP intake</span><span>Requirement extraction</span><span>Evidence retrieval</span><span>Draft + review</span><span>Proposal package</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 06: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 06: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Customer Churn Early-Warning System" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 06" loading="lazy" src="assets/placeholders/n8n-06-project-placeholder.svg"/>
+<img alt="System blueprint for Customer Churn Early-Warning System" loading="lazy" src="assets/placeholders/n8n-06-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 06</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · SaaS, memberships &amp; retainers</span><b class="project-status">Ready to build</b></div>
+<h3>Customer Churn Early-Warning System</h3>
+<p class="project-summary">Combines usage decline, support friction, billing risk, and account sentiment into a churn score with targeted retention actions.</p>
+<div class="project-tags"><span>n8n</span><span>OpenAI</span><span>CRM</span><span>Microsoft Teams</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">At-risk customers rarely announce that they are leaving. Warning signs appear separately in product usage, support conversations, invoices, and account notes, making them easy to miss.</p>
+<p class="project-solution">The system consolidates account signals, calculates a transparent risk score, explains the likely reason for churn, and launches the correct playbook—from an automated check-in to a high-priority account-manager alert.</p>
+<div class="project-flow"><span>Usage + support data</span><span>Risk scoring</span><span>Reason analysis</span><span>Retention playbook</span><span>Owner follow-up</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 07: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 07: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Supplier Disruption &amp; PO Exception Control Tower" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 07" loading="lazy" src="assets/placeholders/n8n-07-project-placeholder.svg"/>
+<img alt="System blueprint for Supplier Disruption &amp; PO Exception Control Tower" loading="lazy" src="assets/placeholders/n8n-07-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 07</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · E-commerce &amp; operations teams</span><b class="project-status">Ready to build</b></div>
+<h3>Supplier Disruption &amp; PO Exception Control Tower</h3>
+<p class="project-summary">Monitors purchase orders, supplier replies, shipment ETAs, and stock exposure to surface delays before they become customer-facing problems.</p>
+<div class="project-tags"><span>n8n</span><span>Gmail</span><span>Google Sheets</span><span>APIs</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Late supplier updates and shipment exceptions are often trapped in email threads while inventory and customer commitments continue to move, creating preventable stockouts and missed deadlines.</p>
+<p class="project-solution">The workflow reads PO and shipment events, detects missing confirmations or slipping ETAs, estimates business exposure, requests updates automatically, proposes fallback suppliers, and escalates high-risk exceptions to procurement.</p>
+<div class="project-flow"><span>PO + shipment events</span><span>ETA validation</span><span>Exposure scoring</span><span>Supplier follow-up</span><span>Procurement action</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 08: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 08: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: AI Accounts Receivable Collection Agent" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 08" loading="lazy" src="assets/placeholders/n8n-08-project-placeholder.svg"/>
+<img alt="System blueprint for AI Accounts Receivable Collection Agent" loading="lazy" src="assets/placeholders/n8n-08-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 08</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · Agencies, consultancies &amp; B2B firms</span><b class="project-status">Ready to build</b></div>
+<h3>AI Accounts Receivable Collection Agent</h3>
+<p class="project-summary">Prioritizes overdue invoices, personalizes follow-up based on account context, records every touchpoint, and escalates high-risk balances.</p>
+<div class="project-tags"><span>n8n</span><span>QuickBooks</span><span>Gmail</span><span>OpenAI</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Manual collections are inconsistent and emotionally draining. Teams either follow up too late, send generic reminders, or lose context about disputes, promises, and payment history.</p>
+<p class="project-solution">The agent reviews invoice age, payment history, account value, and conversation context; selects an approved collection tone; sends the next action; updates the CRM; and escalates disputes or broken promises to a human owner.</p>
+<div class="project-flow"><span>Invoice aging</span><span>Account context</span><span>Priority + tone</span><span>Collection action</span><span>Escalation log</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 09: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 09: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Field Service Dispatch &amp; SLA Optimizer" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 09" loading="lazy" src="assets/placeholders/n8n-09-project-placeholder.svg"/>
+<img alt="System blueprint for Field Service Dispatch &amp; SLA Optimizer" loading="lazy" src="assets/placeholders/n8n-09-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 09</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · Home services &amp; field operations</span><b class="project-status">Ready to build</b></div>
+<h3>Field Service Dispatch &amp; SLA Optimizer</h3>
+<p class="project-summary">Matches urgent jobs to the right technician using location, skill, availability, parts, and SLA constraints while keeping customers updated.</p>
+<div class="project-tags"><span>n8n</span><span>Google Maps API</span><span>Calendar</span><span>CRM</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Dispatch teams often coordinate jobs manually across calls, calendars, technician skills, traffic, and parts availability—causing late arrivals, unnecessary travel, and missed service commitments.</p>
+<p class="project-solution">The system validates the request, scores eligible technicians, checks travel time and availability, proposes the best assignment, updates the schedule, and sends customer and technician notifications with exception handling.</p>
+<div class="project-flow"><span>Service request</span><span>Skill + SLA match</span><span>Route scoring</span><span>Dispatch assignment</span><span>Status updates</span></div>
 </div>
 </article>
-<!-- EDIT N8N PROJECT 10: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add n8n Project Title" class="project-card project-hover reveal is-placeholder" data-platform="n8n" tabindex="0">
+<!-- EDIT N8N PROJECT 10: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Compliance Evidence &amp; Audit Trail Collector" class="project-card project-hover reveal" data-platform="n8n" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for n8n project 10" loading="lazy" src="assets/placeholders/n8n-10-project-placeholder.svg"/>
+<img alt="System blueprint for Compliance Evidence &amp; Audit Trail Collector" loading="lazy" src="assets/placeholders/n8n-10-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">N8N / 10</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">n8n · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add n8n Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>n8n</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">n8n · Regulated teams &amp; growing SaaS</span><b class="project-status">Ready to build</b></div>
+<h3>Compliance Evidence &amp; Audit Trail Collector</h3>
+<p class="project-summary">Collects recurring compliance evidence from business systems, validates completeness, requests missing proof, and maintains an audit-ready history.</p>
+<div class="project-tags"><span>n8n</span><span>Google Drive</span><span>Microsoft 365</span><span>APIs</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Audit preparation becomes a last-minute scramble because screenshots, approvals, access reviews, policy acknowledgements, and control evidence live across multiple owners and tools.</p>
+<p class="project-solution">The workflow runs scheduled evidence checks, retrieves approved records through APIs, validates required fields and dates, requests missing items from control owners, and stores a time-stamped evidence package with an exception log.</p>
+<div class="project-flow"><span>Control schedule</span><span>Evidence collection</span><span>Validation rules</span><span>Owner reminders</span><span>Audit package</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 01: replace the img src, h3 text, and p text below. -->
+<!-- EDIT ZAPIER PROJECT 01: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: AI Email Triage &amp; Auto-Responder" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
 <img alt="Zapier AI email triage automation" loading="lazy" src="assets/builds/zapier-ai-email-triage-full.png"/>
@@ -530,7 +513,7 @@
 <div class="project-flow"><span>Email</span><span>Classify</span><span>Urgency check</span><span>Route</span><span>Reply and log</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 02: replace the img src, h3 text, and p text below. -->
+<!-- EDIT ZAPIER PROJECT 02: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: Review Request Automation" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
 <img alt="Zapier review request automation" loading="lazy" src="assets/builds/zapier-review-request-full.png"/>
@@ -551,7 +534,7 @@
 <div class="project-flow"><span>Job complete</span><span>Delay</span><span>Review request</span><span>Rating branch</span><span>Follow-up</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 03: replace the img src, h3 text, and p text below. -->
+<!-- EDIT ZAPIER PROJECT 03: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: New Client Intake &amp; Welcome Sequence" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
 <img alt="Zapier client intake and welcome automation" loading="lazy" src="assets/builds/zapier-new-client-intake-full.png"/>
@@ -572,154 +555,154 @@
 <div class="project-flow"><span>Intake form</span><span>Normalize</span><span>Client record</span><span>Welcome</span><span>Kickoff reminder</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 04: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 04: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Sales-to-Delivery Handoff Command Center" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 04" loading="lazy" src="assets/placeholders/zapier-04-project-placeholder.svg"/>
+<img alt="System blueprint for Sales-to-Delivery Handoff Command Center" loading="lazy" src="assets/placeholders/zapier-04-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 04</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · Agencies &amp; professional services</span><b class="project-status">Ready to build</b></div>
+<h3>Sales-to-Delivery Handoff Command Center</h3>
+<p class="project-summary">Transforms a closed deal into a complete delivery workspace with project tasks, folders, billing setup, kickoff scheduling, and owner accountability.</p>
+<div class="project-tags"><span>Zapier</span><span>HubSpot</span><span>ClickUp</span><span>Google Drive</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">The moment after a deal closes is where client experience often breaks. Details are copied manually, kickoff steps vary, and delivery teams receive incomplete context.</p>
+<p class="project-solution">A closed-won event validates deal data, creates the project structure, assigns tasks from the correct service template, generates client folders, starts billing, schedules kickoff, and alerts the delivery owner about missing information.</p>
+<div class="project-flow"><span>Deal closed</span><span>Data validation</span><span>Workspace creation</span><span>Billing + kickoff</span><span>Owner confirmation</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 05: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 05: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Candidate Screening &amp; Interview Coordination" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 05" loading="lazy" src="assets/placeholders/zapier-05-project-placeholder.svg"/>
+<img alt="System blueprint for Candidate Screening &amp; Interview Coordination" loading="lazy" src="assets/placeholders/zapier-05-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 05</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · Recruiters &amp; growing teams</span><b class="project-status">Ready to build</b></div>
+<h3>Candidate Screening &amp; Interview Coordination</h3>
+<p class="project-summary">Organizes applicants, screens against role criteria, coordinates interviews, and keeps candidates informed without losing human review.</p>
+<div class="project-tags"><span>Zapier</span><span>OpenAI</span><span>Gmail</span><span>Google Calendar</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Recruiting teams spend hours sorting applications, checking basic requirements, finding interview times, and sending status updates while strong candidates wait.</p>
+<p class="project-solution">The workflow captures applications, extracts structured candidate data, evaluates approved screening criteria, routes qualified candidates for human review, proposes interview slots, and sends consistent communications at every stage.</p>
+<div class="project-flow"><span>Application intake</span><span>Structured screening</span><span>Human review</span><span>Interview booking</span><span>Candidate updates</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 06: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 06: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Support SLA Rescue &amp; Escalation Workflow" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 06" loading="lazy" src="assets/placeholders/zapier-06-project-placeholder.svg"/>
+<img alt="System blueprint for Support SLA Rescue &amp; Escalation Workflow" loading="lazy" src="assets/placeholders/zapier-06-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 06</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · Customer-support organizations</span><b class="project-status">Ready to build</b></div>
+<h3>Support SLA Rescue &amp; Escalation Workflow</h3>
+<p class="project-summary">Detects tickets approaching SLA breach, enriches the case with account context, alerts the right owner, and tracks the rescue through resolution.</p>
+<div class="project-tags"><span>Zapier</span><span>Zendesk</span><span>Microsoft Teams</span><span>CRM</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">High-priority tickets can sit unnoticed when queues grow, ownership changes, or account context is split between the support platform and CRM.</p>
+<p class="project-solution">The automation watches priority, sentiment, customer tier, age, and response deadlines; assembles the relevant account context; creates an escalation channel; assigns ownership; and closes the loop when the customer receives a resolution.</p>
+<div class="project-flow"><span>Ticket monitoring</span><span>SLA risk check</span><span>Context enrichment</span><span>Owner escalation</span><span>Resolution tracking</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 07: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 07: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Webinar-to-Pipeline Conversion Engine" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 07" loading="lazy" src="assets/placeholders/zapier-07-project-placeholder.svg"/>
+<img alt="System blueprint for Webinar-to-Pipeline Conversion Engine" loading="lazy" src="assets/placeholders/zapier-07-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 07</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · B2B marketing &amp; education teams</span><b class="project-status">Ready to build</b></div>
+<h3>Webinar-to-Pipeline Conversion Engine</h3>
+<p class="project-summary">Scores registrants using attendance and engagement, creates sales-ready CRM opportunities, and starts the right follow-up journey automatically.</p>
+<div class="project-tags"><span>Zapier</span><span>Zoom</span><span>GoHighLevel</span><span>Google Sheets</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Webinar leads are often treated as one list even though attendees, no-shows, highly engaged prospects, and existing customers need different next steps.</p>
+<p class="project-solution">The system combines registration, attendance duration, poll responses, questions, and CRM status; assigns an engagement tier; creates or updates the opportunity; and launches sales, nurture, or replay follow-up.</p>
+<div class="project-flow"><span>Registration</span><span>Attendance signals</span><span>Engagement score</span><span>CRM routing</span><span>Personalized follow-up</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 08: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 08: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Contract Renewal &amp; Expansion Radar" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 08" loading="lazy" src="assets/placeholders/zapier-08-project-placeholder.svg"/>
+<img alt="System blueprint for Contract Renewal &amp; Expansion Radar" loading="lazy" src="assets/placeholders/zapier-08-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 08</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · Account-management teams</span><b class="project-status">Ready to build</b></div>
+<h3>Contract Renewal &amp; Expansion Radar</h3>
+<p class="project-summary">Surfaces upcoming renewals with usage, support, and relationship context so teams can protect revenue and identify expansion opportunities early.</p>
+<div class="project-tags"><span>Zapier</span><span>CRM</span><span>Google Calendar</span><span>Microsoft Teams</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Renewals become reactive when contract dates live in spreadsheets and account health is scattered across CRM notes, support history, and product usage.</p>
+<p class="project-solution">The workflow starts well before the renewal date, compiles account health signals, flags risks and expansion indicators, creates a renewal plan, schedules owner reminders, and tracks proposal and approval milestones.</p>
+<div class="project-flow"><span>Renewal window</span><span>Account health</span><span>Risk + expansion</span><span>Owner plan</span><span>Proposal tracking</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 09: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 09: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Chargeback Evidence Assembly Workflow" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 09" loading="lazy" src="assets/placeholders/zapier-09-project-placeholder.svg"/>
+<img alt="System blueprint for Chargeback Evidence Assembly Workflow" loading="lazy" src="assets/placeholders/zapier-09-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 09</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · E-commerce &amp; digital-product sellers</span><b class="project-status">Ready to build</b></div>
+<h3>Chargeback Evidence Assembly Workflow</h3>
+<p class="project-summary">Collects order, delivery, communication, and policy evidence into a structured chargeback response package before the deadline.</p>
+<div class="project-tags"><span>Zapier</span><span>Stripe</span><span>Shopify</span><span>Google Drive</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Chargeback defense is time-sensitive, but the evidence is spread across payment processors, stores, shipping systems, support messages, and policy documents.</p>
+<p class="project-solution">A dispute event triggers evidence collection, verifies order and fulfillment history, gathers customer communication and policy acceptance, flags missing proof, and creates a review-ready response folder with the submission deadline.</p>
+<div class="project-flow"><span>Dispute opened</span><span>Evidence collection</span><span>Completeness check</span><span>Response package</span><span>Deadline alert</span></div>
 </div>
 </article>
-<!-- EDIT ZAPIER PROJECT 10: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Zapier Project Title" class="project-card project-hover reveal is-placeholder" data-platform="zapier" tabindex="0">
+<!-- EDIT ZAPIER PROJECT 10: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Executive Daily Operations Brief" class="project-card project-hover reveal" data-platform="zapier" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Zapier project 10" loading="lazy" src="assets/placeholders/zapier-10-project-placeholder.svg"/>
+<img alt="System blueprint for Executive Daily Operations Brief" loading="lazy" src="assets/placeholders/zapier-10-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">ZAP / 10</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Zapier · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Zapier Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Zapier</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Zapier · Founders &amp; operations leaders</span><b class="project-status">Ready to build</b></div>
+<h3>Executive Daily Operations Brief</h3>
+<p class="project-summary">Condenses sales, support, delivery, cash, and calendar signals into one prioritized morning brief with decisions and exceptions highlighted.</p>
+<div class="project-tags"><span>Zapier</span><span>Google Workspace</span><span>Microsoft 365</span><span>OpenAI</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Leaders waste the first part of each day checking dashboards, inboxes, project tools, and spreadsheets without a clear view of what actually needs attention.</p>
+<p class="project-solution">The workflow gathers approved metrics and exceptions, summarizes movement since the previous brief, separates information from required decisions, and delivers a concise report with direct links to the source records.</p>
+<div class="project-flow"><span>Data collection</span><span>Exception detection</span><span>Priority summary</span><span>Decision list</span><span>Morning delivery</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 01: replace the img src, h3 text, and p text below. -->
+<!-- EDIT MAKE PROJECT 01: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: AI Package &amp; Membership Cart Recovery" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
 <img alt="Make cart recovery scenario" loading="lazy" src="assets/builds/make-cart-recovery-full.png"/>
@@ -740,7 +723,7 @@
 <div class="project-flow"><span>Abandoned cart</span><span>Offer context</span><span>AI message</span><span>Value branch</span><span>Recovery sequence</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 02: replace the img src, h3 text, and p text below. -->
+<!-- EDIT MAKE PROJECT 02: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: Job-Site Content Repurposing Pipeline" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
 <img alt="Make content repurposing scenario" loading="lazy" src="assets/builds/make-content-repurposing-full.png"/>
@@ -761,7 +744,7 @@
 <div class="project-flow"><span>Source asset</span><span>Extract context</span><span>Draft variants</span><span>Parse</span><span>Approval queue</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 03: replace the img src, h3 text, and p text below. -->
+<!-- EDIT MAKE PROJECT 03: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: AI Customer Support Ticket Triage" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
 <img alt="Make AI customer support triage scenario" loading="lazy" src="assets/builds/make-ai-support-triage-full.png"/>
@@ -782,157 +765,157 @@
 <div class="project-flow"><span>Ticket</span><span>Classify</span><span>Draft</span><span>Priority route</span><span>Audit log</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 04: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 04: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Multi-Channel Inventory Replenishment Engine" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 04" loading="lazy" src="assets/placeholders/make-04-project-placeholder.svg"/>
+<img alt="System blueprint for Multi-Channel Inventory Replenishment Engine" loading="lazy" src="assets/placeholders/make-04-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 04</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · E-commerce &amp; retail operations</span><b class="project-status">Ready to build</b></div>
+<h3>Multi-Channel Inventory Replenishment Engine</h3>
+<p class="project-summary">Combines sales velocity, stock on hand, inbound supply, and supplier lead times to recommend and initiate smarter replenishment actions.</p>
+<div class="project-tags"><span>Make</span><span>Shopify</span><span>Google Sheets</span><span>Supplier API</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Static reorder points fail when demand changes, supplier lead times slip, or inventory is split across channels and warehouses.</p>
+<p class="project-solution">The scenario normalizes inventory and order data, calculates days of cover, checks inbound purchase orders, applies safety-stock rules, recommends quantities, and routes large or unusual orders for approval before supplier submission.</p>
+<div class="project-flow"><span>Inventory sync</span><span>Demand velocity</span><span>Days-of-cover</span><span>Reorder proposal</span><span>Approval + supplier</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 05: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 05: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Marketplace Order &amp; Fulfillment Orchestrator" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 05" loading="lazy" src="assets/placeholders/make-05-project-placeholder.svg"/>
+<img alt="System blueprint for Marketplace Order &amp; Fulfillment Orchestrator" loading="lazy" src="assets/placeholders/make-05-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 05</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · Multi-channel commerce brands</span><b class="project-status">Ready to build</b></div>
+<h3>Marketplace Order &amp; Fulfillment Orchestrator</h3>
+<p class="project-summary">Normalizes orders from multiple storefronts, reserves inventory, selects fulfillment paths, updates accounting, and manages delivery exceptions.</p>
+<div class="project-tags"><span>Make</span><span>Shopify</span><span>Amazon</span><span>Shipping API</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Orders from different marketplaces arrive with different formats, taxes, SKUs, shipping rules, and fulfillment expectations, creating errors and duplicate work.</p>
+<p class="project-solution">The workflow converts every order into a common structure, validates SKU and inventory, chooses the correct warehouse and carrier, creates shipment records, updates financial systems, and routes exceptions to operations.</p>
+<div class="project-flow"><span>Channel orders</span><span>Data normalization</span><span>Stock reservation</span><span>Fulfillment routing</span><span>Exception control</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 06: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 06: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Client Reporting &amp; Insight Factory" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 06" loading="lazy" src="assets/placeholders/make-06-project-placeholder.svg"/>
+<img alt="System blueprint for Client Reporting &amp; Insight Factory" loading="lazy" src="assets/placeholders/make-06-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 06</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · Marketing agencies &amp; consultants</span><b class="project-status">Ready to build</b></div>
+<h3>Client Reporting &amp; Insight Factory</h3>
+<p class="project-summary">Collects campaign, CRM, and revenue data, produces consistent client dashboards, and adds a grounded executive narrative for each reporting cycle.</p>
+<div class="project-tags"><span>Make</span><span>Ads APIs</span><span>CRM</span><span>Looker Studio</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Monthly reporting consumes hours of exports, spreadsheet cleanup, screenshot capture, metric checking, and repetitive explanation.</p>
+<p class="project-solution">The scenario pulls source data, validates dates and attribution, standardizes campaign and revenue metrics, updates the reporting layer, identifies meaningful changes, and prepares a client-ready summary for human approval.</p>
+<div class="project-flow"><span>Source extraction</span><span>Data validation</span><span>Metric modeling</span><span>Insight generation</span><span>Client delivery</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 07: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 07: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Invoice Reconciliation &amp; Approval System" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 07" loading="lazy" src="assets/placeholders/make-07-project-placeholder.svg"/>
+<img alt="System blueprint for Invoice Reconciliation &amp; Approval System" loading="lazy" src="assets/placeholders/make-07-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 07</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · Finance &amp; operations teams</span><b class="project-status">Ready to build</b></div>
+<h3>Invoice Reconciliation &amp; Approval System</h3>
+<p class="project-summary">Matches incoming invoices to purchase records, identifies pricing or quantity exceptions, and routes only the right cases for approval.</p>
+<div class="project-tags"><span>Make</span><span>Gmail</span><span>MySQL</span><span>Microsoft Teams</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Finance teams manually compare invoices, purchase orders, receipts, and approval limits, slowing payment and allowing duplicate or incorrect charges through.</p>
+<p class="project-solution">The workflow extracts invoice details, matches them to purchase and receipt records, checks totals and tolerances, detects duplicates, auto-clears clean invoices, and sends exceptions to the correct approver with evidence attached.</p>
+<div class="project-flow"><span>Invoice capture</span><span>PO + receipt match</span><span>Tolerance checks</span><span>Approval routing</span><span>Payment-ready record</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 08: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 08: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Property Maintenance Dispatch Hub" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 08" loading="lazy" src="assets/placeholders/make-08-project-placeholder.svg"/>
+<img alt="System blueprint for Property Maintenance Dispatch Hub" loading="lazy" src="assets/placeholders/make-08-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 08</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · Property managers &amp; facilities teams</span><b class="project-status">Ready to build</b></div>
+<h3>Property Maintenance Dispatch Hub</h3>
+<p class="project-summary">Classifies maintenance requests, checks urgency and responsibility, assigns the right vendor, and keeps tenants and managers updated through completion.</p>
+<div class="project-tags"><span>Make</span><span>Forms</span><span>Google Maps API</span><span>CRM</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Maintenance requests arrive through calls, emails, and forms with missing details, unclear urgency, and inconsistent vendor follow-up.</p>
+<p class="project-solution">The system standardizes intake, requests missing photos or access details, applies emergency and responsibility rules, selects a qualified nearby vendor, tracks SLA milestones, and records all communication and costs.</p>
+<div class="project-flow"><span>Request intake</span><span>Urgency + ownership</span><span>Vendor matching</span><span>SLA tracking</span><span>Closeout + cost</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 09: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 09: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Product Catalog Sync &amp; Margin Guardrails" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 09" loading="lazy" src="assets/placeholders/make-09-project-placeholder.svg"/>
+<img alt="System blueprint for Product Catalog Sync &amp; Margin Guardrails" loading="lazy" src="assets/placeholders/make-09-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 09</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · Retailers, distributors &amp; marketplaces</span><b class="project-status">Ready to build</b></div>
+<h3>Product Catalog Sync &amp; Margin Guardrails</h3>
+<p class="project-summary">Keeps product data synchronized across channels while preventing price changes that violate margin, inventory, or brand rules.</p>
+<div class="project-tags"><span>Make</span><span>Shopify</span><span>MySQL</span><span>APIs</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Catalog updates across channels create mismatched SKUs, stale descriptions, incorrect prices, overselling, and margin erosion when exchange rates or supplier costs change.</p>
+<p class="project-solution">The scenario maintains a master product record, maps channel-specific fields, validates SKU and inventory changes, recalculates price floors, blocks unsafe updates, and logs every published change and exception.</p>
+<div class="project-flow"><span>Master catalog</span><span>Channel mapping</span><span>Margin validation</span><span>Publish updates</span><span>Exception log</span></div>
 </div>
 </article>
-<!-- EDIT MAKE PROJECT 10: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add Make Project Title" class="project-card project-hover reveal is-placeholder" data-platform="make" tabindex="0">
+<!-- EDIT MAKE PROJECT 10: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Event Operations &amp; Attendee Journey" class="project-card project-hover reveal" data-platform="make" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for Make project 10" loading="lazy" src="assets/placeholders/make-10-project-placeholder.svg"/>
+<img alt="System blueprint for Event Operations &amp; Attendee Journey" loading="lazy" src="assets/placeholders/make-10-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">MAKE / 10</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">Make · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add Make Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>Make</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">Make · Conferences, workshops &amp; communities</span><b class="project-status">Ready to build</b></div>
+<h3>Event Operations &amp; Attendee Journey</h3>
+<p class="project-summary">Coordinates registration, payment, attendee segmentation, reminders, check-in, session follow-up, and post-event conversion from one workflow.</p>
+<div class="project-tags"><span>Make</span><span>Stripe</span><span>Google Workspace</span><span>QR API</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Event operations span payment, guest lists, dietary needs, reminders, badges, attendance, certificates, surveys, and sales follow-up—often managed in disconnected sheets.</p>
+<p class="project-solution">The system validates registration and payment, segments attendees, generates event records and check-in assets, sends timed reminders, records attendance, distributes the right follow-up, and hands qualified opportunities to sales.</p>
+<div class="project-flow"><span>Registration + payment</span><span>Segmentation</span><span>Event preparation</span><span>Check-in + attendance</span><span>Follow-up routing</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 01: replace the img src, h3 text, and p text below. -->
+<!-- EDIT GOHIGHLEVEL PROJECT 01: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: AI Voice Agent for Inbound Call Handling" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Architecture diagram for GoHighLevel inbound voice agent" loading="lazy" src="assets/placeholders/ghl-01-add-screenshot.svg"/>
+<img alt="System blueprint for AI Voice Agent for Inbound Call Handling" loading="lazy" src="assets/placeholders/ghl-01-add-screenshot.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 01</span>
 <span class="project-state">ADD SCREENSHOT</span>
@@ -950,10 +933,10 @@
 <div class="project-flow"><span>Inbound call</span><span>Intent</span><span>Qualification</span><span>Availability</span><span>Book or transfer</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 02: replace the img src, h3 text, and p text below. -->
+<!-- EDIT GOHIGHLEVEL PROJECT 02: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: Multi-Location Franchise CRM Orchestration" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Architecture diagram for multi-location GoHighLevel CRM orchestration" loading="lazy" src="assets/placeholders/ghl-02-add-screenshot.svg"/>
+<img alt="System blueprint for Multi-Location Franchise CRM Orchestration" loading="lazy" src="assets/placeholders/ghl-02-add-screenshot.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 02</span>
 <span class="project-state">ADD SCREENSHOT</span>
@@ -971,10 +954,10 @@
 <div class="project-flow"><span>Lead</span><span>Location match</span><span>Sub-account</span><span>Local assignment</span><span>Owner rollup</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 03: replace the img src, h3 text, and p text below. -->
+<!-- EDIT GOHIGHLEVEL PROJECT 03: replace the blueprint image with your real screenshot after the build is complete. -->
 <article aria-label="Open project: Win-Back &amp; Reactivation Engine" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Architecture diagram for GoHighLevel reactivation engine" loading="lazy" src="assets/placeholders/ghl-03-add-screenshot.svg"/>
+<img alt="System blueprint for Win-Back &amp; Reactivation Engine" loading="lazy" src="assets/placeholders/ghl-03-add-screenshot.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 03</span>
 <span class="project-state">ADD SCREENSHOT</span>
@@ -992,151 +975,151 @@
 <div class="project-flow"><span>Dormancy trigger</span><span>Score</span><span>Offer draft</span><span>SMS / email</span><span>Stop on reply</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 04: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 04: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Speed-to-Lead Omnichannel Concierge" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 04" loading="lazy" src="assets/placeholders/ghl-04-project-placeholder.svg"/>
+<img alt="System blueprint for Speed-to-Lead Omnichannel Concierge" loading="lazy" src="assets/placeholders/ghl-04-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 04</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Home services &amp; high-ticket local businesses</span><b class="project-status">Ready to build</b></div>
+<h3>Speed-to-Lead Omnichannel Concierge</h3>
+<p class="project-summary">Responds to new inquiries across forms, calls, chat, and missed calls, qualifies intent, and moves sales-ready prospects directly into booking.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>Retell AI</span><span>SMS</span><span>Webhooks</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Local-service leads often contact several providers at once. Delayed replies, missed calls, and inconsistent qualification cause high-intent opportunities to disappear.</p>
+<p class="project-solution">The system unifies lead sources, starts an immediate SMS or voice conversation, gathers qualification details, updates the contact and opportunity, books qualified leads, and assigns uncertain or sensitive cases to a human.</p>
+<div class="project-flow"><span>Lead source</span><span>Instant conversation</span><span>Qualification</span><span>Booking route</span><span>Human handoff</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 05: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 05: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: No-Show Prevention &amp; Smart Rescheduling" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 05" loading="lazy" src="assets/placeholders/ghl-05-project-placeholder.svg"/>
+<img alt="System blueprint for No-Show Prevention &amp; Smart Rescheduling" loading="lazy" src="assets/placeholders/ghl-05-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 05</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Clinics, consultants &amp; appointment businesses</span><b class="project-status">Ready to build</b></div>
+<h3>No-Show Prevention &amp; Smart Rescheduling</h3>
+<p class="project-summary">Predicts appointment risk, sends adaptive reminders, confirms attendance, fills cancelled slots, and makes rescheduling frictionless.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>Calendar</span><span>SMS</span><span>Email</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Generic reminders do not address high-risk appointments, late cancellations leave unused capacity, and staff spend time chasing confirmations manually.</p>
+<p class="project-solution">The workflow scores appointment risk using booking source and engagement, sends timed reminders, requests confirmation, offers one-click rescheduling, moves cancelled contacts into a recovery sequence, and alerts staff when intervention is needed.</p>
+<div class="project-flow"><span>Appointment booked</span><span>Risk score</span><span>Adaptive reminders</span><span>Confirm / reschedule</span><span>Slot recovery</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 06: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 06: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Estimate-to-Deposit Conversion Engine" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 06" loading="lazy" src="assets/placeholders/ghl-06-project-placeholder.svg"/>
+<img alt="System blueprint for Estimate-to-Deposit Conversion Engine" loading="lazy" src="assets/placeholders/ghl-06-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 06</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Contractors &amp; project-based services</span><b class="project-status">Ready to build</b></div>
+<h3>Estimate-to-Deposit Conversion Engine</h3>
+<p class="project-summary">Tracks every estimate after delivery, answers common objections, triggers contextual follow-up, and moves accepted work into deposit and scheduling.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>Stripe</span><span>SMS</span><span>Pipeline</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Quotes are often sent and forgotten. Prospects need clarification, comparison time, financing information, or a simple reminder, but teams cannot follow every estimate consistently.</p>
+<p class="project-solution">The system records estimate value and service type, monitors opens and replies, runs an approved follow-up cadence, routes objections, collects the deposit, updates the opportunity, and starts the delivery handoff after acceptance.</p>
+<div class="project-flow"><span>Estimate sent</span><span>Engagement tracking</span><span>Objection route</span><span>Deposit collection</span><span>Project handoff</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 07: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 07: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Referral Partner Attribution &amp; Commission Hub" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 07" loading="lazy" src="assets/placeholders/ghl-07-project-placeholder.svg"/>
+<img alt="System blueprint for Referral Partner Attribution &amp; Commission Hub" loading="lazy" src="assets/placeholders/ghl-07-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 07</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Agencies, real estate &amp; local services</span><b class="project-status">Ready to build</b></div>
+<h3>Referral Partner Attribution &amp; Commission Hub</h3>
+<p class="project-summary">Tracks referred leads from source to closed revenue, keeps partners informed, and prepares transparent commission records without spreadsheet chasing.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>Webhooks</span><span>Google Sheets</span><span>Microsoft 365</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Referral programs break trust when attribution is unclear, deal status is invisible, and commission calculations are maintained manually.</p>
+<p class="project-solution">Each partner receives a trackable source path; referred contacts and opportunities stay linked through the pipeline; milestones trigger partner updates; and closed revenue produces an approval-ready commission ledger with exceptions flagged.</p>
+<div class="project-flow"><span>Partner source</span><span>Lead attribution</span><span>Pipeline milestones</span><span>Revenue confirmation</span><span>Commission ledger</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 08: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 08: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Reputation &amp; Complaint Recovery System" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 08" loading="lazy" src="assets/placeholders/ghl-08-project-placeholder.svg"/>
+<img alt="System blueprint for Reputation &amp; Complaint Recovery System" loading="lazy" src="assets/placeholders/ghl-08-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 08</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Multi-location service businesses</span><b class="project-status">Ready to build</b></div>
+<h3>Reputation &amp; Complaint Recovery System</h3>
+<p class="project-summary">Routes satisfied customers toward public reviews while turning negative feedback into a tracked internal recovery case before it escalates.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>Google Reviews</span><span>SMS</span><span>CRM</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Businesses ask every customer for a review using the same message, while unhappy customers may publish complaints before the team has a chance to respond.</p>
+<p class="project-solution">The workflow requests private feedback first, routes promoters to the approved review page, creates an urgent recovery case for detractors, assigns ownership, tracks the resolution, and only resumes reputation outreach when appropriate.</p>
+<div class="project-flow"><span>Service completed</span><span>Private feedback</span><span>Promoter / detractor</span><span>Recovery ownership</span><span>Review routing</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 09: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 09: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: Membership Renewal &amp; Failed-Payment Rescue" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 09" loading="lazy" src="assets/placeholders/ghl-09-project-placeholder.svg"/>
+<img alt="System blueprint for Membership Renewal &amp; Failed-Payment Rescue" loading="lazy" src="assets/placeholders/ghl-09-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 09</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Gyms, communities &amp; recurring services</span><b class="project-status">Ready to build</b></div>
+<h3>Membership Renewal &amp; Failed-Payment Rescue</h3>
+<p class="project-summary">Protects recurring revenue by coordinating renewal reminders, failed-payment recovery, account updates, and human outreach for valuable members.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>Stripe</span><span>Email</span><span>SMS</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">Membership revenue quietly leaks through expiring cards, failed payments, forgotten renewals, and inconsistent outreach that can feel either too weak or too aggressive.</p>
+<p class="project-solution">The system starts renewal education before the due date, detects payment failures, sends secure update links, adjusts the cadence based on engagement and member value, pauses benefits according to policy, and escalates important accounts to staff.</p>
+<div class="project-flow"><span>Renewal window</span><span>Payment event</span><span>Recovery cadence</span><span>Account update</span><span>Staff escalation</span></div>
 </div>
 </article>
-<!-- EDIT GOHIGHLEVEL PROJECT 10: replace the img src, h3 text, and p text below. -->
-<article aria-label="Open project: Add GoHighLevel Project Title" class="project-card project-hover reveal is-placeholder" data-platform="ghl" tabindex="0">
+<!-- EDIT GOHIGHLEVEL PROJECT 10: replace the blueprint image with your real screenshot after the build is complete. -->
+<article aria-label="Open project blueprint: High-Ticket Pipeline Rescue Command Center" class="project-card project-hover reveal" data-platform="ghl" tabindex="0">
 <div class="project-media">
-<img alt="Placeholder for GoHighLevel project 10" loading="lazy" src="assets/placeholders/ghl-10-project-placeholder.svg"/>
+<img alt="System blueprint for High-Ticket Pipeline Rescue Command Center" loading="lazy" src="assets/placeholders/ghl-10-project-placeholder.svg"/>
 <div class="media-overlay"></div>
 <span class="project-code">GHL / 10</span>
-<span class="project-state">EMPTY SLOT</span>
+<span class="project-state">BUILD BLUEPRINT</span>
 <span class="project-open">↗</span>
 </div>
 <div class="project-body">
-<div class="project-meta"><span class="project-platform">GoHighLevel · Add ideal client type</span><b class="project-status">Project placeholder</b></div>
-<h3>Add GoHighLevel Project Title</h3>
-<p class="project-summary">Replace this paragraph with a clear one- or two-sentence explanation of what the automation does and why it matters.</p>
-<div class="project-tags"><span>GoHighLevel</span><span>Add tool</span><span>Add tool</span></div>
+<div class="project-meta"><span class="project-platform">GoHighLevel · Consulting, coaching &amp; premium services</span><b class="project-status">Ready to build</b></div>
+<h3>High-Ticket Pipeline Rescue Command Center</h3>
+<p class="project-summary">Finds valuable opportunities that have stalled, identifies the likely blocker, prepares the next best action, and restores accountable follow-up.</p>
+<div class="project-tags"><span>GoHighLevel</span><span>OpenAI</span><span>Pipeline</span><span>Calendar</span></div>
 </div>
 <div class="project-details" hidden="">
-<p class="project-problem">Replace this paragraph with the manual bottleneck, missed opportunity, or operational problem the project solves.</p>
-<p class="project-solution">Replace this paragraph with the workflow logic, important integrations, decisions, and final business outcome.</p>
-<div class="project-flow"><span>Trigger</span><span>Logic</span><span>Action</span><span>Result</span></div>
+<p class="project-problem">High-value deals often stall because next steps are unclear, follow-up becomes repetitive, or the owner loses context across calls, messages, and notes.</p>
+<p class="project-solution">The workflow monitors stage age, contact engagement, objections, and promised next steps; summarizes the deal; classifies the blocker; recommends an approved action; creates the task; and tracks whether the opportunity moves or needs escalation.</p>
+<div class="project-flow"><span>Pipeline monitoring</span><span>Deal context</span><span>Blocker analysis</span><span>Next-best action</span><span>Movement tracking</span></div>
 </div>
 </article>
 </div>
