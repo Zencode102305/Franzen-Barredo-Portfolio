@@ -884,3 +884,80 @@ body.modal-open{
   width:100%;
   overflow:hidden!important;
 }
+
+/* =========================================================
+   ZERO-JUMP PROJECT OVERLAY — BACKGROUND NEVER MOVES
+   ========================================================= */
+html{scrollbar-gutter:stable}
+html.modal-open,body.modal-open{
+  overflow:hidden!important;
+  overscroll-behavior:none;
+}
+body.modal-open{
+  position:static!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  width:auto!important;
+}
+.case-dialog{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:clamp(14px,3vw,44px)!important;
+  border:0!important;
+  border-radius:0!important;
+  background:rgba(3,4,3,.82)!important;
+  backdrop-filter:blur(14px);
+  overflow:hidden!important;
+  z-index:10000;
+}
+.case-dialog:not([open]){display:none!important}
+.case-dialog[open]{display:grid!important;place-items:center}
+.case-dialog::backdrop{display:none!important}
+.dialog-frame{
+  position:relative;
+  width:min(1320px,100%);
+  height:min(900px,100%);
+  min-height:0;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:30px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#0d100d,#090b09);
+  box-shadow:0 48px 150px rgba(0,0,0,.78);
+}
+.dialog-frame .dialog-inner{
+  width:100%;
+  height:100%;
+}
+.dialog-frame .dialog-close{
+  position:absolute!important;
+  top:16px!important;
+  right:16px!important;
+  z-index:30;
+}
+@media (max-width:900px){
+  .case-dialog{padding:14px!important}
+  .dialog-frame{
+    width:100%;
+    height:100%;
+    border-radius:22px;
+  }
+}
+@media (max-width:640px){
+  .case-dialog{padding:0!important}
+  .dialog-frame{
+    border:0;
+    border-radius:0;
+  }
+}
+
+/* Final zero-jump lock: the overlay blocks interaction without changing root overflow. */
+html.modal-open,body.modal-open{
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
+}
